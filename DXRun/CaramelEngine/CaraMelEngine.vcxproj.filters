@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Library">
+      <UniqueIdentifier>{d668d014-df2c-468d-b2c9-3c2c658c8c0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System">
+      <UniqueIdentifier>{21a4cdeb-d8e2-408d-b5e6-61db77031be9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SugerScript">
+      <UniqueIdentifier>{47865c5d-a969-4143-86f1-d214febd9bdd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library\Definition">
+      <UniqueIdentifier>{dc0cb598-3734-420d-8b04-c9cc35bddc5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library\Utility">
+      <UniqueIdentifier>{fc4f5356-d542-456c-b33b-d2381d2ed03c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Input">
+      <UniqueIdentifier>{c597b61c-4f34-4112-b6d5-5eade720ed43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Rendrer">
+      <UniqueIdentifier>{1f63bdbb-55c6-45fc-83ce-2fcfa9f94c0c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="src\Library\ColliderManagerBase.h">
+      <Filter>Library</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Library\CollisionInfo.h">
+      <Filter>Library</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Library\CollisionTester.h">
+      <Filter>Library</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Library\Color.h">
+      <Filter>Library</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Library\Component.h">
+      <Filter>Library</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Library\ComponentHolder.h">
+      <Filter>Library</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Library\CString.h">
+      <Filter>Library</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Library\Cvector.h">
+      <Filter>Library</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Library\ICollider.h">
+      <Filter>Library</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Library\IColliderVisitor.h">
+      <Filter>Library</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Library\ICollisionObject.h">
+      <Filter>Library</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Library\Scene.h">
+      <Filter>Library</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Library\SpriteRenderer.h">
+      <Filter>Library</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Library\Transform.h">
+      <Filter>Library</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Library\Utility\CCircle.h">
+      <Filter>Library\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Library\Utility\CRectangle.h">
+      <Filter>Library\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Library\Utility\CVector2.h">
+      <Filter>Library\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Library\Utility\CVector3.h">
+      <Filter>Library\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Library\Utility\VectorConversion.h">
+      <Filter>Library\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Library\Definition\Enums.h">
+      <Filter>Library\Definition</Filter>
+    </ClInclude>
+    <ClInclude Include="src\System\Actor.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="src\System\Engine.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="src\System\EventDispatcher.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="src\System\JsonReader.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="src\System\JsonValue.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="src\System\Logger.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="src\System\MonoBehaviour.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="src\System\Pawn.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="src\System\SceneManager.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pch.h" />
+    <ClInclude Include="src\Library\Utility\CQuaternion.h">
+      <Filter>Library\Utility</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="CaraMelEngine.rc">
+      <Filter>リソース ファイル</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="directx.ico">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Library\ColliderManagerBase.cpp">
+      <Filter>Library</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Library\CollisionTester.cpp">
+      <Filter>Library</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Library\CString.cpp">
+      <Filter>Library</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Library\Scene.cpp">
+      <Filter>Library</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Library\SpriteRenderer.cpp">
+      <Filter>Library</Filter>
+    </ClCompile>
+    <ClCompile Include="src\System\Actor.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="src\System\Engine.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="src\System\EventDispatcher.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="src\System\JsonReader.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="src\System\JsonValue.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="src\System\MonoBehaviour.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="src\System\Pawn.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="src\System\SceneManager.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pch.cpp" />
+  </ItemGroup>
+</Project>

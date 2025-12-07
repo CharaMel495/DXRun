@@ -1,0 +1,13 @@
+/開始
+/:start
+
+:def|float|hoge;
+:def|int|fuga(8);
+:def|int|piyo(5);
+
+/:calc4 <+> {fuga:piyo}(hoge);
+
+/終了
+/:end
+
+/:end以下に何を書いても読まれない
