@@ -30,7 +30,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -43,7 +43,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -76,7 +76,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir);$(SolutionDir)CaramelEngine;$(SolutionDir)CaramelEngine\src;$(SolutionDir)CaramelEngine\src\Library;$(SolutionDir)CaramelEngine\src\Library\Utility;$(SolutionDir)CaramelEngine\src\System;$(SolutionDir)CaramelEngine\src\System\Input;$(SolutionDir)CaramelEngine\src\System\DXRender;$(SolutionDir)DXLibWrapper;$(SolutionDir)DXRun;$(SolutionDir)DXRun\src;$(SolutionDir)DXRun\src\Game;$(SolutionDir)DXLib</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir);$(SolutionDir)DXRun;$(SolutionDir)DXRun\src;$(SolutionDir)DXRun\src\Game;$(SolutionDir)DXLib;$(SolutionDir)CaramelEngine;$(SolutionDir)CaramelEngine\Public;$(SolutionDir)CaramelEngine\src;$(SolutionDir)CaramelEngine\src\Library;$(SolutionDir)CaramelEngine\src\Library\Definition;$(SolutionDir)CaramelEngine\src\Library\Utility;$(SolutionDir)CaramelEngine\src\System;$(SolutionDir)CaramelEngine\src\SugerScript;$(ProjectDir)src\Scene;$(ProjectDir)src\Game\Player;$(ProjectDir)src\Components</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
@@ -96,7 +96,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir);$(SolutionDir)CaramelEngine;$(SolutionDir)CaramelEngine\src;$(SolutionDir)CaramelEngine\src\Library;$(SolutionDir)CaramelEngine\src\Library\Utility;$(SolutionDir)CaramelEngine\src\System;$(SolutionDir)CaramelEngine\src\System\Input;$(SolutionDir)CaramelEngine\src\System\DXRender;$(SolutionDir)DXLibWrapper;$(SolutionDir)DXRun;$(SolutionDir)DXRun\src;$(SolutionDir)DXRun\src\Game;$(SolutionDir)DXLib</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir);$(SolutionDir)DXRun;$(SolutionDir)DXRun\src;$(SolutionDir)DXRun\src\Game;$(SolutionDir)DXLib;$(SolutionDir)CaramelEngine;$(SolutionDir)CaramelEngine\Public;$(SolutionDir)CaramelEngine\src;$(SolutionDir)CaramelEngine\src\Library;$(SolutionDir)CaramelEngine\src\Library\Definition;$(SolutionDir)CaramelEngine\src\Library\Utility;$(SolutionDir)CaramelEngine\src\System;$(SolutionDir)CaramelEngine\src\SugerScript;$(ProjectDir)src\Scene;$(ProjectDir)src\Game\Player;$(ProjectDir)src\Components</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
@@ -113,7 +113,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir);$(SolutionDir)CaramelEngine;$(SolutionDir)CaramelEngine\src;$(SolutionDir)CaramelEngine\src\Library;$(SolutionDir)CaramelEngine\src\Library\Utility;$(SolutionDir)CaramelEngine\src\System;$(SolutionDir)CaramelEngine\src\System\Input;$(SolutionDir)CaramelEngine\src\System\DXRender;$(SolutionDir)DXLibWrapper;$(SolutionDir)DXRun;$(SolutionDir)DXRun\src;$(SolutionDir)DXRun\src\Game;$(SolutionDir)DXLib</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir);$(SolutionDir)DXRun;$(SolutionDir)DXRun\src;$(SolutionDir)DXRun\src\Game;$(SolutionDir)DXLib;$(SolutionDir)CaramelEngine;$(SolutionDir)CaramelEngine\Public;$(SolutionDir)CaramelEngine\src;$(SolutionDir)CaramelEngine\src\Library;$(SolutionDir)CaramelEngine\src\Library\Definition;$(SolutionDir)CaramelEngine\src\Library\Utility;$(SolutionDir)CaramelEngine\src\System;$(SolutionDir)CaramelEngine\src\SugerScript;$(ProjectDir)src\Scene;$(ProjectDir)src\Game\Player;$(ProjectDir)src\Components</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
@@ -133,7 +133,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir);$(SolutionDir)CaramelEngine;$(SolutionDir)CaramelEngine\src;$(SolutionDir)CaramelEngine\src\Library;$(SolutionDir)CaramelEngine\src\Library\Utility;$(SolutionDir)CaramelEngine\src\System;$(SolutionDir)CaramelEngine\src\System\Input;$(SolutionDir)CaramelEngine\src\System\DXRender;$(SolutionDir)DXLibWrapper;$(SolutionDir)DXRun;$(SolutionDir)DXRun\src;$(SolutionDir)DXRun\src\Game;$(SolutionDir)DXLib</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir);$(SolutionDir)DXRun;$(SolutionDir)DXRun\src;$(SolutionDir)DXRun\src\Game;$(SolutionDir)DXLib;$(SolutionDir)CaramelEngine;$(SolutionDir)CaramelEngine\Public;$(SolutionDir)CaramelEngine\src;$(SolutionDir)CaramelEngine\src\Library;$(SolutionDir)CaramelEngine\src\Library\Definition;$(SolutionDir)CaramelEngine\src\Library\Utility;$(SolutionDir)CaramelEngine\src\System;$(SolutionDir)CaramelEngine\src\SugerScript;$(ProjectDir)src\Scene;$(ProjectDir)src\Game\Player;$(ProjectDir)src\Components</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
@@ -146,11 +146,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\Components\DXLibModelRender.cpp" />
+    <ClCompile Include="src\Game\Player\Player.cpp" />
+    <ClCompile Include="src\Scene\MainScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CaramelEngine\CaraMelEngine.vcxproj">
       <Project>{cbf54e80-973b-437c-b101-7e09aa535550}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Components\DXLibModelRender.h" />
+    <ClInclude Include="src\Game\Player\Player.h" />
+    <ClInclude Include="src\Scene\MainScene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -26,6 +26,9 @@
     <Filter Include="System\Rendrer">
       <UniqueIdentifier>{1f63bdbb-55c6-45fc-83ce-2fcfa9f94c0c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Public">
+      <UniqueIdentifier>{adc02a1e-d859-4e52-9716-5aa232a66bb7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />
@@ -119,6 +122,15 @@
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="src\Library\Utility\CQuaternion.h">
       <Filter>Library\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\CaramelUtilitys.h">
+      <Filter>Public</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\CaramelEngine.h">
+      <Filter>Public</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Components.h">
+      <Filter>Public</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

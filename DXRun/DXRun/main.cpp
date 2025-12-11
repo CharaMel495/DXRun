@@ -1,20 +1,52 @@
 #include "DxLib.h"
+#include "CaramelEngine.h"
+#include "MainScene.h"
+#include "Player.h"
 
 using namespace CaramelEngine;
+
+#define WINDOW_X 720
+#define WINDOW_Y 480 
 
 // プログラムは WinMain から始まります
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
-	if (DxLib_Init() == -1)		// ＤＸライブラリ初期化処理
-	{
-		return -1;			// エラーが起きたら直ちに終了
-	}
+    // ウィンドウ状態で起動(FSならFALSE)
+    ChangeWindowMode(TRUE);
+    // 解像度と色に使うビット数を指定
+    SetGraphMode(WINDOW_X, WINDOW_Y, 32);
+    // ライブラリの初期化
+    if (DxLib_Init() == -1)
+        return -1;
+    // バックバッファに書き込むように指定
+    SetDrawScreen(DX_SCREEN_BACK);
 
-	DrawPixel(320, 240, GetColor(255, 255, 255));	// 点を打つ
+    auto engine = &Engine::getInstance();
+    engine->initialize();
 
-	WaitKey();				// キー入力待ち
+    engine->getSceneManager().addScene("MainScene", std::make_shared<MainScene>());
+    engine->getSceneManager().switchScene("MainScene");
 
-	DxLib_End();				// ＤＸライブラリ使用の終了処理
+    // エラーメッセージが飛んで来たらループ終了
+    while (ProcessMessage() != -1) 
+    {
+        int startTime = GetNowCount();
+        // バックバッファに書き込んでいたものを表に出す
+        ScreenFlip();
+        // バックバッファを綺麗にする
+        ClearDrawScreen();
 
-	return 0;				// ソフトの終了 
+        engine->update();
+
+        // Escキーでもループを抜けられるように
+        if (CheckHitKey(KEY_INPUT_ESCAPE) == 1)
+            break;
+
+        int endTime = GetNowCount();
+    }
+
+    Engine::getInstance().shutdown();
+
+    DxLib_End();
+    return 0;
 }

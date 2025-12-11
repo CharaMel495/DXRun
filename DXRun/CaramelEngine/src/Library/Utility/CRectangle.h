@@ -1,4 +1,6 @@
 #pragma once
+#include "ICollider.h"
+#include "IColliderVisitor.h"
 
 namespace CaramelEngine
 {
@@ -113,12 +115,12 @@ namespace CaramelEngine
                 for (int i = 1; i < 4; i++)
                 {
                     float projA = vertsA[i].dot(u);
-                    minA = std::min(minA, projA);
-                    maxA = std::max(maxA, projA);
+                    minA = (std::min)(minA, projA);
+                    maxA = (std::max)(maxA, projA);
 
                     float projB = vertsB[i].dot(u);
-                    minB = std::min(minB, projB);
-                    maxB = std::max(maxB, projB);
+                    minB = (std::min)(minB, projB);
+                    maxB = (std::max)(maxB, projB);
                 }
 
                 //‚à‚µ•ª—£Ž²‚ª‘¶Ý‚·‚é‚È‚ç“–‚½‚Á‚Ä‚È‚¢

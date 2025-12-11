@@ -1,4 +1,6 @@
 #pragma once
+#include "StageManager.h"
+#include "SceneManager.h"
 
 namespace CaramelEngine 
 {
@@ -22,7 +24,6 @@ namespace CaramelEngine
         void shutdown() noexcept;
 
         SceneManager& getSceneManager() const { return *_scene; }
-        StageManager& getStageManager() const { return *_stage; }
         //AudioManager& getAudio() { return *_audio; }
         EventDispatcher& getEventDispathcer() const { return *_eventDispatcher; }
 
@@ -49,7 +50,6 @@ namespace CaramelEngine
         std::unique_ptr<EventDispatcher> _eventDispatcher;
 
         std::unique_ptr<SceneManager> _scene;
-        std::unique_ptr<StageManager> _stage;
         //std::unique_ptr<AudioManager> _audio;
         std::shared_ptr<ColliderManagerBase> _colliderManager;
 

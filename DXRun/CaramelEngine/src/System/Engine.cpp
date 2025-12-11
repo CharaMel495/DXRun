@@ -61,11 +61,9 @@ namespace CaramelEngine
         _eventDispatcher = std::make_unique<EventDispatcher>();
 
         _scene = std::make_unique<SceneManager>();
-        _stage = std::make_unique<StageManager>(_eventDispatcher.get());
         //_audio = std::make_unique<AudioManager>();
 
         _scene->initialize();
-        _stage->initialize();
         //_audio->initialize();
 
         _isInitialized = true;
@@ -79,6 +77,7 @@ namespace CaramelEngine
         float deltaTime = 1.0f / 60.0f; // 現状仮。将来的に時間差で計算してもOK
         _fixedTimer += deltaTime;
 
+        _scene->update();
         while (_fixedTimer >= _fixedDeltaTime)
         {
             fixedUpdate();
@@ -86,8 +85,7 @@ namespace CaramelEngine
         }
 
         //_audio->update();
-        _scene->update();
-        _colliderManager->update();
+        //_colliderManager->update();
     }
 
     void Engine::fixedUpdate() noexcept
@@ -97,9 +95,6 @@ namespace CaramelEngine
 
         // 固定ステップで行いたい更新処理（物理・点滅など）
         _scene->fixedUpdate();  // ← SceneManagerに実装必要
-
-        // ステージの進行を更新
-        _stage->fixedUpdate();
     }
 
     void Engine::shutdown() noexcept
