@@ -1,4 +1,6 @@
 #pragma once
+#include "InputKey.h"
+#include "GamePadState.h"
 
 namespace CaramelEngine
 {

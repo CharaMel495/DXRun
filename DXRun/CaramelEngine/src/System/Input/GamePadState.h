@@ -2,6 +2,7 @@
 
 #include <Windows.h>
 #include <Xinput.h>
+#include "InputKey.h"
 
 namespace CaramelEngine
 {
@@ -15,7 +16,7 @@ namespace CaramelEngine
         bool isUp(InputKey key) const;
 
     private:
-        XINPUT_STATE _current{};
-        XINPUT_STATE _previous{};
+        ::XINPUT_STATE _current{};
+        ::XINPUT_STATE _previous{};
     };
 }

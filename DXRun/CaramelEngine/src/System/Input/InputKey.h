@@ -23,6 +23,7 @@ namespace CaramelEngine
         DPadUp, DPadDown, DPadLeft, DPadRight,
 
         LStickLeft, LStickRight, LStickUp, LStickDown,
+        RStickLeft, RStickRight, RStickUp, RStickDown,
         // トリガーはアナログとして別で管理
     };
 }

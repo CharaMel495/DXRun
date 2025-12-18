@@ -28,4 +28,5 @@ private:
 
 	CString _filePath;
 	int _modelHandle;
+	int _animHandle;
 };

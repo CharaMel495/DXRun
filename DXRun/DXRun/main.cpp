@@ -3,16 +3,18 @@
 #include "MainScene.h"
 #include "Player.h"
 
+using namespace DxLib;
+
 using namespace CaramelEngine;
 
 #define WINDOW_X 720
-#define WINDOW_Y 480 
+#define WINDOW_Y 480
 
 // プログラムは WinMain から始まります
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
     // ウィンドウ状態で起動(FSならFALSE)
-    ChangeWindowMode(TRUE);
+    ChangeWindowMode(FALSE);
     // 解像度と色に使うビット数を指定
     SetGraphMode(WINDOW_X, WINDOW_Y, 32);
     // ライブラリの初期化

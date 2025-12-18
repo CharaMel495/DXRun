@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "DXLibModelRender.h"
+#include "MoveMentComponent.h"
 #include <cmath>
 
 void Player::initialize() noexcept
@@ -7,6 +8,25 @@ void Player::initialize() noexcept
 	auto modelRender = addComponent<DXLibModelRender>();
 	modelRender->setFilePath("Assets//Models//Test//GradiusExport.mv1");
 	modelRender->initialize();
+
+	//移動用コンポーネントを取得
+	auto mover = addComponent<MovementComponent>();
+	//トランスフォームと移動関係を設定
+	mover->setTransform(this->_transform);
+	mover->setMoveSpeed(this->_moveSpeed);
+
+
+	//イベントの登録
+	Engine::getInstance().getEventDispathcer().subscribeEvent("onPressedKey", [this](void* data) { onPressedKey(data); });
+	Engine::getInstance().getEventDispathcer().subscribeEvent("onHeldKey", [this](void* data) { onHeldKey(data); });
+	Engine::getInstance().getEventDispathcer().subscribeEvent("onReleasedKey", [this](void* data) { onReleasedKey(data); });
+	Engine::getInstance().getEventDispathcer().subscribeEvent("onStickActiveL", [this](void* data) { onStickActiveL(data); });
+	Engine::getInstance().getEventDispathcer().subscribeEvent("onStickReleaseL", [this](void* data) { onStickReleaseL(data); });
+	Engine::getInstance().getEventDispathcer().subscribeEvent("onStickActiveR", [this](void* data) { onStickActiveL(data); });
+	Engine::getInstance().getEventDispathcer().subscribeEvent("onStickReleaseR", [this](void* data) { onStickReleaseL(data); });
+	Engine::getInstance().getEventDispathcer().subscribeEvent(getOnCollisionEnterEventKey(), [this](void* data) { onCollisionEnter(data); });
+	Engine::getInstance().getEventDispathcer().subscribeEvent(getOnCollisionStayEventKey(), [this](void* data) { onCollisionStay(data); });
+	Engine::getInstance().getEventDispathcer().subscribeEvent(getOnCollisionExitEventKey(), [this](void* data) { onCollisionExit(data); });
 }
 
 void Player::update() noexcept
@@ -24,7 +44,7 @@ void Player::fixedUpdate() noexcept
 	if (_destroyFlag)
 		return;
 
-	//update呼び出しが必要なコンポーネントのupdateを呼び出し
+	//fixedUpdate呼び出しが必要なコンポーネントのfixedUpdateを呼び出し
 	for (auto& comp : _myComponents)
 		comp->callFixedUpdate();
 }
@@ -32,4 +52,147 @@ void Player::fixedUpdate() noexcept
 void Player::destroy() noexcept
 {
 	_destroyFlag = true;
+
+	//イベントの解除
+	Engine::getInstance().getEventDispathcer().removeEvent("onPressedKey");
+	Engine::getInstance().getEventDispathcer().removeEvent("onHeldKey");
+	Engine::getInstance().getEventDispathcer().removeEvent("onReleasedKey");
+	Engine::getInstance().getEventDispathcer().removeEvent("onStickActiveL");
+	Engine::getInstance().getEventDispathcer().removeEvent("onStickReleaseL");
+	Engine::getInstance().getEventDispathcer().removeEvent("onStickActiveR");
+	Engine::getInstance().getEventDispathcer().removeEvent("onStickReleaseR");
+	Engine::getInstance().getEventDispathcer().removeEvent(getOnCollisionEnterEventKey());
+	Engine::getInstance().getEventDispathcer().removeEvent(getOnCollisionStayEventKey());
+	Engine::getInstance().getEventDispathcer().removeEvent(getOnCollisionExitEventKey());
+}
+
+void Player::onCollisionEnter(void* data) noexcept
+{
+
+}
+
+void Player::onCollisionStay(void* data) noexcept
+{
+
+}
+
+void Player::onCollisionExit(void* data) noexcept
+{
+
+}
+
+void Player::onPressedKey(void* data) noexcept
+{
+	//キー入力情報にキャスト
+	auto* keyData = static_cast<Cvector<InputKey>*>(data);
+	Cvector<InputKey> keys = *keyData;
+}
+
+void Player::onHeldKey(void* data) noexcept
+{
+	//キー入力情報にキャスト
+	auto* keyData = static_cast<Cvector<InputKey>*>(data);
+	Cvector<InputKey> keys = *keyData;
+
+	//移動用コンポーネントを捜索
+	auto mover = findComponent<MovementComponent>();
+
+	if (!mover)
+		return;
+
+	//移動方向の決定
+	CVector3 moveDir = CVector3();
+
+	for (auto key : keys)
+	{
+		//上キーか下キーが押されたら上下移動
+		if (key == InputKey::W)
+			moveDir -= _transform->getForward();
+		else if (key == InputKey::S)
+			moveDir += _transform->getForward();
+
+		if (key == InputKey::Q)
+			moveDir += _transform->getUp();
+		else if (key == InputKey::E)
+			moveDir -= _transform->getUp();
+
+		//右キーか左キーが押されたら左右回転
+		if (key == InputKey::A)
+		{
+			CQuaternion delta =
+				CQuaternion::fromAxisAngle(_transform->getUp(), -0.01f);
+			_transform->setRotation(delta * _transform->getRotation());
+		}
+		else if (key == InputKey::D)
+		{
+			CQuaternion delta =
+				CQuaternion::fromAxisAngle(_transform->getUp(), 0.01f);
+			_transform->setRotation(delta * _transform->getRotation());
+		}
+	}
+
+	//移動方向なので正規化
+	moveDir.normalized();
+
+	//もし長さが0より大きければ
+	if (moveDir.sqrtmagnitude() > 0)
+		_currentDir = moveDir;
+
+	//移動方向を移動用コンポーネントに伝える
+	mover->setMoveDir(moveDir);
+}
+
+void Player::onReleasedKey(void* data) noexcept
+{
+	auto mover = findComponent<MovementComponent>();
+
+	if (!mover)
+		return;
+
+	//キーが離されたら速度を0にする
+	mover->setMoveDir(CVector3());
+}
+
+void Player::onStickActiveL(void* stick) noexcept
+{
+	auto* input = static_cast<StickInput*>(stick);
+
+	auto mover = findComponent<MovementComponent>();
+
+	if (!mover)
+		return;
+
+	// 横には移動させたくないので、縦の入力のみ扱う
+	CVector3 moveDir = _transform->getForward() * input->y * _moveSpeed;
+
+	mover->setMoveDir(moveDir);
+}
+
+void Player::onStickReleaseL(void* stick) noexcept
+{
+	auto mover = findComponent<MovementComponent>();
+
+	if (!mover)
+		return;
+
+	mover->setMoveDir(CVector3());
+}
+
+void Player::onStickActiveR(void* stick) noexcept
+{
+	auto* input = static_cast<StickInput*>(stick);
+
+	CQuaternion delta =
+		CQuaternion::fromAxisAngle(_transform->getUp(), input->x * _rotSpeed);
+	_transform->setRotation(delta * _transform->getRotation());
+}
+
+void Player::onStickReleaseR(void* stick) noexcept
+{
+	auto mover = findComponent<MovementComponent>();
+
+	if (!mover)
+		return;
+
+	mover->setMoveDir(CVector3());
 }

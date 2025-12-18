@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "GamePadState.h"
 #include "XInput.h"
 
 namespace CaramelEngine

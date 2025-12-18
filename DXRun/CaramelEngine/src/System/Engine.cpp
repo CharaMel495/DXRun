@@ -60,9 +60,11 @@ namespace CaramelEngine
 
         _eventDispatcher = std::make_unique<EventDispatcher>();
 
+        _input = std::make_unique<InputManager>();
         _scene = std::make_unique<SceneManager>();
         //_audio = std::make_unique<AudioManager>();
 
+        _input->initialize();
         _scene->initialize();
         //_audio->initialize();
 
@@ -76,6 +78,51 @@ namespace CaramelEngine
 
         float deltaTime = 1.0f / 60.0f; // 現状仮。将来的に時間差で計算してもOK
         _fixedTimer += deltaTime;
+
+        _input->update();
+
+        if (_input->isAnyKeyDown())
+        {
+            // 押されたキーを取得
+            auto pressedKeys = _input->getPressedKeys();
+            _eventDispatcher->dispatchEvent("onPressedKey", &pressedKeys);
+        }
+
+        if (_input->isAnyKeyHeld())
+        {
+            auto heldKeys = _input->getHeldKeys();
+            _eventDispatcher->dispatchEvent("onHeldKey", &heldKeys);
+        }
+
+        if (_input->isAnyKeyUp())
+        {
+            auto releasedKeys = _input->getReleasedKeys();
+            _eventDispatcher->dispatchEvent("onReleasedKey", &releasedKeys);
+        }
+
+        if (_input->isStickActiveL())
+        {
+            auto stickInput = _input->getLeftStick();
+            _eventDispatcher->dispatchEvent("onStickActiveL", &stickInput);
+        }
+
+        if (_input->isStickActiveR())
+        {
+            auto stickInput = _input->getLeftStick();
+            _eventDispatcher->dispatchEvent("onStickActiveL", &stickInput);
+        }
+
+        if (_input->isStickReleaseL())
+        {
+            auto stickRelease = _input->isStickReleaseL();
+            _eventDispatcher->dispatchEvent("onStickReleaseL", &stickRelease);
+        }
+
+        if (_input->isStickReleaseR())
+        {
+            auto stickRelease = _input->isStickReleaseR();
+            _eventDispatcher->dispatchEvent("onStickReleaseR", &stickRelease);
+        }
 
         _scene->update();
         while (_fixedTimer >= _fixedDeltaTime)
@@ -103,8 +150,10 @@ namespace CaramelEngine
             return;
 
         //_audio->shutdown();
+        _input->shutdown();
         _scene->shutdown();
 
+        _input.reset();
         _scene.reset();
         _eventDispatcher.reset();
 

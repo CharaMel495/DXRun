@@ -1,5 +1,6 @@
 #pragma once
 #include "CaramelEngine.h"
+#include "Camera.h"
 
 class MainScene final : public Scene
 {
@@ -19,5 +20,6 @@ public:
 
 private:
 
+	std::shared_ptr<Camera> _mainCam;
 
 };

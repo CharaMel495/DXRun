@@ -194,6 +194,9 @@
     <ClInclude Include="src\System\Actor.h" />
     <ClInclude Include="src\System\Engine.h" />
     <ClInclude Include="src\System\EventDispatcher.h" />
+    <ClInclude Include="src\System\Input\GamePadState.h" />
+    <ClInclude Include="src\System\Input\InputKey.h" />
+    <ClInclude Include="src\System\Input\InputManager.h" />
     <ClInclude Include="src\System\JsonReader.h" />
     <ClInclude Include="src\System\JsonValue.h" />
     <ClInclude Include="src\System\Logger.h" />
@@ -222,6 +225,8 @@
     <ClCompile Include="src\System\Actor.cpp" />
     <ClCompile Include="src\System\Engine.cpp" />
     <ClCompile Include="src\System\EventDispatcher.cpp" />
+    <ClCompile Include="src\System\Input\GamePadState.cpp" />
+    <ClCompile Include="src\System\Input\InputManager.cpp" />
     <ClCompile Include="src\System\JsonReader.cpp" />
     <ClCompile Include="src\System\JsonValue.cpp" />
     <ClCompile Include="src\System\MonoBehaviour.cpp" />

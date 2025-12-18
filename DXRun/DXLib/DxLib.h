@@ -5672,7 +5672,7 @@ extern	float		Live2D_Model_GetCanvasHeight(						int Live2DModelHandle ) ;						
 #ifndef DX_NON_NAMESPACE
 #ifndef DX_NON_USING_NAMESPACE_DXLIB
 
-using namespace DxLib ;
+//using namespace DxLib ;
 
 #endif // DX_NON_USING_NAMESPACE_DXLIB
 #endif // DX_NON_NAMESPACE

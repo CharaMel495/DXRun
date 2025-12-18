@@ -20,7 +20,7 @@ namespace CaramelEngine
 		/// <param name="eventName">イベント名</param>
 		/// <param name="callBack">対応イベント</param>
 		void subscribeEvent(const CString eventName, std::function<void(void*)> callBack);
-
+		
 		/// <summary>
 		/// 指定のイベントを削除するメソッド
 		/// </summary>

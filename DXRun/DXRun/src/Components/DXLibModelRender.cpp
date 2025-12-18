@@ -1,5 +1,7 @@
 #include "DXLibModelRender.h"
 
+using namespace DxLib;
+
 inline MATRIX XMMATRIXToDXLibMatrix(const DirectX::XMMATRIX& xm)
 {
 	MATRIX m;

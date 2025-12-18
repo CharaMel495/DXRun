@@ -1,5 +1,11 @@
 #pragma once
 
+#define PI										(3.1415926535897932384626433832795 )
+#define PI_F										(3.1415926535897932384626433832795f)
+
+#define DEG2RAD PI_F / 180
+#define RAD2DEG 180 / PI_F
+
 // --- stdヘッダ ---
 #include <variant>
 #include <vector>
@@ -71,6 +77,11 @@
 // --- アクター系 ---
 #include "Actor.h"
 #include "Pawn.h"
+
+// --- 入力関係 ---
+#include "InputKey.h"
+#include "GamePadState.h"
+#include "InputManager.h"
 
 // --- その他 ---
 #include "Scene.h"

@@ -76,7 +76,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir);$(SolutionDir)DXRun;$(SolutionDir)DXRun\src;$(SolutionDir)DXRun\src\Game;$(SolutionDir)DXLib;$(SolutionDir)CaramelEngine;$(SolutionDir)CaramelEngine\Public;$(SolutionDir)CaramelEngine\src;$(SolutionDir)CaramelEngine\src\Library;$(SolutionDir)CaramelEngine\src\Library\Definition;$(SolutionDir)CaramelEngine\src\Library\Utility;$(SolutionDir)CaramelEngine\src\System;$(SolutionDir)CaramelEngine\src\SugerScript;$(ProjectDir)src\Scene;$(ProjectDir)src\Game\Player;$(ProjectDir)src\Components</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir);$(SolutionDir)DXRun;$(SolutionDir)DXRun\src;$(SolutionDir)DXRun\src\Game;$(SolutionDir)DXLib;$(SolutionDir)CaramelEngine;$(SolutionDir)CaramelEngine\Public;$(SolutionDir)CaramelEngine\src;$(SolutionDir)CaramelEngine\src\Library;$(SolutionDir)CaramelEngine\src\Library\Definition;$(SolutionDir)CaramelEngine\src\Library\Utility;$(SolutionDir)CaramelEngine\src\System;$(SolutionDir)CaramelEngine\src\SugerScript;$(ProjectDir)src\Scene;$(ProjectDir)src\Game\Player;$(ProjectDir)src\Components;$(SolutionDir)CaramelEngine\src\System\Input;$(ProjectDir)src\Interface;$(ProjectDir)src\Game\Stage</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
@@ -84,8 +84,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>CaramelEngine.lib;$(SolutionDir)DXLib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>
-      </AdditionalDependencies>
+      <AdditionalDependencies>d3d11.lib;dxgi.lib;d3dcompiler.lib;xinput.lib;d2d1.lib;dwrite.lib;windowscodecs.lib;dxguid.lib;user32.lib;ole32.lib;usp10.lib;comctl32.lib;imm32.lib;winmm.lib;gdi32.lib;shell32.lib;shfolder.lib;XInput.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -96,7 +95,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir);$(SolutionDir)DXRun;$(SolutionDir)DXRun\src;$(SolutionDir)DXRun\src\Game;$(SolutionDir)DXLib;$(SolutionDir)CaramelEngine;$(SolutionDir)CaramelEngine\Public;$(SolutionDir)CaramelEngine\src;$(SolutionDir)CaramelEngine\src\Library;$(SolutionDir)CaramelEngine\src\Library\Definition;$(SolutionDir)CaramelEngine\src\Library\Utility;$(SolutionDir)CaramelEngine\src\System;$(SolutionDir)CaramelEngine\src\SugerScript;$(ProjectDir)src\Scene;$(ProjectDir)src\Game\Player;$(ProjectDir)src\Components</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir);$(SolutionDir)DXRun;$(SolutionDir)DXRun\src;$(SolutionDir)DXRun\src\Game;$(SolutionDir)DXLib;$(SolutionDir)CaramelEngine;$(SolutionDir)CaramelEngine\Public;$(SolutionDir)CaramelEngine\src;$(SolutionDir)CaramelEngine\src\Library;$(SolutionDir)CaramelEngine\src\Library\Definition;$(SolutionDir)CaramelEngine\src\Library\Utility;$(SolutionDir)CaramelEngine\src\System;$(SolutionDir)CaramelEngine\src\SugerScript;$(ProjectDir)src\Scene;$(ProjectDir)src\Game\Player;$(ProjectDir)src\Components;$(SolutionDir)CaramelEngine\src\System\Input;$(ProjectDir)src\Interface;$(ProjectDir)src\Game\Stage</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
@@ -104,7 +103,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>CaramelEngine.lib;$(SolutionDir)DXLib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>d3d11.lib;dxgi.lib;d3dcompiler.lib;xinput.lib;d2d1.lib;dwrite.lib;windowscodecs.lib;dxguid.lib;user32.lib;ole32.lib;usp10.lib;comctl32.lib;imm32.lib;winmm.lib;gdi32.lib;shell32.lib;shfolder.lib</AdditionalDependencies>
+      <AdditionalDependencies>d3d11.lib;dxgi.lib;d3dcompiler.lib;xinput.lib;d2d1.lib;dwrite.lib;windowscodecs.lib;dxguid.lib;user32.lib;ole32.lib;usp10.lib;comctl32.lib;imm32.lib;winmm.lib;gdi32.lib;shell32.lib;shfolder.lib;XInput.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -113,7 +112,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir);$(SolutionDir)DXRun;$(SolutionDir)DXRun\src;$(SolutionDir)DXRun\src\Game;$(SolutionDir)DXLib;$(SolutionDir)CaramelEngine;$(SolutionDir)CaramelEngine\Public;$(SolutionDir)CaramelEngine\src;$(SolutionDir)CaramelEngine\src\Library;$(SolutionDir)CaramelEngine\src\Library\Definition;$(SolutionDir)CaramelEngine\src\Library\Utility;$(SolutionDir)CaramelEngine\src\System;$(SolutionDir)CaramelEngine\src\SugerScript;$(ProjectDir)src\Scene;$(ProjectDir)src\Game\Player;$(ProjectDir)src\Components</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir);$(SolutionDir)DXRun;$(SolutionDir)DXRun\src;$(SolutionDir)DXRun\src\Game;$(SolutionDir)DXLib;$(SolutionDir)CaramelEngine;$(SolutionDir)CaramelEngine\Public;$(SolutionDir)CaramelEngine\src;$(SolutionDir)CaramelEngine\src\Library;$(SolutionDir)CaramelEngine\src\Library\Definition;$(SolutionDir)CaramelEngine\src\Library\Utility;$(SolutionDir)CaramelEngine\src\System;$(SolutionDir)CaramelEngine\src\SugerScript;$(ProjectDir)src\Scene;$(ProjectDir)src\Game\Player;$(ProjectDir)src\Components;$(SolutionDir)CaramelEngine\src\System\Input;$(ProjectDir)src\Interface;$(ProjectDir)src\Game\Stage</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
@@ -121,8 +120,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>CaramelEngine.lib;$(SolutionDir)DXLib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>
-      </AdditionalDependencies>
+      <AdditionalDependencies>d3d11.lib;dxgi.lib;d3dcompiler.lib;xinput.lib;d2d1.lib;dwrite.lib;windowscodecs.lib;dxguid.lib;user32.lib;ole32.lib;usp10.lib;comctl32.lib;imm32.lib;winmm.lib;gdi32.lib;shell32.lib;shfolder.lib;XInput.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -133,7 +131,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir);$(SolutionDir)DXRun;$(SolutionDir)DXRun\src;$(SolutionDir)DXRun\src\Game;$(SolutionDir)DXLib;$(SolutionDir)CaramelEngine;$(SolutionDir)CaramelEngine\Public;$(SolutionDir)CaramelEngine\src;$(SolutionDir)CaramelEngine\src\Library;$(SolutionDir)CaramelEngine\src\Library\Definition;$(SolutionDir)CaramelEngine\src\Library\Utility;$(SolutionDir)CaramelEngine\src\System;$(SolutionDir)CaramelEngine\src\SugerScript;$(ProjectDir)src\Scene;$(ProjectDir)src\Game\Player;$(ProjectDir)src\Components</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir);$(SolutionDir)DXRun;$(SolutionDir)DXRun\src;$(SolutionDir)DXRun\src\Game;$(SolutionDir)DXLib;$(SolutionDir)CaramelEngine;$(SolutionDir)CaramelEngine\Public;$(SolutionDir)CaramelEngine\src;$(SolutionDir)CaramelEngine\src\Library;$(SolutionDir)CaramelEngine\src\Library\Definition;$(SolutionDir)CaramelEngine\src\Library\Utility;$(SolutionDir)CaramelEngine\src\System;$(SolutionDir)CaramelEngine\src\SugerScript;$(ProjectDir)src\Scene;$(ProjectDir)src\Game\Player;$(ProjectDir)src\Components;$(SolutionDir)CaramelEngine\src\System\Input;$(ProjectDir)src\Interface;$(ProjectDir)src\Game\Stage</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
@@ -141,13 +139,17 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>CaramelEngine.lib;$(SolutionDir)DXLib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>d3d11.lib;dxgi.lib;d3dcompiler.lib;xinput.lib;d2d1.lib;dwrite.lib;windowscodecs.lib;dxguid.lib;user32.lib;ole32.lib;usp10.lib;comctl32.lib;imm32.lib;winmm.lib;gdi32.lib;shell32.lib;shfolder.lib</AdditionalDependencies>
+      <AdditionalDependencies>d3d11.lib;dxgi.lib;d3dcompiler.lib;xinput.lib;d2d1.lib;dwrite.lib;windowscodecs.lib;dxguid.lib;user32.lib;ole32.lib;usp10.lib;comctl32.lib;imm32.lib;winmm.lib;gdi32.lib;shell32.lib;shfolder.lib;XInput.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\Components\DXLibModelRender.cpp" />
+    <ClCompile Include="src\Components\MovementComponent.cpp" />
+    <ClCompile Include="src\Game\Camera.cpp" />
     <ClCompile Include="src\Game\Player\Player.cpp" />
+    <ClCompile Include="src\Game\Stage\StageObject.cpp" />
+    <ClCompile Include="src\Interface\ITargetProvider.cpp" />
     <ClCompile Include="src\Scene\MainScene.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -157,7 +159,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Components\DXLibModelRender.h" />
+    <ClInclude Include="src\Components\MovementComponent.h" />
+    <ClInclude Include="src\Game\Camera.h" />
     <ClInclude Include="src\Game\Player\Player.h" />
+    <ClInclude Include="src\Game\Stage\StageObject.h" />
+    <ClInclude Include="src\Interface\ITargetProvider.h" />
     <ClInclude Include="src\Scene\MainScene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -132,6 +132,15 @@
     <ClInclude Include="Public\Components.h">
       <Filter>Public</Filter>
     </ClInclude>
+    <ClInclude Include="src\System\Input\GamePadState.h">
+      <Filter>System\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\System\Input\InputKey.h">
+      <Filter>System\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\System\Input\InputManager.h">
+      <Filter>System\Input</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="CaraMelEngine.rc">
@@ -184,5 +193,11 @@
       <Filter>System</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp" />
+    <ClCompile Include="src\System\Input\GamePadState.cpp">
+      <Filter>System\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\System\Input\InputManager.cpp">
+      <Filter>System\Input</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

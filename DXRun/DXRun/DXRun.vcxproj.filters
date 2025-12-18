@@ -17,6 +17,12 @@
     <Filter Include="Components">
       <UniqueIdentifier>{c2887bb4-82d5-4afa-88bb-da8231fe65f9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Interface">
+      <UniqueIdentifier>{d0127fc2-0b4d-4174-8879-94a9031c7c96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Stage">
+      <UniqueIdentifier>{85ff635a-67a1-4297-8c6c-31f5017ff873}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -29,6 +35,18 @@
     <ClCompile Include="src\Components\DXLibModelRender.cpp">
       <Filter>Components</Filter>
     </ClCompile>
+    <ClCompile Include="src\Components\MovementComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\Camera.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Interface\ITargetProvider.cpp">
+      <Filter>Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\Stage\StageObject.cpp">
+      <Filter>Game\Stage</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Scene\MainScene.h">
@@ -39,6 +57,18 @@
     </ClInclude>
     <ClInclude Include="src\Components\DXLibModelRender.h">
       <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Components\MovementComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\Camera.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Interface\ITargetProvider.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\Stage\StageObject.h">
+      <Filter>Game\Stage</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

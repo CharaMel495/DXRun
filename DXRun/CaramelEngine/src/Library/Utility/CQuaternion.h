@@ -188,11 +188,33 @@ namespace CaramelEngine
         CVector3 toEulerXYZ() const 
         {
             using namespace DirectX;
-            XMMATRIX rotMat = XMMatrixRotationQuaternion(_vec);
-            XMVECTOR quatEuler = XMQuaternionRotationMatrix(rotMat);
-            XMFLOAT3 angles;
-            XMStoreFloat3(&angles, quatEuler);
-            return CVector3(angles.x, angles.y, angles.z);
+            XMFLOAT4 q;
+            XMStoreFloat4(&q, _vec);
+
+            float pitch;
+            float yaw;
+            float roll;
+
+            // Yaw (Y)
+            yaw = std::atan2(
+                2.0f * (q.w * q.y + q.x * q.z),
+                1.0f - 2.0f * (q.y * q.y + q.x * q.x)
+            );
+
+            // Pitch (X)
+            float sinp = 2.0f * (q.w * q.x - q.z * q.y);
+            if (std::abs(sinp) >= 1)
+                pitch = std::copysign(XM_PIDIV2, sinp);
+            else
+                pitch = std::asin(sinp);
+
+            // Roll (Z)
+            roll = std::atan2(
+                2.0f * (q.w * q.z + q.y * q.x),
+                1.0f - 2.0f * (q.x * q.x + q.z * q.z)
+            );
+
+            return CVector3(pitch, yaw, roll);
         }
     };
 
