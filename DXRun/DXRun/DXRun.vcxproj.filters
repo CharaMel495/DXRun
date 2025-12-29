@@ -23,6 +23,12 @@
     <Filter Include="Game\Stage">
       <UniqueIdentifier>{85ff635a-67a1-4297-8c6c-31f5017ff873}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Item">
+      <UniqueIdentifier>{2f1d4825-03d1-4673-a138-5c4a1aeaeb2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render">
+      <UniqueIdentifier>{e66f4cf6-1e01-41ec-8128-a05858000e32}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -47,6 +53,15 @@
     <ClCompile Include="src\Game\Stage\StageObject.cpp">
       <Filter>Game\Stage</Filter>
     </ClCompile>
+    <ClCompile Include="src\Game\Item\Scrap.cpp">
+      <Filter>Game\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\Item\ItemBase.cpp">
+      <Filter>Game\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Render\DxLibLight.cpp">
+      <Filter>Render</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Scene\MainScene.h">
@@ -69,6 +84,15 @@
     </ClInclude>
     <ClInclude Include="src\Game\Stage\StageObject.h">
       <Filter>Game\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\Item\Scrap.h">
+      <Filter>Game\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\Item\ItemBase.h">
+      <Filter>Game\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Render\DxLibLight.h">
+      <Filter>Render</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -108,8 +108,8 @@ namespace CaramelEngine
 
         if (_input->isStickActiveR())
         {
-            auto stickInput = _input->getLeftStick();
-            _eventDispatcher->dispatchEvent("onStickActiveL", &stickInput);
+            auto stickInput = _input->getRightStick();
+            _eventDispatcher->dispatchEvent("onStickActiveR", &stickInput);
         }
 
         if (_input->isStickReleaseL())

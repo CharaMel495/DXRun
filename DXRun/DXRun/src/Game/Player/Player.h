@@ -14,7 +14,7 @@ public:
 		ITargetProvider(),
 		_currentDir(),
 		_moveSpeed(10.0f),
-		_rotSpeed(0.1f)
+		_rotSpeed(1.f)
 	{}
 
 	// --- MonoBehaviour ---

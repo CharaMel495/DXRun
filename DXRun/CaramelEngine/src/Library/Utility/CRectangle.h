@@ -39,7 +39,6 @@ namespace CaramelEngine
         }
 
         ~CRectangle() {
-            int hoge = 0;
         }
 
         // ‰Šú‰»ƒƒ\ƒbƒh (Component‚©‚ç‚ÌŒp³)

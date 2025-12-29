@@ -12,7 +12,7 @@ void MainScene::initialize() noexcept
 	auto pTransform = std::make_shared<Transform>();
 	pTransform->setPosition({ 0.0f, 240.0f, -400.0f });
 	pTransform->setRotation(CQuaternion::fromEulerXYZ(0.0f, 180.0f * DEG2RAD, 0.0f));
-	pTransform->setScale({ 20.0f, 20.0f, 20.0f });
+	pTransform->setScale({ 1.0f, 1.0f, 1.0f });
 	auto player = std::make_shared<Player>(pTransform, "Player");
 	player->initialize();
 

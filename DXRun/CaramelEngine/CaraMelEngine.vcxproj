@@ -185,8 +185,11 @@
     <ClInclude Include="src\Library\SpriteRenderer.h" />
     <ClInclude Include="src\Library\Transform.h" />
     <ClInclude Include="src\Library\Utility\CCircle.h" />
+    <ClInclude Include="src\Library\Utility\CCube.h" />
     <ClInclude Include="src\Library\Utility\CQuaternion.h" />
+    <ClInclude Include="src\Library\Utility\CRay.h" />
     <ClInclude Include="src\Library\Utility\CRectangle.h" />
+    <ClInclude Include="src\Library\Utility\CSphere.h" />
     <ClInclude Include="src\Library\Utility\CVector2.h" />
     <ClInclude Include="src\Library\Utility\CVector3.h" />
     <ClInclude Include="src\Library\Utility\VectorConversion.h" />

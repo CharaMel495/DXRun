@@ -141,6 +141,15 @@
     <ClInclude Include="src\System\Input\InputManager.h">
       <Filter>System\Input</Filter>
     </ClInclude>
+    <ClInclude Include="src\Library\Utility\CCube.h">
+      <Filter>Library\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Library\Utility\CSphere.h">
+      <Filter>Library\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Library\Utility\CRay.h">
+      <Filter>Library\Utility</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="CaraMelEngine.rc">

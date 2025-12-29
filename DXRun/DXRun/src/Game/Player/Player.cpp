@@ -6,7 +6,7 @@
 void Player::initialize() noexcept
 {
 	auto modelRender = addComponent<DXLibModelRender>();
-	modelRender->setFilePath("Assets//Models//Test//GradiusExport.mv1");
+	modelRender->setFilePath("Assets//Models//Test//cube.mv1");
 	modelRender->initialize();
 
 	//移動用コンポーネントを取得
@@ -15,15 +15,14 @@ void Player::initialize() noexcept
 	mover->setTransform(this->_transform);
 	mover->setMoveSpeed(this->_moveSpeed);
 
-
 	//イベントの登録
 	Engine::getInstance().getEventDispathcer().subscribeEvent("onPressedKey", [this](void* data) { onPressedKey(data); });
 	Engine::getInstance().getEventDispathcer().subscribeEvent("onHeldKey", [this](void* data) { onHeldKey(data); });
 	Engine::getInstance().getEventDispathcer().subscribeEvent("onReleasedKey", [this](void* data) { onReleasedKey(data); });
 	Engine::getInstance().getEventDispathcer().subscribeEvent("onStickActiveL", [this](void* data) { onStickActiveL(data); });
 	Engine::getInstance().getEventDispathcer().subscribeEvent("onStickReleaseL", [this](void* data) { onStickReleaseL(data); });
-	Engine::getInstance().getEventDispathcer().subscribeEvent("onStickActiveR", [this](void* data) { onStickActiveL(data); });
-	Engine::getInstance().getEventDispathcer().subscribeEvent("onStickReleaseR", [this](void* data) { onStickReleaseL(data); });
+	Engine::getInstance().getEventDispathcer().subscribeEvent("onStickActiveR", [this](void* data) { onStickActiveR(data); });
+	Engine::getInstance().getEventDispathcer().subscribeEvent("onStickReleaseR", [this](void* data) { onStickReleaseR(data); });
 	Engine::getInstance().getEventDispathcer().subscribeEvent(getOnCollisionEnterEventKey(), [this](void* data) { onCollisionEnter(data); });
 	Engine::getInstance().getEventDispathcer().subscribeEvent(getOnCollisionStayEventKey(), [this](void* data) { onCollisionStay(data); });
 	Engine::getInstance().getEventDispathcer().subscribeEvent(getOnCollisionExitEventKey(), [this](void* data) { onCollisionExit(data); });
@@ -162,10 +161,13 @@ void Player::onStickActiveL(void* stick) noexcept
 	if (!mover)
 		return;
 
-	// 横には移動させたくないので、縦の入力のみ扱う
-	CVector3 moveDir = _transform->getForward() * input->y * _moveSpeed;
+	if (std::abs(input->y) < 0.03)
+		return;
 
-	mover->setMoveDir(moveDir);
+	// 横には移動させたくないので、縦の入力のみ扱う
+	CVector3 moveDir = _transform->getForward() * -input->y;
+
+	mover->setMoveDir(moveDir.normalized());
 }
 
 void Player::onStickReleaseL(void* stick) noexcept
@@ -183,7 +185,7 @@ void Player::onStickActiveR(void* stick) noexcept
 	auto* input = static_cast<StickInput*>(stick);
 
 	CQuaternion delta =
-		CQuaternion::fromAxisAngle(_transform->getUp(), input->x * _rotSpeed);
+		CQuaternion::fromAxisAngle(_transform->getUp(), input->x * _rotSpeed * CaramelEngine::Time::getFixedDeltaTime());
 	_transform->setRotation(delta * _transform->getRotation());
 }
 

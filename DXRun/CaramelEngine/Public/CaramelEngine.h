@@ -66,6 +66,9 @@
 //#include "ComponentHolder.h"
 #include "CRectangle.h"
 #include "CCircle.h"
+#include "CCube.h"
+#include "CSphere.h"
+#include "CRay.h"
 //#include "SpriteRenderer.h"
 
 // --- コライダー関係(実装クラス) ---

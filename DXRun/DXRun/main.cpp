@@ -2,6 +2,7 @@
 #include "CaramelEngine.h"
 #include "MainScene.h"
 #include "Player.h"
+#include "DxLibLight.h"
 
 using namespace DxLib;
 
@@ -28,6 +29,16 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
     engine->getSceneManager().addScene("MainScene", std::make_shared<MainScene>());
     engine->getSceneManager().switchScene("MainScene");
+
+    /*LightDesc light;
+    light.type = LightType::Directional;
+    light.position = VGet(0.0f, 500.0f, 0.0f);
+    light.direction = VGet(0.3f, -1.0f, 0.2f);
+    light.diffuse = { 1.0f, 0.95f, 0.9f, 1.0f };
+
+    DxLibLight dxLight;
+    dxLight.Apply(light);*/
+
 
     // エラーメッセージが飛んで来たらループ終了
     while (ProcessMessage() != -1) 

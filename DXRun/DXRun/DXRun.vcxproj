@@ -76,7 +76,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir);$(SolutionDir)DXRun;$(SolutionDir)DXRun\src;$(SolutionDir)DXRun\src\Game;$(SolutionDir)DXLib;$(SolutionDir)CaramelEngine;$(SolutionDir)CaramelEngine\Public;$(SolutionDir)CaramelEngine\src;$(SolutionDir)CaramelEngine\src\Library;$(SolutionDir)CaramelEngine\src\Library\Definition;$(SolutionDir)CaramelEngine\src\Library\Utility;$(SolutionDir)CaramelEngine\src\System;$(SolutionDir)CaramelEngine\src\SugerScript;$(ProjectDir)src\Scene;$(ProjectDir)src\Game\Player;$(ProjectDir)src\Components;$(SolutionDir)CaramelEngine\src\System\Input;$(ProjectDir)src\Interface;$(ProjectDir)src\Game\Stage</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir);$(SolutionDir)DXRun;$(SolutionDir)DXRun\src;$(SolutionDir)DXRun\src\Game;$(SolutionDir)DXLib;$(SolutionDir)CaramelEngine;$(SolutionDir)CaramelEngine\Public;$(SolutionDir)CaramelEngine\src;$(SolutionDir)CaramelEngine\src\Library;$(SolutionDir)CaramelEngine\src\Library\Definition;$(SolutionDir)CaramelEngine\src\Library\Utility;$(SolutionDir)CaramelEngine\src\System;$(SolutionDir)CaramelEngine\src\SugerScript;$(ProjectDir)src\Scene;$(ProjectDir)src\Game\Player;$(ProjectDir)src\Components;$(SolutionDir)CaramelEngine\src\System\Input;$(ProjectDir)src\Interface;$(ProjectDir)src\Game\Stage;$(ProjectDir)src\Render</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
@@ -95,7 +95,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir);$(SolutionDir)DXRun;$(SolutionDir)DXRun\src;$(SolutionDir)DXRun\src\Game;$(SolutionDir)DXLib;$(SolutionDir)CaramelEngine;$(SolutionDir)CaramelEngine\Public;$(SolutionDir)CaramelEngine\src;$(SolutionDir)CaramelEngine\src\Library;$(SolutionDir)CaramelEngine\src\Library\Definition;$(SolutionDir)CaramelEngine\src\Library\Utility;$(SolutionDir)CaramelEngine\src\System;$(SolutionDir)CaramelEngine\src\SugerScript;$(ProjectDir)src\Scene;$(ProjectDir)src\Game\Player;$(ProjectDir)src\Components;$(SolutionDir)CaramelEngine\src\System\Input;$(ProjectDir)src\Interface;$(ProjectDir)src\Game\Stage</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir);$(SolutionDir)DXRun;$(SolutionDir)DXRun\src;$(SolutionDir)DXRun\src\Game;$(SolutionDir)DXLib;$(SolutionDir)CaramelEngine;$(SolutionDir)CaramelEngine\Public;$(SolutionDir)CaramelEngine\src;$(SolutionDir)CaramelEngine\src\Library;$(SolutionDir)CaramelEngine\src\Library\Definition;$(SolutionDir)CaramelEngine\src\Library\Utility;$(SolutionDir)CaramelEngine\src\System;$(SolutionDir)CaramelEngine\src\SugerScript;$(ProjectDir)src\Scene;$(ProjectDir)src\Game\Player;$(ProjectDir)src\Components;$(SolutionDir)CaramelEngine\src\System\Input;$(ProjectDir)src\Interface;$(ProjectDir)src\Game\Stage;$(ProjectDir)src\Render</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
@@ -112,7 +112,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir);$(SolutionDir)DXRun;$(SolutionDir)DXRun\src;$(SolutionDir)DXRun\src\Game;$(SolutionDir)DXLib;$(SolutionDir)CaramelEngine;$(SolutionDir)CaramelEngine\Public;$(SolutionDir)CaramelEngine\src;$(SolutionDir)CaramelEngine\src\Library;$(SolutionDir)CaramelEngine\src\Library\Definition;$(SolutionDir)CaramelEngine\src\Library\Utility;$(SolutionDir)CaramelEngine\src\System;$(SolutionDir)CaramelEngine\src\SugerScript;$(ProjectDir)src\Scene;$(ProjectDir)src\Game\Player;$(ProjectDir)src\Components;$(SolutionDir)CaramelEngine\src\System\Input;$(ProjectDir)src\Interface;$(ProjectDir)src\Game\Stage</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir);$(SolutionDir)DXRun;$(SolutionDir)DXRun\src;$(SolutionDir)DXRun\src\Game;$(SolutionDir)DXLib;$(SolutionDir)CaramelEngine;$(SolutionDir)CaramelEngine\Public;$(SolutionDir)CaramelEngine\src;$(SolutionDir)CaramelEngine\src\Library;$(SolutionDir)CaramelEngine\src\Library\Definition;$(SolutionDir)CaramelEngine\src\Library\Utility;$(SolutionDir)CaramelEngine\src\System;$(SolutionDir)CaramelEngine\src\SugerScript;$(ProjectDir)src\Scene;$(ProjectDir)src\Game\Player;$(ProjectDir)src\Components;$(SolutionDir)CaramelEngine\src\System\Input;$(ProjectDir)src\Interface;$(ProjectDir)src\Game\Stage;$(ProjectDir)src\Render</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
@@ -131,7 +131,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir);$(SolutionDir)DXRun;$(SolutionDir)DXRun\src;$(SolutionDir)DXRun\src\Game;$(SolutionDir)DXLib;$(SolutionDir)CaramelEngine;$(SolutionDir)CaramelEngine\Public;$(SolutionDir)CaramelEngine\src;$(SolutionDir)CaramelEngine\src\Library;$(SolutionDir)CaramelEngine\src\Library\Definition;$(SolutionDir)CaramelEngine\src\Library\Utility;$(SolutionDir)CaramelEngine\src\System;$(SolutionDir)CaramelEngine\src\SugerScript;$(ProjectDir)src\Scene;$(ProjectDir)src\Game\Player;$(ProjectDir)src\Components;$(SolutionDir)CaramelEngine\src\System\Input;$(ProjectDir)src\Interface;$(ProjectDir)src\Game\Stage</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir);$(SolutionDir)DXRun;$(SolutionDir)DXRun\src;$(SolutionDir)DXRun\src\Game;$(SolutionDir)DXLib;$(SolutionDir)CaramelEngine;$(SolutionDir)CaramelEngine\Public;$(SolutionDir)CaramelEngine\src;$(SolutionDir)CaramelEngine\src\Library;$(SolutionDir)CaramelEngine\src\Library\Definition;$(SolutionDir)CaramelEngine\src\Library\Utility;$(SolutionDir)CaramelEngine\src\System;$(SolutionDir)CaramelEngine\src\SugerScript;$(ProjectDir)src\Scene;$(ProjectDir)src\Game\Player;$(ProjectDir)src\Components;$(SolutionDir)CaramelEngine\src\System\Input;$(ProjectDir)src\Interface;$(ProjectDir)src\Game\Stage;$(ProjectDir)src\Render</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
@@ -147,9 +147,12 @@
     <ClCompile Include="src\Components\DXLibModelRender.cpp" />
     <ClCompile Include="src\Components\MovementComponent.cpp" />
     <ClCompile Include="src\Game\Camera.cpp" />
+    <ClCompile Include="src\Game\Item\ItemBase.cpp" />
+    <ClCompile Include="src\Game\Item\Scrap.cpp" />
     <ClCompile Include="src\Game\Player\Player.cpp" />
     <ClCompile Include="src\Game\Stage\StageObject.cpp" />
     <ClCompile Include="src\Interface\ITargetProvider.cpp" />
+    <ClCompile Include="src\Render\DxLibLight.cpp" />
     <ClCompile Include="src\Scene\MainScene.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -161,9 +164,12 @@
     <ClInclude Include="src\Components\DXLibModelRender.h" />
     <ClInclude Include="src\Components\MovementComponent.h" />
     <ClInclude Include="src\Game\Camera.h" />
+    <ClInclude Include="src\Game\Item\ItemBase.h" />
+    <ClInclude Include="src\Game\Item\Scrap.h" />
     <ClInclude Include="src\Game\Player\Player.h" />
     <ClInclude Include="src\Game\Stage\StageObject.h" />
     <ClInclude Include="src\Interface\ITargetProvider.h" />
+    <ClInclude Include="src\Render\DxLibLight.h" />
     <ClInclude Include="src\Scene\MainScene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
