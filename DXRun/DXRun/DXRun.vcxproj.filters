@@ -29,6 +29,9 @@
     <Filter Include="Render">
       <UniqueIdentifier>{e66f4cf6-1e01-41ec-8128-a05858000e32}</UniqueIdentifier>
     </Filter>
+    <Filter Include="System">
+      <UniqueIdentifier>{25f2d26f-0e6e-4d48-852a-0397827de5c9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -62,6 +65,9 @@
     <ClCompile Include="src\Render\DxLibLight.cpp">
       <Filter>Render</Filter>
     </ClCompile>
+    <ClCompile Include="src\System\ColliderManager.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Scene\MainScene.h">
@@ -93,6 +99,9 @@
     </ClInclude>
     <ClInclude Include="src\Render\DxLibLight.h">
       <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="src\System\ColliderManager.h">
+      <Filter>System</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

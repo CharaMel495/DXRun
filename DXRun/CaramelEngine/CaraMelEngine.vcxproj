@@ -192,6 +192,7 @@
     <ClInclude Include="src\Library\Utility\CSphere.h" />
     <ClInclude Include="src\Library\Utility\CVector2.h" />
     <ClInclude Include="src\Library\Utility\CVector3.h" />
+    <ClInclude Include="src\Library\Utility\ShapeTraits.h" />
     <ClInclude Include="src\Library\Utility\VectorConversion.h" />
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="src\System\Actor.h" />

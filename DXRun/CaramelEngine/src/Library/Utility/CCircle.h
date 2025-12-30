@@ -64,6 +64,8 @@ namespace CaramelEngine
             };
         }
 
+        eColliderType getColliderType() override { return eColliderType::Circle; };
+
     private:
 
         std::shared_ptr<Transform> _transform;

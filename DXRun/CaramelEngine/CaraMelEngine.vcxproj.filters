@@ -150,6 +150,9 @@
     <ClInclude Include="src\Library\Utility\CRay.h">
       <Filter>Library\Utility</Filter>
     </ClInclude>
+    <ClInclude Include="src\Library\Utility\ShapeTraits.h">
+      <Filter>Library\Utility</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="CaraMelEngine.rc">

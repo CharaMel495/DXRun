@@ -14,14 +14,9 @@ namespace CaramelEngine
 	{
 	public:
 
-		inline Scene() noexcept {}
+		inline Scene() noexcept = default;
 
-		virtual inline ~Scene()
-		{
-			//持っているポインタを全て解放
-			//for (auto& actor : _actors)
-				//actor.reset();
-		}
+		virtual inline ~Scene() = default;
 
 		//inline Scene(const Scene& scene) noexcept {}
 
@@ -29,13 +24,13 @@ namespace CaramelEngine
 		/// シーンにアクタを追加するメソッド
 		/// </summary>
 		/// <param name="newActor">追加したいアクタ</param>
-		void addActor(std::shared_ptr<Actor> newActor) noexcept;
+		virtual void addActor(std::shared_ptr<Actor> newActor) noexcept;
 
 		/// <summary>
 		/// シーンからアクタを排除するメソッド
 		/// </summary>
 		/// <param name="actor"></param>
-		void removeActor(const std::shared_ptr<Actor>& actor) noexcept;
+		virtual void removeActor(const std::shared_ptr<Actor>& actor) noexcept;
 
 		virtual void shutdown() noexcept = 0;
 

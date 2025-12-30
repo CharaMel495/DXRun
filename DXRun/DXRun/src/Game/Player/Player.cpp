@@ -15,6 +15,8 @@ void Player::initialize() noexcept
 	mover->setTransform(this->_transform);
 	mover->setMoveSpeed(this->_moveSpeed);
 
+	addComponent<CCube>();
+
 	//ƒCƒxƒ“ƒg‚Ì“o˜^
 	Engine::getInstance().getEventDispathcer().subscribeEvent("onPressedKey", [this](void* data) { onPressedKey(data); });
 	Engine::getInstance().getEventDispathcer().subscribeEvent("onHeldKey", [this](void* data) { onHeldKey(data); });

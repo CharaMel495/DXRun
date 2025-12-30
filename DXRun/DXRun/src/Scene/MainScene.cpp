@@ -56,3 +56,27 @@ void MainScene::shutdown() noexcept
 	_pendingAdditions.clear();
 	_pendingRemovals.clear();
 }
+
+void MainScene::addActor(std::shared_ptr<Actor> newActor) noexcept
+{
+	Scene::addActor(newActor);
+
+	auto colObj = newActor->getColliderInterface();
+
+	if (colObj == nullptr)
+		return;
+
+	_colliderManager->registerObject(colObj->getCollisionGroupID(), colObj);
+}
+
+void MainScene::removeActor(const std::shared_ptr<Actor>& actor) noexcept
+{
+	Scene::removeActor(actor);
+
+	auto colObj = actor->getColliderInterface();
+
+	if (colObj == nullptr)
+		return;
+
+	_colliderManager->unregisterObject(colObj);
+}

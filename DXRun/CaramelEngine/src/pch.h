@@ -93,6 +93,7 @@
 #include "CCube.h"
 #include "CSphere.h"
 #include "CRay.h"
+#include "ShapeTraits.h"
 #include "SpriteRenderer.h"
 
 // --- コライダー関係(実装クラス) ---

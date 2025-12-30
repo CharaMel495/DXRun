@@ -151,6 +151,8 @@ namespace CaramelEngine
                 _verts
             };
         }
+
+        eColliderType getColliderType() override { return eColliderType::Rectangle; };
         
     private:
         std::shared_ptr<Transform> _transform;

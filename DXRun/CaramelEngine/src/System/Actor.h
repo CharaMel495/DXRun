@@ -1,5 +1,6 @@
 #pragma once
 #include "ComponentHolder.h"
+#include "ICollisionObject.h"
 
 namespace
 {
@@ -100,6 +101,8 @@ namespace CaramelEngine
 		void setActorName(CString newName) noexcept { _actorName = newName; }
 
 		bool getDestroyFlag() const noexcept { return _destroyFlag; }
+
+		virtual std::shared_ptr<ICollisionObject> getColliderInterface() { return nullptr; }
 
 	protected:
 

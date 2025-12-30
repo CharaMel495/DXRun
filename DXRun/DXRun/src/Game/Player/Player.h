@@ -27,6 +27,10 @@ public:
 	// --- Actor ---
 	void destroy() noexcept override;
 
+	ICollisionObject* getColliderInterface() noexcept override {
+		return this;
+	}
+
 	// --- ICollisionObject ---
 	// 衝突判定に使うコライダー
 	ICollider* getCollider() const override
