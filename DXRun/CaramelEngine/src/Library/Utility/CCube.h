@@ -86,6 +86,8 @@ namespace CaramelEngine
                 }
             }
 
+            _cache.Transform = _transform;
+
             return _cache;
         }
 

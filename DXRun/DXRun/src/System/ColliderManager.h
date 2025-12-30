@@ -5,7 +5,7 @@ using namespace CaramelEngine;
 #pragma once
 #include <cstdint>
 
-enum class CollisionGroup : uint32_t
+enum class eCollisionGroup : uint32_t
 {
     None = 0,
     Player,            // Ž©‹@‚Ì–{‘Ì

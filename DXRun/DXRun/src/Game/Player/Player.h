@@ -1,6 +1,7 @@
 #pragma once
 #include "CaramelEngine.h"
 #include "ITargetProvider.h"
+#include "ColliderManager.h"
 
 class Player final : public Pawn, public ICollisionObject, public ITargetProvider
 {
@@ -27,21 +28,23 @@ public:
 	// --- Actor ---
 	void destroy() noexcept override;
 
-	ICollisionObject* getColliderInterface() noexcept override {
-		return this;
+	std::shared_ptr<ICollisionObject> getColliderInterface() noexcept override 
+	{
+		return std::shared_ptr<ICollisionObject>(
+			shared_from_this(),
+			static_cast<ICollisionObject*>(this)
+		);
 	}
 
 	// --- ICollisionObject ---
 	// 衝突判定に使うコライダー
 	ICollider* getCollider() const override
 	{
-		auto rect = findComponent<CRectangle>();
-
-		return rect;
+		return _col;
 	}
 
 	// CollisionGroupを返す（どのグループに属するか）
-	std::uint32_t getCollisionGroupID() const { return 0; }
+	std::uint32_t getCollisionGroupID() const { return (std::uint32_t)eCollisionGroup::Player; }
 
 	// 自身のポインタを返す
 	void* getOwnerPointer() const override
@@ -91,4 +94,6 @@ private:
 	/// 現在の向き
 	/// </summary>
 	CVector3 _currentDir;
+
+	ICollider* _col;
 };

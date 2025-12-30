@@ -11,7 +11,8 @@ public:
 	DXLibModelRender(std::weak_ptr<Actor> owner) :
 		Component(owner, "DXLibModelRender"),
 		_filePath(""),
-		_modelHandle(-1)
+		_modelHandle(-1),
+		_animHandle(-1)
 	{}
 
 	void initialize() noexcept override;
@@ -24,9 +25,46 @@ public:
 
 	void setFilePath(CString filePath) noexcept { _filePath = filePath; }
 
+    struct AABB3
+    {
+        DxLib::VECTOR minV;
+        DxLib::VECTOR maxV;
+    };
+
+    static AABB3 CalcModelLocalAABB(int modelHandle)
+    {
+        const int meshNum = DxLib::MV1GetMeshNum(modelHandle);
+
+        AABB3 aabb{};
+        aabb.minV = DxLib::VGet(+FLT_MAX, +FLT_MAX, +FLT_MAX);
+        aabb.maxV = DxLib::VGet(-FLT_MAX, -FLT_MAX, -FLT_MAX);
+
+        for (int i = 0; i < meshNum; ++i)
+        {
+            const DxLib::VECTOR mx = DxLib::MV1GetMeshMaxPosition(modelHandle, i);
+            const DxLib::VECTOR mn = DxLib::MV1GetMeshMinPosition(modelHandle, i);
+
+            aabb.minV.x = (std::min)(aabb.minV.x, mn.x);
+            aabb.minV.y = (std::min)(aabb.minV.y, mn.y);
+            aabb.minV.z = (std::min)(aabb.minV.z, mn.z);
+
+            aabb.maxV.x = (std::max)(aabb.maxV.x, mx.x);
+            aabb.maxV.y = (std::max)(aabb.maxV.y, mx.y);
+            aabb.maxV.z = (std::max)(aabb.maxV.z, mx.z);
+        }
+        return aabb;
+    }
+
+    static DxLib::VECTOR SizeOf(const AABB3& aabb)
+    {
+        return DxLib::VSub(aabb.maxV, aabb.minV);
+    }
+
 private:
 
 	CString _filePath;
 	int _modelHandle;
 	int _animHandle;
+    CVector3 _modelLocalSize{ 1.f, 1.f, 1.f }; // ローカルAABBサイズ
+    float _importScale = 1.0f;
 };

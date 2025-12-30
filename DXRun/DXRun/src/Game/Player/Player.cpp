@@ -7,6 +7,7 @@ void Player::initialize() noexcept
 {
 	auto modelRender = addComponent<DXLibModelRender>();
 	modelRender->setFilePath("Assets//Models//Test//cube.mv1");
+	//modelRender->setFilePath("Assets//Models//Test//GradiusExport.mv1");
 	modelRender->initialize();
 
 	//移動用コンポーネントを取得
@@ -15,7 +16,10 @@ void Player::initialize() noexcept
 	mover->setTransform(this->_transform);
 	mover->setMoveSpeed(this->_moveSpeed);
 
-	addComponent<CCube>();
+	auto cube = addComponent<CCube>();
+	cube->setTransform(_transform);
+	_col = cube;
+
 
 	//イベントの登録
 	Engine::getInstance().getEventDispathcer().subscribeEvent("onPressedKey", [this](void* data) { onPressedKey(data); });
@@ -74,7 +78,7 @@ void Player::onCollisionEnter(void* data) noexcept
 
 void Player::onCollisionStay(void* data) noexcept
 {
-
+	int hoge = 0;
 }
 
 void Player::onCollisionExit(void* data) noexcept

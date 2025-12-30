@@ -7,6 +7,10 @@ void ItemBase::initialize() noexcept
 	auto modelRender = addComponent<DXLibModelRender>();
 	modelRender->setFilePath("Assets//Models//Test//sphere.mv1");
 	modelRender->initialize();
+
+	auto sphere = addComponent<CSphere>();
+	sphere->setTransform(_transform);
+	_col = sphere;
 }
 
 void ItemBase::update() noexcept
@@ -32,4 +36,19 @@ void ItemBase::fixedUpdate() noexcept
 void ItemBase::destroy() noexcept
 {
 	_destroyFlag = true;
+}
+
+void ItemBase::onCollisionEnter(void* data) noexcept
+{
+
+}
+
+void ItemBase::onCollisionStay(void* data) noexcept
+{
+
+}
+
+void ItemBase::onCollisionExit(void* data) noexcept
+{
+
 }

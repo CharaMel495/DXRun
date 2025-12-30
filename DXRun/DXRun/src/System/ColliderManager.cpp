@@ -5,7 +5,7 @@
 void ColliderManager::initialize() noexcept
 {
     //読みやすさの為、短縮系を用いる
-    using CG = CollisionGroup;
+    using CG = eCollisionGroup;
 
     // ====== メインの戦闘構成 ======
     //プレイヤーvs敵弾

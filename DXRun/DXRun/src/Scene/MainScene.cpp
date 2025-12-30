@@ -1,20 +1,32 @@
 #include "DXLib.h"
 #include "MainScene.h"
 #include "Player.h"
+#include "ItemBase.h"
 #include "StageObject.h"
+#include "ColliderManager.h"
 
 void MainScene::initialize() noexcept
 {
 	_actors.clear();
 	_pendingAdditions.clear();
 	_pendingRemovals.clear();
+	
+	_colliderManager = std::make_unique<ColliderManager>(&Engine::getInstance().getEventDispathcer());
+	_colliderManager->initialize();
 
 	auto pTransform = std::make_shared<Transform>();
 	pTransform->setPosition({ 0.0f, 240.0f, -400.0f });
 	pTransform->setRotation(CQuaternion::fromEulerXYZ(0.0f, 180.0f * DEG2RAD, 0.0f));
-	pTransform->setScale({ 1.0f, 1.0f, 1.0f });
+	pTransform->setScale({ 200.0f, 200.0f, 200.0f });
 	auto player = std::make_shared<Player>(pTransform, "Player");
 	player->initialize();
+
+	auto itemTransform = std::make_shared<Transform>();
+	itemTransform->setPosition({ 0.0f, 240.0f, 000.0f });
+	itemTransform->setRotation(CQuaternion::fromEulerXYZ(0.0f, 180.0f * DEG2RAD, 0.0f));
+	itemTransform->setScale({ 200.0f, 200.0f, 200.0f });
+	auto item = std::make_shared<ItemBase>(itemTransform, "Item");
+	item->initialize();
 
 	auto stageTransform = std::make_shared<Transform>();
 	stageTransform->setPosition({ 0.0f, -100.0f, 0.0f });
@@ -27,6 +39,7 @@ void MainScene::initialize() noexcept
 	_mainCam->initialize();
 
 	addActor(player);
+	addActor(item);
 	addActor(stageObj);
 }
 
@@ -40,6 +53,8 @@ void MainScene::update() noexcept
 
 	_mainCam->update(CaramelEngine::Time::getFixedDeltaTime());
 	_mainCam->setup();
+
+	_colliderManager->update();
 
 	flushPendingRemovals();
 }

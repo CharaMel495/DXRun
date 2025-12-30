@@ -24,6 +24,32 @@ inline MATRIX XMMATRIXToDXLibMatrix(const DirectX::XMMATRIX& xm)
 void DXLibModelRender::initialize() noexcept
 {
 	_modelHandle = MV1LoadModel(_filePath.c_str());
+
+    if (_modelHandle < 0)
+    {
+        _modelLocalSize = CVector3{ 1.f, 1.f, 1.f };
+        _importScale = 1.0f;
+        return;
+    }
+
+    const AABB3 aabb = CalcModelLocalAABB(_modelHandle);
+    const DxLib::VECTOR sizeV = SizeOf(aabb);
+
+    _modelLocalSize = CVector3{ sizeV.x, sizeV.y, sizeV.z };
+
+    // 長辺（絶対値）を基準に「縮小だけ」する
+    const float ax = std::abs(sizeV.x);
+    const float ay = std::abs(sizeV.y);
+    const float az = std::abs(sizeV.z);
+    const float longest = (std::max)({ ax, ay, az });
+
+    constexpr float kTargetLongest = 1.0f;   // 「このサイズ箱に押し込む」
+    constexpr float kEps = 1e-6f;
+
+    if (longest > kTargetLongest + kEps)
+        _importScale = kTargetLongest / longest; // ★縮小（0<scale<1）
+    else
+        _importScale = 1.0f; // ★拡大はしない
 }
 
 void DXLibModelRender::update() noexcept
@@ -33,17 +59,27 @@ void DXLibModelRender::update() noexcept
 
 void DXLibModelRender::renderModel() noexcept
 {
-	if (!_enabled)
-		return;
+    if (!_enabled)
+        return;
 
-	if (auto owner = _owner.lock())
-	{
-		auto transform = owner->getTransform();
-		MV1SetMatrix(_modelHandle, XMMATRIXToDXLibMatrix(transform->getWorldMatrix()));
-		MV1DrawModel(_modelHandle);
-	}
-	else
-		finalize();
+    if (auto owner = _owner.lock())
+    {
+        auto transform = owner->getTransform();
+
+        DirectX::XMMATRIX world = transform->getWorldMatrix();
+        const DirectX::XMMATRIX importS =
+            DirectX::XMMatrixScaling(_importScale, _importScale, _importScale);
+
+        // 「ローカル補正」→「Transformの世界変換」
+        world = importS * world;
+
+        DxLib::MV1SetMatrix(_modelHandle, XMMATRIXToDXLibMatrix(world));
+        DxLib::MV1DrawModel(_modelHandle);
+    }
+    else
+    {
+        finalize();
+    }
 }
 
 void DXLibModelRender::finalize() noexcept
