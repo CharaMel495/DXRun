@@ -5,7 +5,16 @@
 // ‚ª‚ç‚­‚½Žæ“¾ƒƒ\ƒbƒh
 void CaughtScrap::addScrap(int addValue) 
 { 
-	_caughtValue = (std::min)(_caughtValue + addValue, MAXSCRAPVALUE); 
+	auto before = _caughtValue;
+	_caughtValue += addValue;
+	if (_caughtValue > MAXSCRAPVALUE)
+	{
+		_caughtValue = MAXSCRAPVALUE;
+		if (before == _caughtValue)
+			return;
+
+		addValue = _caughtValue - before;
+	}
 
 	auto scale = _transform->getScale();
 	scale.setX(scale.getX() + addValue * _scaleMulByValue);

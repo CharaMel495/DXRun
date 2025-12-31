@@ -21,12 +21,15 @@ void MainScene::initialize() noexcept
 	auto player = std::make_shared<Player>(pTransform, "Player");
 	player->initialize();
 
-	auto itemTransform = std::make_shared<Transform>();
-	itemTransform->setPosition({ 0.0f, 240.0f, 000.0f });
-	itemTransform->setRotation(CQuaternion::fromEulerXYZ(0.0f, 180.0f * DEG2RAD, 0.0f));
-	itemTransform->setScale({ 200.0f, 200.0f, 200.0f });
-	auto item = std::make_shared<ItemBase>(itemTransform, "Item");
-	item->initialize();
+	for (int i = 0; i < 10; ++i)
+	{
+		auto itemTransform = std::make_shared<Transform>();
+		itemTransform->setPosition({ 0.0f, 240.0f, (float)(i * 200 + 50) });
+		itemTransform->setScale({ 200.0f, 200.0f, 200.0f });
+		auto item = std::make_shared<ItemBase>(itemTransform, "item_" + std::to_string(i));
+		item->initialize();
+		addActor(item);
+	}
 
 	auto stageTransform = std::make_shared<Transform>();
 	stageTransform->setPosition({ 0.0f, 100.0f, 0.0f });
@@ -39,7 +42,6 @@ void MainScene::initialize() noexcept
 	_mainCam->initialize();
 
 	addActor(player);
-	addActor(item);
 	addActor(stageObj);
 }
 
@@ -53,7 +55,7 @@ void MainScene::update() noexcept
 		actor->update();
 	
 		if (actor->getDestroyFlag())
-			_pendingRemovals.emplace_back(actor);
+			removeActor(actor);
 	}
 
 	_mainCam->update(CaramelEngine::Time::getFixedDeltaTime());

@@ -15,7 +15,7 @@ using namespace CaramelEngine;
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
     // ウィンドウ状態で起動(FSならFALSE)
-    ChangeWindowMode(TRUE);
+    ChangeWindowMode(FALSE);
     // 解像度と色に使うビット数を指定
     SetGraphMode(WINDOW_X, WINDOW_Y, 32);
     // ライブラリの初期化

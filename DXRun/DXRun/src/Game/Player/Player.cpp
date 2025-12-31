@@ -250,8 +250,9 @@ void Player::throwScrap() noexcept
 	if (_caughtScrap == nullptr)
 		return;
 
+	auto pos = _caughtScrap->getTransform()->getWorldPosition();
 	_caughtScrap->throwScrap(_transform->getForward());
-	_caughtScrap->getTransform()->setPosition(_transform->getPosition());
+	_caughtScrap->getTransform()->setPosition(pos);
 	_caughtScrap->getTransform()->setScale(_caughtScrap->getTransform()->getScale() * _transform->getScale());
 
 	_caughtScrap.reset();

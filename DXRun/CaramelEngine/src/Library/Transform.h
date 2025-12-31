@@ -100,6 +100,14 @@ namespace CaramelEngine
 
         // --- getters ---
         CVector3 getPosition() const { return _position; }
+        CVector3 getWorldPosition() const
+        {
+            using namespace DirectX;
+            auto world = getWorldMatrix();
+            XMVECTOR pos = world.r[3]; // translation
+            return CVector3(pos);
+        }
+
         CQuaternion getRotation() const { return _rotation; }
         CVector3 getScale() const { return _scale; }
 
