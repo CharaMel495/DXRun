@@ -30,14 +30,14 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     engine->getSceneManager().addScene("MainScene", std::make_shared<MainScene>());
     engine->getSceneManager().switchScene("MainScene");
 
-    /*LightDesc light;
+    LightDesc light;
     light.type = LightType::Directional;
-    light.position = VGet(0.0f, 500.0f, 0.0f);
-    light.direction = VGet(0.3f, -1.0f, 0.2f);
+    light.position = VGet(0.0f, 1500.0f, 0.0f);
+    light.direction = VGet(0.0f, 1.0f, 0.2f);
     light.diffuse = { 1.0f, 0.95f, 0.9f, 1.0f };
 
     DxLibLight dxLight;
-    dxLight.Apply(light);*/
+    dxLight.Apply(light);
 
 
     // エラーメッセージが飛んで来たらループ終了

@@ -43,13 +43,20 @@ void DXLibModelRender::initialize() noexcept
     const float az = std::abs(sizeV.z);
     const float longest = (std::max)({ ax, ay, az });
 
-    constexpr float kTargetLongest = 1.0f;   // 「このサイズ箱に押し込む」
+    constexpr float kTargetLongest = 1.0f;
     constexpr float kEps = 1e-6f;
+    constexpr float kMaxUpScale = 10.0f; // 拡大は最大10倍まで
 
-    if (longest > kTargetLongest + kEps)
-        _importScale = kTargetLongest / longest; // ★縮小（0<scale<1）
+    if (longest > kEps)
+    {
+        _importScale = kTargetLongest / longest;
+        _importScale = (std::min)(_importScale, kMaxUpScale);
+    }
     else
-        _importScale = 1.0f; // ★拡大はしない
+    {
+        _importScale = 1.0f;
+    }
+
 }
 
 void DXLibModelRender::update() noexcept

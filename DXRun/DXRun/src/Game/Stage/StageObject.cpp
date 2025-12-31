@@ -5,7 +5,7 @@
 void StageObject::initialize() noexcept
 {
 	auto modelRender = addComponent<DXLibModelRender>();
-	modelRender->setFilePath("Assets//Models//Test//testStageC.mv1");
+	modelRender->setFilePath("Assets//Models//Test//testStageA.mv1");
 	modelRender->initialize();
 }
 

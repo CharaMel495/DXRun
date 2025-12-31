@@ -3,6 +3,7 @@
 #include "CaramelEngine.h"
 
 using namespace CaramelEngine;
+using namespace DxLib;
 
 class DXLibModelRender : public Component
 {
@@ -39,10 +40,15 @@ public:
         aabb.minV = DxLib::VGet(+FLT_MAX, +FLT_MAX, +FLT_MAX);
         aabb.maxV = DxLib::VGet(-FLT_MAX, -FLT_MAX, -FLT_MAX);
 
+        MV1_REF_POLYGONLIST RefPoly;
+
         for (int i = 0; i < meshNum; ++i)
         {
-            const DxLib::VECTOR mx = DxLib::MV1GetMeshMaxPosition(modelHandle, i);
-            const DxLib::VECTOR mn = DxLib::MV1GetMeshMinPosition(modelHandle, i);
+            // モデルの全フレームのポリゴンの情報を取得
+            RefPoly = MV1GetReferenceMesh(modelHandle, i, TRUE);
+
+            const DxLib::VECTOR mx = RefPoly.MaxPosition;
+            const DxLib::VECTOR mn = RefPoly.MinPosition;
 
             aabb.minV.x = (std::min)(aabb.minV.x, mn.x);
             aabb.minV.y = (std::min)(aabb.minV.y, mn.y);

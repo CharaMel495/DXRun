@@ -29,8 +29,8 @@ void MainScene::initialize() noexcept
 	item->initialize();
 
 	auto stageTransform = std::make_shared<Transform>();
-	stageTransform->setPosition({ 0.0f, -100.0f, 0.0f });
-	stageTransform->setScale({ 10.0f, 10.0f, 10.0f });
+	stageTransform->setPosition({ 0.0f, 100.0f, 0.0f });
+	stageTransform->setScale({ 5000.0f, 5000.0f, 5000.0f });
 	auto stageObj = std::make_shared<StageObject>(stageTransform, "testStage");
 	stageObj->initialize();
 

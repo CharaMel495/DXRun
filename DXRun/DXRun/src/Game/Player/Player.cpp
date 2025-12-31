@@ -7,7 +7,6 @@ void Player::initialize() noexcept
 {
 	auto modelRender = addComponent<DXLibModelRender>();
 	modelRender->setFilePath("Assets//Models//Test//cube.mv1");
-	//modelRender->setFilePath("Assets//Models//Test//GradiusExport.mv1");
 	modelRender->initialize();
 
 	//移動用コンポーネントを取得
