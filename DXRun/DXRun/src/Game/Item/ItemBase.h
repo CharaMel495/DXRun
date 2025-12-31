@@ -8,7 +8,8 @@ public:
 
 	ItemBase(std::shared_ptr<Transform> transform, CString name) noexcept :
 		Actor(transform, name),
-		ICollisionObject(_actorName)
+		ICollisionObject(_actorName),
+		_col(nullptr)
 	{
 	}
 
@@ -38,7 +39,7 @@ public:
 	}
 
 	// CollisionGroupを返す（どのグループに属するか）
-	std::uint32_t getCollisionGroupID() const { return (std::uint32_t)eCollisionGroup::Item; }
+	virtual std::uint32_t getCollisionGroupID() const { return (std::uint32_t)eCollisionGroup::Item; }
 
 	// 自身のポインタを返す
 	void* getOwnerPointer() const override

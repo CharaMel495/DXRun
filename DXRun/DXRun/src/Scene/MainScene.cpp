@@ -16,7 +16,7 @@ void MainScene::initialize() noexcept
 
 	auto pTransform = std::make_shared<Transform>();
 	pTransform->setPosition({ 0.0f, 240.0f, -400.0f });
-	pTransform->setRotation(CQuaternion::fromEulerXYZ(0.0f, 180.0f * DEG2RAD, 0.0f));
+	pTransform->setRotation(CQuaternion::fromEulerXYZ(0.0f, 0.0f, 0.0f));
 	pTransform->setScale({ 200.0f, 200.0f, 200.0f });
 	auto player = std::make_shared<Player>(pTransform, "Player");
 	player->initialize();
@@ -49,7 +49,12 @@ void MainScene::update() noexcept
 	flushPendingActors();
 
 	for (auto actor : _actors)
+	{
 		actor->update();
+	
+		if (actor->getDestroyFlag())
+			_pendingRemovals.emplace_back(actor);
+	}
 
 	_mainCam->update(CaramelEngine::Time::getFixedDeltaTime());
 	_mainCam->setup();

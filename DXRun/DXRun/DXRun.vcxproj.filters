@@ -68,6 +68,9 @@
     <ClCompile Include="src\System\ColliderManager.cpp">
       <Filter>System</Filter>
     </ClCompile>
+    <ClCompile Include="src\Game\Item\CaughtScrap.cpp">
+      <Filter>Game\Item</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Scene\MainScene.h">
@@ -102,6 +105,9 @@
     </ClInclude>
     <ClInclude Include="src\System\ColliderManager.h">
       <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\Item\CaughtScrap.h">
+      <Filter>Game\Item</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

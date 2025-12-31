@@ -2,6 +2,7 @@
 #include "CaramelEngine.h"
 #include "ITargetProvider.h"
 #include "ColliderManager.h"
+#include "CaughtScrap.h"
 
 class Player final : public Pawn, public ICollisionObject, public ITargetProvider
 {
@@ -76,6 +77,10 @@ public:
 	void onStickActiveR(void* stick) noexcept;
 	void onStickReleaseR(void* stick) noexcept;
 
+	void getScrap(int addValue) noexcept;
+	void generateScrap();
+	void throwScrap() noexcept;
+
 	
 private:
 
@@ -96,4 +101,6 @@ private:
 	CVector3 _currentDir;
 
 	ICollider* _col;
+
+	std::shared_ptr<CaughtScrap> _caughtScrap;
 };

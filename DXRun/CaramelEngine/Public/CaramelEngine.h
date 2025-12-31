@@ -72,7 +72,7 @@
 //#include "SpriteRenderer.h"
 
 // --- コライダー関係(実装クラス) ---
-//#include "CollisionInfo.h"
+#include "CollisionInfo.h"
 #include "ICollisionObject.h"
 //#include "CollisionTester.h"
 #include "ColliderManagerBase.h"

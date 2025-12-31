@@ -1,6 +1,8 @@
 #include "Player.h"
 #include "DXLibModelRender.h"
 #include "MoveMentComponent.h"
+#include "Scrap.h"
+#include "CaughtScrap.h"
 #include <cmath>
 
 void Player::initialize() noexcept
@@ -72,12 +74,23 @@ void Player::destroy() noexcept
 
 void Player::onCollisionEnter(void* data) noexcept
 {
+	//衝突イベント情報にキャスト
+	auto* event = static_cast<CollisionInfo*>(data);
 
+	//衝突したものがどのグループに属するかで分岐
+	switch ((eCollisionGroup)event->groupOther)
+	{
+	case eCollisionGroup::Item:
+
+		getScrap(1);
+
+		break;
+	}
 }
 
 void Player::onCollisionStay(void* data) noexcept
 {
-	int hoge = 0;
+
 }
 
 void Player::onCollisionExit(void* data) noexcept
@@ -111,9 +124,9 @@ void Player::onHeldKey(void* data) noexcept
 	{
 		//上キーか下キーが押されたら上下移動
 		if (key == InputKey::W)
-			moveDir -= _transform->getForward();
-		else if (key == InputKey::S)
 			moveDir += _transform->getForward();
+		else if (key == InputKey::S)
+			moveDir -= _transform->getForward();
 
 		if (key == InputKey::Q)
 			moveDir += _transform->getUp();
@@ -133,6 +146,12 @@ void Player::onHeldKey(void* data) noexcept
 				CQuaternion::fromAxisAngle(_transform->getUp(), 0.01f);
 			_transform->setRotation(delta * _transform->getRotation());
 		}
+
+		if (key == InputKey::Space)
+			throwScrap();
+
+		if (key == InputKey::G)
+			getScrap(1);
 	}
 
 	//移動方向なので正規化
@@ -202,4 +221,38 @@ void Player::onStickReleaseR(void* stick) noexcept
 		return;
 
 	mover->setMoveDir(CVector3());
+}
+
+void Player::getScrap(int addValue) noexcept
+{
+	if (_caughtScrap == nullptr)
+		generateScrap();
+
+	_caughtScrap->addScrap(addValue);
+
+	
+}
+
+void Player::generateScrap()
+{
+	auto scrapTransform = std::make_shared<Transform>();
+	scrapTransform->setPosition({ 0.0f, 1.f, 0.0f });
+	scrapTransform->setScale({ 0.01f, 0.01f, 0.01f });
+	scrapTransform->setParent(_transform.get());
+	_caughtScrap = std::make_shared<CaughtScrap>(scrapTransform, "caughtScrap");
+	_caughtScrap->initialize();
+
+	Engine::getInstance().getSceneManager().getCurrentScene()->addActor(_caughtScrap);
+}
+
+void Player::throwScrap() noexcept
+{
+	if (_caughtScrap == nullptr)
+		return;
+
+	_caughtScrap->throwScrap(_transform->getForward());
+	_caughtScrap->getTransform()->setPosition(_transform->getPosition());
+	_caughtScrap->getTransform()->setScale(_caughtScrap->getTransform()->getScale() * _transform->getScale());
+
+	_caughtScrap.reset();
 }

@@ -11,6 +11,10 @@ void ItemBase::initialize() noexcept
 	auto sphere = addComponent<CSphere>();
 	sphere->setTransform(_transform);
 	_col = sphere;
+
+	Engine::getInstance().getEventDispathcer().subscribeEvent(getOnCollisionEnterEventKey(), [this](void* data) { onCollisionEnter(data); });
+	Engine::getInstance().getEventDispathcer().subscribeEvent(getOnCollisionStayEventKey(), [this](void* data) { onCollisionStay(data); });
+	Engine::getInstance().getEventDispathcer().subscribeEvent(getOnCollisionExitEventKey(), [this](void* data) { onCollisionExit(data); });
 }
 
 void ItemBase::update() noexcept
@@ -40,7 +44,18 @@ void ItemBase::destroy() noexcept
 
 void ItemBase::onCollisionEnter(void* data) noexcept
 {
+	//衝突イベント情報にキャスト
+	auto* event = static_cast<CollisionInfo*>(data);
 
+	//衝突したものがどのグループに属するかで分岐
+	switch ((eCollisionGroup)event->groupOther)
+	{
+	case eCollisionGroup::Player:
+
+		destroy();
+
+		break;
+	}
 }
 
 void ItemBase::onCollisionStay(void* data) noexcept

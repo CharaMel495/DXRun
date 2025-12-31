@@ -147,6 +147,7 @@
     <ClCompile Include="src\Components\DXLibModelRender.cpp" />
     <ClCompile Include="src\Components\MovementComponent.cpp" />
     <ClCompile Include="src\Game\Camera.cpp" />
+    <ClCompile Include="src\Game\Item\CaughtScrap.cpp" />
     <ClCompile Include="src\Game\Item\ItemBase.cpp" />
     <ClCompile Include="src\Game\Item\Scrap.cpp" />
     <ClCompile Include="src\Game\Player\Player.cpp" />
@@ -165,6 +166,7 @@
     <ClInclude Include="src\Components\DXLibModelRender.h" />
     <ClInclude Include="src\Components\MovementComponent.h" />
     <ClInclude Include="src\Game\Camera.h" />
+    <ClInclude Include="src\Game\Item\CaughtScrap.h" />
     <ClInclude Include="src\Game\Item\ItemBase.h" />
     <ClInclude Include="src\Game\Item\Scrap.h" />
     <ClInclude Include="src\Game\Player\Player.h" />
