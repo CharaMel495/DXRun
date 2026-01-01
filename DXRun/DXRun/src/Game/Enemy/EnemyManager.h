@@ -2,6 +2,7 @@
 #include "CaramelEngine.h"
 #include "ITargetProvider.h"
 #include "EnemyBase.h"
+#include "EnemyDataTypeMaster.h"
 
 namespace
 {
@@ -12,12 +13,11 @@ namespace
 	concept ShootingEnemyCreatable = std::constructible_from<TShootingEnemy, EnemyParam, std::unique_ptr<IBulletShooter>>;*/
 }
 
-class EnemyCreateData
+struct EnemyCreateData
 {
 	uint32_t enemyID;
 	CVector3 pos;
 	CVector3 dir;
-	std::shared_ptr<ITargetProvider> target;
 };
 
 /// <summary>
@@ -32,37 +32,37 @@ public:
 	{
 	}
 
-	std::shared_ptr<EnemyBase> createEnemy()
+	std::shared_ptr<EnemyBase> createEnemy(EnemyCreateData data)
 	{
 		// TODO : 環境を整えたので、次は敵の生成を試してみる
-		/*auto param = _masterData->getEnemyDataById(enemyID, pos, dir, target);
+		auto param = _masterData->getEnemyDataById(data.enemyID, data.pos, data.dir);
 
 		param.name = "enemy_" + std::to_string(_createID);
 		param.createID = _createID;
-		param.enemyTransform->setLocalScale(CVector3(70.0f, 70.0f, 0.0f));*/
-		// もし弾を撃つ機構を備えているなら
+		param.enemyTransform->setScale(CVector3(70.0f, 70.0f, 0.0f));
+		//// もし弾を撃つ機構を備えているなら
 		//if (param.shootPattern.has_value())
-		//param.target = _playerManager->getPlayerTarget();
+		//	param.target = _playerManager->getPlayerTarget();
 
-		//// 選択された型を生成
-		//auto createdEnemy = std::make_shared<EnemyBase>(param);
-		//// ヒットイベントを作成
-		//createdEnemy->createHitEvent();
-		//// 初期化
-		//createdEnemy->initialize();
-		//// 衝突判定クラスに登録
-		//Engine::getInstance().registerToCollisionManager(createdEnemy->getCollisionGroupID(), createdEnemy);
-		//// アクティブな敵として登録
-		//_activeEnemys[_createID] = createdEnemy;
-		//// 重複を避けるためにインクリメント
-		//++_createID;
+		// 選択された型を生成
+		auto createdEnemy = std::make_shared<EnemyBase>(param);
+		// ヒットイベントを作成
+		createdEnemy->createEvents();
+		// 初期化
+		createdEnemy->initialize();
+		// 現在のシーンに登録
+		Engine::getInstance().getSceneManager().getCurrentScene()->addActor(createdEnemy);
+		// アクティブな敵として登録
+		_activeEnemys[_createID] = createdEnemy;
+		// 重複を避けるためにインクリメント
+		++_createID;
 
-		//// 一定を超えたらIDをリセット
-		//if (_createID > 1000000)
-		//	_createID = 0;
+		// 一定を超えたらIDをリセット
+		if (_createID > 1000000)
+			_createID = 0;
 
-		//// 生成した敵を返却
-		//return createdEnemy;
+		// 生成した敵を返却
+		return createdEnemy;
 	}
 
 	void initialize();
@@ -88,15 +88,15 @@ private:
 	/// </summary>
 	std::unordered_map<int, std::shared_ptr<EnemyBase>> _activeEnemys;
 
-	/*/// <summary>
+	/// <summary>
 	/// 敵の移動を管理するクラス
 	/// </summary>
-	std::unique_ptr<EnemyMover> _mover;
+	/*std::unique_ptr<EnemyMover> _mover;
 
-	std::shared_ptr<PlayerManager> _playerManager;
+	std::shared_ptr<PlayerManager> _playerManager;*/
 
 	/// <summary>
 	/// 敵のマスターデータ
 	/// </summary>
-	std::unique_ptr<EnemyTypeMaster> _masterData;*/
+	std::unique_ptr<EnemyTypeMaster> _masterData;
 };

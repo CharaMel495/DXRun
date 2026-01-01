@@ -2,10 +2,10 @@
 
 void EnemyManager::initialize()
 {
-	/*_mover = std::make_unique<EnemyMover>();
+	// _mover = std::make_unique<enemymover>();
 	_masterData = std::make_unique<EnemyTypeMaster>();
 
-	_masterData->loadFromJson();*/
+	_masterData->loadFromJson();
 }
 
 void EnemyManager::moveEnemy(float deltaTime) noexcept

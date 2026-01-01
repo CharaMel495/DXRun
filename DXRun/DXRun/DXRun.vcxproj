@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -112,7 +112,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir);$(SolutionDir)DXRun;$(SolutionDir)DXRun\src;$(SolutionDir)DXRun\src\Game;$(SolutionDir)DXLib;$(SolutionDir)CaramelEngine;$(SolutionDir)CaramelEngine\Public;$(SolutionDir)CaramelEngine\src;$(SolutionDir)CaramelEngine\src\Library;$(SolutionDir)CaramelEngine\src\Library\Definition;$(SolutionDir)CaramelEngine\src\Library\Utility;$(SolutionDir)CaramelEngine\src\System;$(SolutionDir)CaramelEngine\src\SugerScript;$(ProjectDir)src\Scene;$(ProjectDir)src\Game\Player;$(ProjectDir)src\Components;$(SolutionDir)CaramelEngine\src\System\Input;$(ProjectDir)src\Interface;$(ProjectDir)src\Game\Stage;$(ProjectDir)src\Render;$(ProjectDir)src\System;$(ProjectDir)src\Game\Item;$(ProjectDir)src\Game\Enemy</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir);$(SolutionDir)DXRun;$(SolutionDir)DXRun\src;$(SolutionDir)DXRun\src\Game;$(SolutionDir)DXLib;$(SolutionDir)CaramelEngine;$(SolutionDir)CaramelEngine\Public;$(SolutionDir)CaramelEngine\src;$(SolutionDir)CaramelEngine\src\Library;$(SolutionDir)CaramelEngine\src\Library\Definition;$(SolutionDir)CaramelEngine\src\Library\Utility;$(SolutionDir)CaramelEngine\src\System;$(SolutionDir)CaramelEngine\src\SugerScript;$(ProjectDir)src\Scene;$(ProjectDir)src\Game\Player;$(ProjectDir)src\Components;$(SolutionDir)CaramelEngine\src\System\Input;$(ProjectDir)src\Interface;$(ProjectDir)src\Game\Stage;$(ProjectDir)src\Render;$(ProjectDir)src\System;$(ProjectDir)src\Game\Item;$(ProjectDir)src\Game\Enemy;$(ProjectDir)src\Definition</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
@@ -148,6 +148,7 @@
     <ClCompile Include="src\Components\MovementComponent.cpp" />
     <ClCompile Include="src\Game\Camera.cpp" />
     <ClCompile Include="src\Game\Enemy\EnemyBase.cpp" />
+    <ClCompile Include="src\Game\Enemy\EnemyDataTypeMaster.cpp" />
     <ClCompile Include="src\Game\Enemy\EnemyManager.cpp" />
     <ClCompile Include="src\Game\Item\CaughtScrap.cpp" />
     <ClCompile Include="src\Game\Item\ItemBase.cpp" />
@@ -167,8 +168,11 @@
   <ItemGroup>
     <ClInclude Include="src\Components\DXLibModelRender.h" />
     <ClInclude Include="src\Components\MovementComponent.h" />
+    <ClInclude Include="src\Definition\EventDefinition.h" />
     <ClInclude Include="src\Game\Camera.h" />
     <ClInclude Include="src\Game\Enemy\EnemyBase.h" />
+    <ClInclude Include="src\Game\Enemy\EnemyDatas.h" />
+    <ClInclude Include="src\Game\Enemy\EnemyDataTypeMaster.h" />
     <ClInclude Include="src\Game\Enemy\EnemyManager.h" />
     <ClInclude Include="src\Game\Item\CaughtScrap.h" />
     <ClInclude Include="src\Game\Item\ItemBase.h" />

@@ -1,39 +1,20 @@
 #pragma once
 #include "CaramelEngine.h"
+#include "EnemyDatas.h"
 #include "ColliderManager.h"
 #include "ITargetProvider.h"
-
-class EnemyParam
-{
-	//ここまでは敵のファクトリメソッドを呼ぶ側が決めれる
-	CString name;
-	uint32_t spriteID;
-	eColliderType colliderType;
-	float colliderSize;
-	uint32_t hasDamage;
-	bool fireEnabled;
-	uint32_t useBulletID;
-	uint32_t hasScore;
-	uint32_t deadEffectID;
-	uint32_t dropScoreItemValue;
-	uint32_t dropPowerItemValue;
-
-
-	// ---以下はマネージャ生成時に設定する
-	int createID;
-	std::shared_ptr<Transform> enemyTransform;
-	std::shared_ptr<ITargetProvider> target;
-	CVector3 startDir;
-	float moveSpeed;
-};
+#include "EventDefinition.h"
 
 class EnemyBase : public Actor, public ICollisionObject
 {
 public:
 
-	EnemyBase(std::shared_ptr<Transform> transform, CString name) noexcept :
-		Actor(transform, name),
+	EnemyBase() noexcept = delete;
+
+	EnemyBase(EnemyParam param) noexcept :
+		Actor(param.enemyTransform, param.name),
 		ICollisionObject(_actorName),
+		_param(param),
 		_col(nullptr)
 	{
 	}
@@ -72,12 +53,24 @@ public:
 		return reinterpret_cast<void*>(const_cast<EnemyBase*>(this));
 	}
 
-	//衝突イベント３種
+	// 衝突イベント３種
 	void onCollisionEnter(void* data) noexcept override;
 	void onCollisionStay(void* data) noexcept override;
 	void onCollisionExit(void* data) noexcept override;
 
+	// Enemyの実装
+
+	// 破棄待ちか
+	bool isDestroyWaiting() noexcept { return _currentHP <= 0; }
+
+	// イベント関係
+	void createEvents() noexcept;
+	DamageEvent getDamageEventData() noexcept { return _damageEvent; }
+
 private:
 
+	EnemyParam _param;
 	ICollider* _col;
+	int _currentHP;
+	DamageEvent _damageEvent;
 };

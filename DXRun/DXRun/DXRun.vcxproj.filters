@@ -35,6 +35,9 @@
     <Filter Include="Game\Enemy">
       <UniqueIdentifier>{443824e6-63a9-4768-8fbb-8c3adffb2ab1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Definition">
+      <UniqueIdentifier>{517a415b-1d18-4112-a634-605ccb8925f3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -80,6 +83,9 @@
     <ClCompile Include="src\Game\Enemy\EnemyManager.cpp">
       <Filter>Game\Enemy</Filter>
     </ClCompile>
+    <ClCompile Include="src\Game\Enemy\EnemyDataTypeMaster.cpp">
+      <Filter>Game\Enemy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Scene\MainScene.h">
@@ -123,6 +129,15 @@
     </ClInclude>
     <ClInclude Include="src\Game\Enemy\EnemyManager.h">
       <Filter>Game\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\Enemy\EnemyDatas.h">
+      <Filter>Game\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game\Enemy\EnemyDataTypeMaster.h">
+      <Filter>Game\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Definition\EventDefinition.h">
+      <Filter>Game\Definition</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

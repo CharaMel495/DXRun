@@ -67,3 +67,8 @@ void EnemyBase::onCollisionExit(void* data) noexcept
 {
 
 }
+
+void EnemyBase::createEvents() noexcept
+{
+	_damageEvent = { (int)_param.hasDamage };
+}

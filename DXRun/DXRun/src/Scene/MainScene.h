@@ -2,6 +2,7 @@
 #include "CaramelEngine.h"
 #include "Camera.h"
 #include "ColliderManager.h"
+#include "EnemyManager.h"
 
 class MainScene final : public Scene
 {
@@ -28,4 +29,5 @@ private:
 	std::shared_ptr<Camera> _mainCam;
 
 	std::unique_ptr<ColliderManager> _colliderManager;
+	std::unique_ptr<EnemyManager> _enemyManager;
 };
