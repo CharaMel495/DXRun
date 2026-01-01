@@ -11,7 +11,6 @@ enum class eCollisionGroup : uint32_t
     Player,            // 自機の本体
     PlayerShot,        // 通常ショット
     Enemy,             // 敵本体（被弾対象）
-    EnemyBody,         // 接触ダメージ用
     EnemyShot,         // 敵の弾
     Item,              // アイテム系
 

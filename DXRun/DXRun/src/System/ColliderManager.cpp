@@ -13,9 +13,7 @@ void ColliderManager::initialize() noexcept
     //プレイヤー弾vs敵判定
     _collisionPairs.emplace((uint32_t)CG::PlayerShot, (uint32_t)CG::Enemy);
     //プレイヤーvs敵の体当たり判定
-    _collisionPairs.emplace((uint32_t)CG::Player, (uint32_t)CG::EnemyBody);
-    //プレイヤー弾vs敵の体当たり判定
-    _collisionPairs.emplace((uint32_t)CG::PlayerShot, (uint32_t)CG::EnemyBody);
+    _collisionPairs.emplace((uint32_t)CG::Player, (uint32_t)CG::Enemy);
 
     // ====== アイテム ======
     //プレイヤーvsアイテム判定
