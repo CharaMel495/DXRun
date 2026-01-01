@@ -189,7 +189,7 @@ void Player::onStickActiveL(void* stick) noexcept
 		return;
 
 	// ‰¡‚É‚ÍˆÚ“®‚³‚¹‚½‚­‚È‚¢‚Ì‚ÅAc‚Ì“ü—Í‚Ì‚Ýˆµ‚¤
-	CVector3 moveDir = _transform->getForward() * -input->y;
+	CVector3 moveDir = _transform->getForward() * input->y;
 
 	mover->setMoveDir(moveDir.normalized());
 }

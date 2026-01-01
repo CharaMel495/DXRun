@@ -12,7 +12,9 @@ public:
 		ItemBase(transform, name),
 		_caughtValue(0),
 		_scaleMulByValue(0.1),
-		_throwSpeed(10.0f)
+		_throwSpeed(0.0f),
+		_maxSpeed(30.0f),
+		_minSpeed(12.0f)
 	{}
 
 	// --- ItemBase ---
@@ -34,4 +36,7 @@ private:
 	float _scaleMulByValue;
 
 	float _throwSpeed;
+
+	float _maxSpeed;
+	float _minSpeed;
 };

@@ -1,6 +1,7 @@
 #include "DXLib.h"
 #include "MainScene.h"
 #include "Player.h"
+#include "EnemyBase.h"
 #include "ItemBase.h"
 #include "StageObject.h"
 #include "ColliderManager.h"
@@ -30,6 +31,14 @@ void MainScene::initialize() noexcept
 		item->initialize();
 		addActor(item);
 	}
+
+	auto eTransform = std::make_shared<Transform>();
+	eTransform->setPosition({ 200.0f, 240.0f, -400.0f });
+	eTransform->setRotation(CQuaternion::fromEulerXYZ(0.0f, 0.0f, 0.0f));
+	eTransform->setScale({ 200.0f, 200.0f, 200.0f });
+	auto enemy = std::make_shared<EnemyBase>(eTransform, "Enemy");
+	enemy->initialize();
+	addActor(enemy);
 
 	auto stageTransform = std::make_shared<Transform>();
 	stageTransform->setPosition({ 0.0f, 100.0f, 0.0f });

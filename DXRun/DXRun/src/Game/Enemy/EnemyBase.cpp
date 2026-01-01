@@ -5,12 +5,12 @@
 void EnemyBase::initialize() noexcept
 {
 	auto modelRender = addComponent<DXLibModelRender>();
-	modelRender->setFilePath("Assets//Models//Test//sphere.mv1");
+	modelRender->setFilePath("Assets//Models//Test//cube.mv1");
 	modelRender->initialize();
 
-	auto sphere = addComponent<CSphere>();
-	sphere->setTransform(_transform);
-	_col = sphere;
+	auto cube = addComponent<CCube>();
+	cube->setTransform(_transform);
+	_col = cube;
 
 	Engine::getInstance().getEventDispathcer().subscribeEvent(getOnCollisionEnterEventKey(), [this](void* data) { onCollisionEnter(data); });
 	Engine::getInstance().getEventDispathcer().subscribeEvent(getOnCollisionStayEventKey(), [this](void* data) { onCollisionStay(data); });

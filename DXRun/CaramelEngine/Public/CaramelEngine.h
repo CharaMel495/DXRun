@@ -32,6 +32,15 @@
 #include <span>
 #include <type_traits>
 
+#include <algorithm>
+
+// 0.0 ~ 1.0の範囲で逆線形補間
+#define INVERSE_LERP_CLAMP(a, b, v) \
+    (((a) == (b)) ? 0.0f : std::clamp(((v) - (a)) / ((b) - (a)), 0.0f, 1.0f))
+// 範囲の指定なしで逆線形補間
+#define INVERSE_LERP(a, b, v) \
+    (((a) == (b)) ? 0.0f : ((v) - (a)) / ((b) - (a)))
+
 // --- ユーティリティ系 ---
 #include "CString.h"
 #include "CVector3.h"

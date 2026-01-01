@@ -26,6 +26,9 @@ void CaughtScrap::addScrap(int addValue)
 // がらくた投擲メソッド
 void CaughtScrap::throwScrap(CVector3 throwDir)
 {
+	float t = INVERSE_LERP_CLAMP(0.0f, MAXSCRAPVALUE, _caughtValue);
+	_throwSpeed = std::lerp(_minSpeed, _maxSpeed, 1 - t);
+
 	// 移動用コンポーネントを追加
 	auto mover = addComponent<MovementComponent>();
 	mover->setTransform(_transform);
