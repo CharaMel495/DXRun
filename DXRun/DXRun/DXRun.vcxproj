@@ -157,7 +157,9 @@
     <ClCompile Include="src\Game\Stage\StageObject.cpp" />
     <ClCompile Include="src\Interface\ITargetProvider.cpp" />
     <ClCompile Include="src\Render\DxLibLight.cpp" />
+    <ClCompile Include="src\Scene\GameOverScene.cpp" />
     <ClCompile Include="src\Scene\MainScene.cpp" />
+    <ClCompile Include="src\Scene\TitleScene.cpp" />
     <ClCompile Include="src\System\ColliderManager.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -184,7 +186,9 @@
     <ClInclude Include="src\Game\Stage\StageObject.h" />
     <ClInclude Include="src\Interface\ITargetProvider.h" />
     <ClInclude Include="src\Render\DxLibLight.h" />
+    <ClInclude Include="src\Scene\GameOverScene.h" />
     <ClInclude Include="src\Scene\MainScene.h" />
+    <ClInclude Include="src\Scene\TitleScene.h" />
     <ClInclude Include="src\System\ColliderManager.h" />
   </ItemGroup>
   <ItemGroup>

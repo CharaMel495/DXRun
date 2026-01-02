@@ -154,30 +154,8 @@ void Player::onHeldKey(void* data) noexcept
 		else if (key == InputKey::A)
 			moveDir += { -1.0f, 0.0f, 0.0f };
 
-		if (key == InputKey::Q)
-			moveDir += { 0.0f, 1.0f, 0.0f };
-		else if (key == InputKey::E)
-			moveDir += { 0.0f, -1.0f, 0.0f };
-
-		//右キーか左キーが押されたら左右回転
-		/*if (key == InputKey::A)
-		{
-			CQuaternion delta =
-				CQuaternion::fromAxisAngle(_transform->getUp(), -0.01f);
-			_transform->setRotation(delta * _transform->getRotation());
-		}
-		else if (key == InputKey::D)
-		{
-			CQuaternion delta =
-				CQuaternion::fromAxisAngle(_transform->getUp(), 0.01f);
-			_transform->setRotation(delta * _transform->getRotation());
-		}*/
-
-		if (key == InputKey::Space)
+		if (key == InputKey::Space || key == InputKey::ButtonA)
 			throwScrap();
-
-		if (key == InputKey::G)
-			getScrap(1);
 	}
 
 	//移動方向なので正規化
@@ -220,11 +198,25 @@ void Player::onStickActiveL(void* stick) noexcept
 	if (!mover)
 		return;
 
-	if (std::abs(input->y) < 0.03)
-		return;
+	auto moveDir = CVector3();
 
-	// 横には移動させたくないので、縦の入力のみ扱う
-	CVector3 moveDir = _transform->getForward() * input->y;
+	if (std::abs(input->x) > 0.03)
+		moveDir.setX(input->x);
+	if (std::abs(input->y) > 0.03)
+		moveDir.setZ(input->y);
+	
+	//もし長さが0より大きければ
+	if (moveDir.sqrtmagnitude() > 0)
+	{
+		_currentDir = moveDir;
+		float targetYaw = atan2(moveDir.getX(), moveDir.getZ());
+		auto currentEuler = _transform->getRotation().toEulerXYZ();
+		CQuaternion targetRot = CQuaternion::fromEulerXYZ(currentEuler.getX(), targetYaw, currentEuler.getZ());
+		CQuaternion newRot =
+			CQuaternion::slerp(_transform->getRotation(), targetRot, _rotSpeed * CaramelEngine::Time::getFixedDeltaTime());
+
+		_transform->setRotation(newRot);
+	}
 
 	mover->setMoveDir(moveDir.normalized());
 }
