@@ -14,12 +14,16 @@ public:
 		_scaleMulByValue(0.1),
 		_throwSpeed(0.0f),
 		_maxSpeed(30.0f),
-		_minSpeed(12.0f)
+		_minSpeed(12.0f),
+		_isThrowed(false),
+		_remainTime(5.0f)
 	{}
 
 	// --- ItemBase ---
 	// CollisionGroupを返す（どのグループに属するか）
 	virtual std::uint32_t getCollisionGroupID() const { return (std::uint32_t)eCollisionGroup::PlayerShot; }
+
+	void fixedUpdate() noexcept override;
 
 	// がらくた取得メソッド
 	void addScrap(int addValue = 1);
@@ -39,4 +43,8 @@ private:
 
 	float _maxSpeed;
 	float _minSpeed;
+
+	bool _isThrowed;
+
+	float _remainTime;
 };

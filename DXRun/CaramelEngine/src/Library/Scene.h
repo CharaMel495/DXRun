@@ -34,7 +34,11 @@ namespace CaramelEngine
 
 		virtual void shutdown() noexcept = 0;
 
+		std::shared_ptr<CameraBase> getMainCamera() noexcept { return _mainCam; }
+
 	protected:
+
+		std::shared_ptr<CameraBase> _mainCam;
 
 		/// <summary>
 		/// このシーンに登場するアクター

@@ -18,7 +18,8 @@ public:
 		ITargetProvider(),
 		_currentDir(),
 		_moveSpeed(10.0f),
-		_rotSpeed(1.f)
+		_rotSpeed(5.f),
+		_currentScore(0)
 	{}
 
 	// --- MonoBehaviour ---
@@ -85,6 +86,7 @@ public:
 
 	bool isInvincible() noexcept { return _remainInvincibleTime > 0; }
 
+	void addScore(int addScore) noexcept { _currentScore += addScore; }
 	
 private:
 
@@ -108,6 +110,8 @@ private:
 	/// Œ»İ‚ÌŒü‚«
 	/// </summary>
 	CVector3 _currentDir;
+
+	int _currentScore;
 
 	ICollider* _col;
 

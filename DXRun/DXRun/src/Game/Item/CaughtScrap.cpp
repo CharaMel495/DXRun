@@ -1,6 +1,20 @@
 #include "CaughtScrap.h"
 #include "MovementComponent.h"
 
+void CaughtScrap::fixedUpdate() noexcept
+{
+	ItemBase::fixedUpdate();
+
+	if (!_isThrowed || isInScreen(Engine::getInstance().getSceneManager().getCurrentScene()->getMainCamera()))
+		return;
+
+	_remainTime -= CaramelEngine::Time::getFixedDeltaTime();
+
+	if (_remainTime > 0)
+		return;
+
+	destroy();
+}
 
 // がらくた取得メソッド
 void CaughtScrap::addScrap(int addValue) 
@@ -37,4 +51,6 @@ void CaughtScrap::throwScrap(CVector3 throwDir)
 
 	// プレイヤーの親になってるハズなので、離脱
 	_transform->setParent(nullptr);
+
+	_isThrowed = true;
 }

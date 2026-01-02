@@ -153,6 +153,9 @@
     <ClInclude Include="src\Library\Utility\ShapeTraits.h">
       <Filter>Library\Utility</Filter>
     </ClInclude>
+    <ClInclude Include="src\Library\CameraBase.h">
+      <Filter>Library</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="CaraMelEngine.rc">

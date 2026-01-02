@@ -169,6 +169,7 @@
     <ClInclude Include="Public\CaramelUtilitys.h" />
     <ClInclude Include="Public\Components.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="src\Library\CameraBase.h" />
     <ClInclude Include="src\Library\ColliderManagerBase.h" />
     <ClInclude Include="src\Library\CollisionInfo.h" />
     <ClInclude Include="src\Library\CollisionTester.h" />

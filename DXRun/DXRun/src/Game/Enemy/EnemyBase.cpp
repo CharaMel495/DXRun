@@ -52,6 +52,7 @@ void EnemyBase::onCollisionEnter(void* data) noexcept
 	{
 	case eCollisionGroup::PlayerShot:
 
+		Engine::getInstance().getEventDispathcer().dispatchEvent("addScore", &_param.hasScore);
 		destroy();
 
 		break;

@@ -34,6 +34,7 @@ void Player::initialize() noexcept
 	Engine::getInstance().getEventDispathcer().subscribeEvent(getOnCollisionEnterEventKey(), [this](void* data) { onCollisionEnter(data); });
 	Engine::getInstance().getEventDispathcer().subscribeEvent(getOnCollisionStayEventKey(), [this](void* data) { onCollisionStay(data); });
 	Engine::getInstance().getEventDispathcer().subscribeEvent(getOnCollisionExitEventKey(), [this](void* data) { onCollisionExit(data); });
+	Engine::getInstance().getEventDispathcer().subscribeEvent("addScore", [this](void* data) { addScore(*static_cast<int*>(data)); });
 }
 
 void Player::update() noexcept
@@ -57,6 +58,11 @@ void Player::fixedUpdate() noexcept
 
 	if (isInvincible())
 		_remainInvincibleTime -= CaramelEngine::Time::getFixedDeltaTime();
+
+	TCHAR scoreStr[64];
+	_stprintf_s(scoreStr, _T("SCORE : %d"), _currentScore);
+
+	DrawString(20, 20, scoreStr, GetColor(255, 255, 255));
 }
 
 void Player::destroy() noexcept
@@ -139,17 +145,22 @@ void Player::onHeldKey(void* data) noexcept
 	{
 		//上キーか下キーが押されたら上下移動
 		if (key == InputKey::W)
-			moveDir += _transform->getForward();
+			moveDir += { 0.0f, 0.0f, 1.0f };
 		else if (key == InputKey::S)
-			moveDir -= _transform->getForward();
+			moveDir += { 0.0f, 0.0f, -1.0f };
+
+		if (key == InputKey::D)
+			moveDir += { 1.0f, 0.0f, 0.0f };
+		else if (key == InputKey::A)
+			moveDir += { -1.0f, 0.0f, 0.0f };
 
 		if (key == InputKey::Q)
-			moveDir += _transform->getUp();
+			moveDir += { 0.0f, 1.0f, 0.0f };
 		else if (key == InputKey::E)
-			moveDir -= _transform->getUp();
+			moveDir += { 0.0f, -1.0f, 0.0f };
 
 		//右キーか左キーが押されたら左右回転
-		if (key == InputKey::A)
+		/*if (key == InputKey::A)
 		{
 			CQuaternion delta =
 				CQuaternion::fromAxisAngle(_transform->getUp(), -0.01f);
@@ -160,7 +171,7 @@ void Player::onHeldKey(void* data) noexcept
 			CQuaternion delta =
 				CQuaternion::fromAxisAngle(_transform->getUp(), 0.01f);
 			_transform->setRotation(delta * _transform->getRotation());
-		}
+		}*/
 
 		if (key == InputKey::Space)
 			throwScrap();
@@ -174,7 +185,16 @@ void Player::onHeldKey(void* data) noexcept
 
 	//もし長さが0より大きければ
 	if (moveDir.sqrtmagnitude() > 0)
+	{
 		_currentDir = moveDir;
+		float targetYaw = atan2(moveDir.getX(), moveDir.getZ());
+		auto currentEuler = _transform->getRotation().toEulerXYZ();
+		CQuaternion targetRot = CQuaternion::fromEulerXYZ(currentEuler.getX(), targetYaw, currentEuler.getZ());
+		CQuaternion newRot =
+			CQuaternion::slerp(_transform->getRotation(), targetRot, _rotSpeed * CaramelEngine::Time::getFixedDeltaTime());
+
+		_transform->setRotation(newRot);
+	}
 
 	//移動方向を移動用コンポーネントに伝える
 	mover->setMoveDir(moveDir);

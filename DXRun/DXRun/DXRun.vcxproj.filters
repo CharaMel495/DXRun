@@ -141,6 +141,9 @@
     </ClInclude>
     <ClInclude Include="resource.h" />
     <ClInclude Include="ResourceLoader.h" />
+    <ClInclude Include="src\Game\DXLibCameraBase.h">
+      <Filter>Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="AssetResource.rc">

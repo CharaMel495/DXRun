@@ -40,6 +40,10 @@ void ItemBase::fixedUpdate() noexcept
 void ItemBase::destroy() noexcept
 {
 	_destroyFlag = true;
+
+	Engine::getInstance().getEventDispathcer().removeEvent(getOnCollisionEnterEventKey());
+	Engine::getInstance().getEventDispathcer().removeEvent(getOnCollisionStayEventKey());
+	Engine::getInstance().getEventDispathcer().removeEvent(getOnCollisionExitEventKey());
 }
 
 void ItemBase::onCollisionEnter(void* data) noexcept

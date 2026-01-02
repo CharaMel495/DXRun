@@ -1,45 +1,54 @@
 #pragma once
 
 #include "DxLib.h"
-#include "CaramelEngine.h"
+#include <DirectXMath.h>
+#include <memory>
+
+#include "DXLibCameraBase.h"
 #include "ITargetProvider.h"
+#include "CaramelEngine.h"
 
-// カメラの手前クリップ距離
-#define CAMERA_NEAR_Z       (20.0f)
+// ---- 定数 ----
+#define CAMERA_NEAR_Z   (20.0f)
+#define CAMERA_FAR_Z    (25000.0f)
+#define CAMERA_FOV      (40.0f)
 
-// カメラの奥クリップ距離
-#define CAMERA_FAR_Z        (25000.0f)
-
-class Camera
+// ---- Camera ----
+class Camera final : public DXLibCameraBase
 {
 public:
+    Camera() noexcept = default;
+    ~Camera() override = default;
 
-    inline Camera() noexcept = default;
+    void initialize() override;
+    void update(float deltaTime) override;
 
-    virtual ~Camera() noexcept {}
+    void shake(float width, float time, float angleSpeed);
 
-    // カメラの処理を初期化する
-    void initialize(void);
+    void setTarget(std::weak_ptr<ITargetProvider> target) noexcept
+    {
+        _target = target;
+    }
 
-    // カメラの状態推移処理を実行する
-    void update(float StepTime);
+    // === CameraBase 実装 ===
+    const DirectX::XMFLOAT4X4& getViewMatrix() const noexcept override;
+    const DirectX::XMFLOAT4X4& getProjectionMatrix() const noexcept override;
 
-    // カメラの設定を行う
-    void setup(void);
+    const CVector3& getPosition() const noexcept override;
+    const CVector3& getForward()  const noexcept override;
+    const CVector3& getRight()    const noexcept override;
+    const CVector3& getUp()       const noexcept override;
 
-    // カメラを揺らす処理を開始する
-    void shake(float ShakeWidth, float ShakeTime, float ShakeAngleSpeed);
+    // === DXCameraBase ===
+    void applyToDxLib() const noexcept override;
 
-    // カメラの向いている方向を取得する
-    // 戻り値 : カメラの向いている方向のベクトル
-    CVector3 getFrontDirection(void);
-
-    // カメラの向いている方向から見て右方向を取得する
-    //     戻り値 : カメラの向いている方向から見て右方向のベクトルを取得する
-    CVector3 getRightDirection(void);
-
-    void setTarget(std::weak_ptr<ITargetProvider> target) noexcept { _target = target; }
 private:
+    void buildViewMatrix() const noexcept;
+    void buildProjectionMatrix() const noexcept;
 
+private:
     std::weak_ptr<ITargetProvider> _target;
+
+    mutable DirectX::XMFLOAT4X4 _view;
+    mutable DirectX::XMFLOAT4X4 _proj;
 };

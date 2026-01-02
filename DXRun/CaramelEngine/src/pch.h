@@ -75,6 +75,7 @@
 #include "Transform.h"
 #include "MonoBehaviour.h"
 #include "EventDispatcher.h"
+#include "CameraBase.h"
 
 // ---•`‰æü‚èAÅV---
 #include "Mesh.h"

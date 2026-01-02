@@ -26,8 +26,6 @@ public:
 
 private:
 
-	std::shared_ptr<Camera> _mainCam;
-
 	std::unique_ptr<ColliderManager> _colliderManager;
 	std::unique_ptr<EnemyManager> _enemyManager;
 };

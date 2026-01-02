@@ -42,9 +42,10 @@ void MainScene::initialize() noexcept
 	auto stageObj = std::make_shared<StageObject>(stageTransform, "testStage");
 	stageObj->initialize();
 
-	_mainCam = std::make_shared<Camera>();
-	_mainCam->setTarget(player);
-	_mainCam->initialize();
+	auto cam = std::make_shared<Camera>();
+	cam->setTarget(player);
+	cam->initialize();
+	_mainCam = cam;
 
 	addActor(player);
 	addActor(stageObj);
@@ -64,7 +65,6 @@ void MainScene::update() noexcept
 	}
 
 	_mainCam->update(CaramelEngine::Time::getFixedDeltaTime());
-	_mainCam->setup();
 
 	_colliderManager->update();
 
