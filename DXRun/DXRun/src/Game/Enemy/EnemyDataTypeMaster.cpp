@@ -11,7 +11,7 @@ bool EnemyTypeMaster::loadFromJson()
     GetModuleFileNameA(NULL, exePath, MAX_PATH);  // exe‚Ìƒtƒ‹ƒpƒX
     std::filesystem::path exeDir = std::filesystem::path(exePath).parent_path();
 
-    std::filesystem::path streamingAssetsPath = exeDir / "StreamingAssets/JsonFiles/EnemyMasterTable.json";
+    std::filesystem::path streamingAssetsPath = exeDir / "temp/Params/JsonFiles/EnemyMasterTable.json";
     CString path = streamingAssetsPath.string();
 
     JsonReader reader;

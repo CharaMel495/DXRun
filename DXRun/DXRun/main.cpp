@@ -3,6 +3,7 @@
 #include "MainScene.h"
 #include "Player.h"
 #include "DxLibLight.h"
+#include "ResourceLoader.h"
 
 using namespace DxLib;
 
@@ -14,8 +15,14 @@ using namespace CaramelEngine;
 // プログラムは WinMain から始まります
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
+    // リソースのロード
+    HRSRC hRes = ExtractAssetsToTemp();
+
+    if (!hRes)
+        return 1;
+
     // ウィンドウ状態で起動(FSならFALSE)
-    ChangeWindowMode(FALSE);
+    ChangeWindowMode(TRUE);
     // 解像度と色に使うビット数を指定
     SetGraphMode(WINDOW_X, WINDOW_Y, 32);
     // ライブラリの初期化

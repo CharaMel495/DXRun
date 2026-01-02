@@ -5,7 +5,7 @@
 void ItemBase::initialize() noexcept
 {
 	auto modelRender = addComponent<DXLibModelRender>();
-	modelRender->setFilePath("Assets//Models//Test//sphere.mv1");
+	modelRender->setFilePath("temp//Models//Test//sphere.mv1");
 	modelRender->initialize();
 
 	auto sphere = addComponent<CSphere>();

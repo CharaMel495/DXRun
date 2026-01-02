@@ -8,7 +8,7 @@
 void Player::initialize() noexcept
 {
 	auto modelRender = addComponent<DXLibModelRender>();
-	modelRender->setFilePath("Assets//Models//Test//cube.mv1");
+	modelRender->setFilePath("temp//Models//Test//cube.mv1");
 	modelRender->initialize();
 
 	//移動用コンポーネントを取得
@@ -21,6 +21,7 @@ void Player::initialize() noexcept
 	cube->setTransform(_transform);
 	_col = cube;
 
+	_remainInvincibleTime = 0.0f;
 
 	//イベントの登録
 	Engine::getInstance().getEventDispathcer().subscribeEvent("onPressedKey", [this](void* data) { onPressedKey(data); });
@@ -53,6 +54,9 @@ void Player::fixedUpdate() noexcept
 	//fixedUpdate呼び出しが必要なコンポーネントのfixedUpdateを呼び出し
 	for (auto& comp : _myComponents)
 		comp->callFixedUpdate();
+
+	if (isInvincible())
+		_remainInvincibleTime -= CaramelEngine::Time::getFixedDeltaTime();
 }
 
 void Player::destroy() noexcept
@@ -83,6 +87,17 @@ void Player::onCollisionEnter(void* data) noexcept
 	case eCollisionGroup::Item:
 
 		getScrap(1);
+
+		break;
+	case eCollisionGroup::Enemy:
+
+		if (isInvincible())
+			return;
+
+		_remainInvincibleTime = INVINCIBLETIME;
+
+		auto renderer = findComponent<DXLibModelRender>();
+		renderer->startBlink(60);
 
 		break;
 	}

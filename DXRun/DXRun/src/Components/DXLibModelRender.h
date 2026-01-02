@@ -66,6 +66,8 @@ public:
         return DxLib::VSub(aabb.maxV, aabb.minV);
     }
 
+    void startBlink(int frameCount) noexcept { _blinkFrame = frameCount; }
+
 private:
 
 	CString _filePath;
@@ -73,4 +75,7 @@ private:
 	int _animHandle;
     CVector3 _modelLocalSize{ 1.f, 1.f, 1.f }; // ローカルAABBサイズ
     float _importScale = 1.0f;
+    bool _visible = true;              // 表示/非表示
+    int _blinkFrame = 0;               // 残り点滅フレーム数
+    int _blinkInterval = 5;            // 点滅切り替え間隔（フレーム）
 };

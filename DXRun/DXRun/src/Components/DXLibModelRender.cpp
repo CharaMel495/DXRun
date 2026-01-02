@@ -61,7 +61,18 @@ void DXLibModelRender::initialize() noexcept
 
 void DXLibModelRender::update() noexcept
 {
-	renderModel();
+    if (_visible)
+	    renderModel();
+
+    if (_blinkFrame > 0)
+    {
+        --_blinkFrame;
+        _visible = (_blinkFrame / _blinkInterval) % 2 == 0;
+    }
+    else
+    {
+        _visible = true;
+    }
 }
 
 void DXLibModelRender::renderModel() noexcept

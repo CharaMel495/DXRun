@@ -5,7 +5,7 @@
 			"name":"normalEnemy",
 			"spriteID":0,
 			"colliderType":0,
-			"colliderSize":50,
+			"colliderSize":200,
 			"hasDamage":1,
 			"moveType":0,
 			"moveSpeed":5,

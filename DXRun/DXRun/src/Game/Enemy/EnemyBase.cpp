@@ -5,7 +5,7 @@
 void EnemyBase::initialize() noexcept
 {
 	auto modelRender = addComponent<DXLibModelRender>();
-	modelRender->setFilePath("Assets//Models//Test//cube.mv1");
+	modelRender->setFilePath("temp//Models//Test//cube.mv1");
 	modelRender->initialize();
 
 	auto cube = addComponent<CCube>();

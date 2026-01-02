@@ -4,6 +4,8 @@
 #include "ColliderManager.h"
 #include "CaughtScrap.h"
 
+constexpr float INVINCIBLETIME = 1.0f;
+
 class Player final : public Pawn, public ICollisionObject, public ITargetProvider
 {
 public:
@@ -81,6 +83,8 @@ public:
 	void generateScrap();
 	void throwScrap() noexcept;
 
+	bool isInvincible() noexcept { return _remainInvincibleTime > 0; }
+
 	
 private:
 
@@ -94,6 +98,11 @@ private:
 	/// ‰ñ“]‘¬“x
 	/// </summary>
 	float _rotSpeed;
+
+	/// <summary>
+	/// c‚è–³“GŠÔ
+	/// </summary>
+	float _remainInvincibleTime;
 
 	/// <summary>
 	/// Œ»İ‚ÌŒü‚«

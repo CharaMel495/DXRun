@@ -39,7 +39,7 @@ public:
 
 		param.name = "enemy_" + std::to_string(_createID);
 		param.createID = _createID;
-		param.enemyTransform->setScale(CVector3(70.0f, 70.0f, 0.0f));
+		param.enemyTransform->setScale(CVector3(param.colliderSize, param.colliderSize, param.colliderSize));
 		//// ‚à‚µ’e‚ðŒ‚‚Â‹@\‚ð”õ‚¦‚Ä‚¢‚é‚È‚ç
 		//if (param.shootPattern.has_value())
 		//	param.target = _playerManager->getPlayerTarget();

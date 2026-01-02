@@ -166,6 +166,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="ResourceLoader.h" />
     <ClInclude Include="src\Components\DXLibModelRender.h" />
     <ClInclude Include="src\Components\MovementComponent.h" />
     <ClInclude Include="src\Definition\EventDefinition.h" />
@@ -183,6 +185,9 @@
     <ClInclude Include="src\Render\DxLibLight.h" />
     <ClInclude Include="src\Scene\MainScene.h" />
     <ClInclude Include="src\System\ColliderManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="AssetResource.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
