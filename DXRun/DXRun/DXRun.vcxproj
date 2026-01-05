@@ -173,6 +173,7 @@
     <ClInclude Include="src\Components\DXLibModelRender.h" />
     <ClInclude Include="src\Components\MovementComponent.h" />
     <ClInclude Include="src\Definition\EventDefinition.h" />
+    <ClInclude Include="src\Definition\FunctionDefinition.h" />
     <ClInclude Include="src\Game\Camera.h" />
     <ClInclude Include="src\Game\DXLibCameraBase.h" />
     <ClInclude Include="src\Game\Enemy\EnemyBase.h" />

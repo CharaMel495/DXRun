@@ -20,7 +20,8 @@ namespace CaramelEngine
         // コンストラクタ
         CSphere(std::weak_ptr<Actor> owner) noexcept :
             Component(owner, "CSphere"),
-            _transform()
+            _transform(),
+            _cache()
         {
         }
 

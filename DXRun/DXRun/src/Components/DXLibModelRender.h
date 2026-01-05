@@ -13,7 +13,8 @@ public:
 		Component(owner, "DXLibModelRender"),
 		_filePath(""),
 		_modelHandle(-1),
-		_animHandle(-1)
+		_animHandle(-1),
+        _color(Color::White())
 	{}
 
 	void initialize() noexcept override;
@@ -78,4 +79,5 @@ private:
     bool _visible = true;              // 表示/非表示
     int _blinkFrame = 0;               // 残り点滅フレーム数
     int _blinkInterval = 5;            // 点滅切り替え間隔（フレーム）
+    Color _color;
 };

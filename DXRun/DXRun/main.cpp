@@ -1,6 +1,8 @@
 #include "DxLib.h"
 #include "CaramelEngine.h"
 #include "MainScene.h"
+#include "TitleScene.h"
+#include "GameOverScene.h"
 #include "Player.h"
 #include "DxLibLight.h"
 #include "ResourceLoader.h"
@@ -8,9 +10,6 @@
 using namespace DxLib;
 
 using namespace CaramelEngine;
-
-#define WINDOW_X 720
-#define WINDOW_Y 480
 
 // プログラムは WinMain から始まります
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
@@ -21,22 +20,27 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     if (!hRes)
         return 1;
 
+    // まずはキャラメルエンジンのセットアップ
+    auto engine = &Engine::getInstance();
+    engine->initialize();
+    auto screenSize = engine->getScreenSize();
+
     // ウィンドウ状態で起動(FSならFALSE)
     ChangeWindowMode(TRUE);
     // 解像度と色に使うビット数を指定
-    SetGraphMode(WINDOW_X, WINDOW_Y, 32);
+    SetGraphMode((int)screenSize.getX(), (int)screenSize.getY(), 32);
     // ライブラリの初期化
     if (DxLib_Init() == -1)
         return -1;
     // バックバッファに書き込むように指定
     SetDrawScreen(DX_SCREEN_BACK);
 
-    auto engine = &Engine::getInstance();
-    engine->initialize();
-
+    engine->getSceneManager().addScene("TitleScene", std::make_shared<TitleScene>());
     engine->getSceneManager().addScene("MainScene", std::make_shared<MainScene>());
-    engine->getSceneManager().switchScene("MainScene");
+    engine->getSceneManager().addScene("GameOverScene", std::make_shared<GameOverScene>());
+    engine->getSceneManager().switchScene("TitleScene");
 
+    // 真上から照らすライトを生成
     LightDesc light;
     light.type = LightType::Directional;
     light.position = VGet(0.0f, 1500.0f, 0.0f);

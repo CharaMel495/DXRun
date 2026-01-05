@@ -24,7 +24,7 @@ void MainScene::initialize() noexcept
 	auto player = std::make_shared<Player>(pTransform, "Player");
 	player->initialize();
 
-	for (int i = 0; i < 10; ++i)
+	/*for (int i = 0; i < 10; ++i)
 	{
 		auto itemTransform = std::make_shared<Transform>();
 		itemTransform->setPosition({ 0.0f, 240.0f, (float)(i * 200 + 50) });
@@ -32,7 +32,7 @@ void MainScene::initialize() noexcept
 		auto item = std::make_shared<ItemBase>(itemTransform, "item_" + std::to_string(i));
 		item->initialize();
 		addActor(item);
-	}
+	}*/
 
 	_enemyManager->createEnemy({ 0, { 300.0f, 240.0f, -400.0f }, {} });
 

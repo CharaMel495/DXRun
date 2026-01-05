@@ -16,10 +16,13 @@ public:
 		Pawn(transform, name),
 		ICollisionObject(_actorName),
 		ITargetProvider(),
-		_currentDir(),
 		_moveSpeed(10.0f),
 		_rotSpeed(5.f),
-		_currentScore(0)
+		_remainInvincibleTime(0.0f),
+		_currentDir(),
+		_currentScore(0),
+		_col(nullptr),
+		_caughtScrap(nullptr)
 	{}
 
 	// --- MonoBehaviour ---

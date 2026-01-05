@@ -91,6 +91,13 @@ void DXLibModelRender::renderModel() noexcept
         // 「ローカル補正」→「Transformの世界変換」
         world = importS * world;
 
+       /* float r, g, b, a;
+        _color.toFloat(r, g, b, a);
+
+
+
+        MV1SetMaterialDifColor(_modelHandle, 0, DxLib::GetColorF(r, g, b));*/
+
         DxLib::MV1SetMatrix(_modelHandle, XMMATRIXToDXLibMatrix(world));
         DxLib::MV1DrawModel(_modelHandle);
     }

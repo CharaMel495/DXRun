@@ -24,7 +24,7 @@ void EnemyManager::removeFromArrayByID(int id)
 
 void EnemyManager::flushDeadEnemys()
 {
-	int val = _activeEnemys.size();
+	auto val = _activeEnemys.size();
 
 	//”jŠüƒtƒ‰ƒO‚ª—§‚Á‚Ä‚¢‚½‚ç‚»‚ê‚ð”jŠü‚·‚é
 	std::erase_if(_activeEnemys, [](auto& pair) {

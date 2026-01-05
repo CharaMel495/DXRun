@@ -81,4 +81,6 @@ HRSRC ExtractAssetsToTemp()
 
     if (!hRes)
         return hRes;
+
+    return hRes;
 }

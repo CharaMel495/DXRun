@@ -16,6 +16,7 @@ void Player::initialize() noexcept
 	//トランスフォームと移動関係を設定
 	mover->setTransform(this->_transform);
 	mover->setMoveSpeed(this->_moveSpeed);
+	mover->setMoveDir(_currentDir);
 
 	auto cube = addComponent<CCube>();
 	cube->setTransform(_transform);

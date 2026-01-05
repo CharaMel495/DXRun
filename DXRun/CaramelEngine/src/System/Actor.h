@@ -61,7 +61,7 @@ namespace CaramelEngine
 		/// </summary>
 		virtual void destroy() noexcept = 0;
 
-		virtual bool isInScreen(const std::shared_ptr<CameraBase> const camera) const noexcept;
+		virtual bool isInScreen(std::shared_ptr<CameraBase> camera) const noexcept;
 
 		/// <summary>
 		/// コンポーネントを追加するメソッド

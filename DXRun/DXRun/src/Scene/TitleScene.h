@@ -20,5 +20,7 @@ public:
 
 	void shutdown() noexcept override;
 
+	void onPressedKey(void* data) noexcept;
+
 private:
 };

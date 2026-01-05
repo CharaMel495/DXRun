@@ -156,6 +156,9 @@
     <ClInclude Include="src\Scene\GameOverScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
+    <ClInclude Include="src\Definition\FunctionDefinition.h">
+      <Filter>Game\Definition</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="AssetResource.rc">

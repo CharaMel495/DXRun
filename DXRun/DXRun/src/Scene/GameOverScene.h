@@ -20,9 +20,7 @@ public:
 
 	void shutdown() noexcept override;
 
-	void addActor(std::shared_ptr<Actor> newActor) noexcept override;
-
-	void removeActor(const std::shared_ptr<Actor>& actor) noexcept override;
+	void onPressedKey(void* data) noexcept;
 
 private:
 };

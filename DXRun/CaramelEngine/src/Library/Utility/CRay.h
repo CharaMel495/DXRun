@@ -23,7 +23,8 @@ namespace CaramelEngine
             Component(owner, "CRay"),
             _origin(),
             _direction(),
-            _length()
+            _length(),
+            _cache()
         {
         }
 

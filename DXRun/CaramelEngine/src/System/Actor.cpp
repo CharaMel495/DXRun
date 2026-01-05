@@ -4,7 +4,7 @@
 using namespace DirectX;
 using namespace CaramelEngine;
 
-bool Actor::isInScreen(const std::shared_ptr<CameraBase> const camera) const noexcept
+bool Actor::isInScreen(std::shared_ptr<CameraBase> camera) const noexcept
 {
     // ワールド座標（Actorの中心）
     const CVector3& pos = _transform->getPosition();

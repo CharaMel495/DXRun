@@ -15,7 +15,9 @@ public:
 		Actor(param.enemyTransform, param.name),
 		ICollisionObject(_actorName),
 		_param(param),
-		_col(nullptr)
+		_col(nullptr),
+		_currentHP(1),
+		_damageEvent()
 	{
 	}
 

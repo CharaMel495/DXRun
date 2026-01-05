@@ -11,7 +11,7 @@ public:
 	CaughtScrap(std::shared_ptr<Transform> transform, CString name) :
 		ItemBase(transform, name),
 		_caughtValue(0),
-		_scaleMulByValue(0.1),
+		_scaleMulByValue(0.1f),
 		_throwSpeed(0.0f),
 		_maxSpeed(30.0f),
 		_minSpeed(12.0f),
