@@ -38,7 +38,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     engine->getSceneManager().addScene("TitleScene", std::make_shared<TitleScene>());
     engine->getSceneManager().addScene("MainScene", std::make_shared<MainScene>());
     engine->getSceneManager().addScene("GameOverScene", std::make_shared<GameOverScene>());
-    engine->getSceneManager().switchScene("TitleScene");
+    engine->getSceneManager().switchScene("MainScene");
 
     // ^ã‚©‚çÆ‚ç‚·ƒ‰ƒCƒg‚ğ¶¬
     LightDesc light;

@@ -53,8 +53,6 @@
 #include <type_traits>
 
 // --- DirectX関係 ---
-#include "DXInclude.h"
-#include "DXContext.h"
 #include <DirectXMath.h>
 
 // --- ユーティリティ系 ---
@@ -77,11 +75,6 @@
 #include "EventDispatcher.h"
 #include "CameraBase.h"
 
-// ---描画周り、最新---
-#include "Mesh.h"
-#include "Material.h"
-#include "IRenderableObject.h"
-
 // --- コライダー関係(基底クラス) ---
 #include "ICollider.h"
 #include "IColliderVisitor.h"
@@ -95,7 +88,6 @@
 #include "CSphere.h"
 #include "CRay.h"
 #include "ShapeTraits.h"
-#include "SpriteRenderer.h"
 
 // --- コライダー関係(実装クラス) ---
 #include "CollisionInfo.h"

@@ -76,7 +76,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)src;$(ProjectDir)src\Library;$(ProjectDir)src\Library\Definition;$(ProjectDir)src\Library\Utility;$(ProjectDir)src\System;$(ProjectDir)src\System\DXRender;$(ProjectDir)src\System\Input;$(SolutionDir)DXUT;$(SolutionDir)DXUT\Core;$(SolutionDir)DXUT\Optional;$(ProjectDir)Public</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)src;$(ProjectDir)src\Library;$(ProjectDir)src\Library\Definition;$(ProjectDir)src\Library\Utility;$(ProjectDir)src\System;$(ProjectDir)src\System\Input;$(ProjectDir)Public</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc11</LanguageStandard_C>
       <PrecompiledHeader>Use</PrecompiledHeader>
@@ -123,7 +123,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)src;$(ProjectDir)src\Library;$(ProjectDir)src\Library\Definition;$(ProjectDir)src\Library\Utility;$(ProjectDir)src\System;$(ProjectDir)src\System\DXRender;$(ProjectDir)src\System\Input;$(SolutionDir)DXUT;$(SolutionDir)DXUT\Core;$(SolutionDir)DXUT\Optional;$(ProjectDir)Public</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)src;$(ProjectDir)src\Library;$(ProjectDir)src\Library\Definition;$(ProjectDir)src\Library\Utility;$(ProjectDir)src\System;$(ProjectDir)src\System\Input;$(ProjectDir)Public</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
@@ -183,7 +183,6 @@
     <ClInclude Include="src\Library\IColliderVisitor.h" />
     <ClInclude Include="src\Library\ICollisionObject.h" />
     <ClInclude Include="src\Library\Scene.h" />
-    <ClInclude Include="src\Library\SpriteRenderer.h" />
     <ClInclude Include="src\Library\Transform.h" />
     <ClInclude Include="src\Library\Utility\CCircle.h" />
     <ClInclude Include="src\Library\Utility\CCube.h" />
@@ -220,7 +219,6 @@
     <ClCompile Include="src\Library\CollisionTester.cpp" />
     <ClCompile Include="src\Library\CString.cpp" />
     <ClCompile Include="src\Library\Scene.cpp" />
-    <ClCompile Include="src\Library\SpriteRenderer.cpp" />
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -237,14 +235,6 @@
     <ClCompile Include="src\System\MonoBehaviour.cpp" />
     <ClCompile Include="src\System\Pawn.cpp" />
     <ClCompile Include="src\System\SceneManager.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DXUT\Core\DXUT_2022_Win10.vcxproj">
-      <Project>{85344b7f-5aa0-4e12-a065-d1333d11f6ca}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\DXUT\Optional\DXUTOpt_2022_Win10.vcxproj">
-      <Project>{61b333c2-c4f7-4cc1-a9bf-83f6d95588eb}</Project>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

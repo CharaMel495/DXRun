@@ -23,9 +23,6 @@
     <Filter Include="System\Input">
       <UniqueIdentifier>{c597b61c-4f34-4112-b6d5-5eade720ed43}</UniqueIdentifier>
     </Filter>
-    <Filter Include="System\Rendrer">
-      <UniqueIdentifier>{1f63bdbb-55c6-45fc-83ce-2fcfa9f94c0c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Public">
       <UniqueIdentifier>{adc02a1e-d859-4e52-9716-5aa232a66bb7}</UniqueIdentifier>
     </Filter>
@@ -66,9 +63,6 @@
       <Filter>Library</Filter>
     </ClInclude>
     <ClInclude Include="src\Library\Scene.h">
-      <Filter>Library</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Library\SpriteRenderer.h">
       <Filter>Library</Filter>
     </ClInclude>
     <ClInclude Include="src\Library\Transform.h">
@@ -178,9 +172,6 @@
       <Filter>Library</Filter>
     </ClCompile>
     <ClCompile Include="src\Library\Scene.cpp">
-      <Filter>Library</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Library\SpriteRenderer.cpp">
       <Filter>Library</Filter>
     </ClCompile>
     <ClCompile Include="src\System\Actor.cpp">
