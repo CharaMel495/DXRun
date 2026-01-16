@@ -12,5 +12,4 @@ namespace CaramelEngine
         uint32_t sortKey;
         float depth;
     };
-
 }

@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component\ModelRenderer.h" />
+    <ClInclude Include="CRenderEngine.h" />
     <ClInclude Include="Library\Definition.h" />
     <ClInclude Include="Library\IRenderableObject.h" />
     <ClInclude Include="Library\IRenderer.h" />
@@ -42,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Component\ModelRenderer.cpp" />
+    <ClCompile Include="CRenderEngine.cpp" />
     <ClCompile Include="Library\IRenderableObject.cpp" />
     <ClCompile Include="Library\Light.cpp" />
     <ClCompile Include="Library\Material.cpp" />

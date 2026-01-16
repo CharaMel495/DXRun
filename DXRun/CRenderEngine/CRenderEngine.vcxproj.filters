@@ -85,6 +85,7 @@
     <ClInclude Include="Component\ModelRenderer.h">
       <Filter>Component</Filter>
     </ClInclude>
+    <ClInclude Include="CRenderEngine.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="System\CDeviceContext.cpp">
@@ -136,6 +137,7 @@
     <ClCompile Include="Component\ModelRenderer.cpp">
       <Filter>Component</Filter>
     </ClCompile>
+    <ClCompile Include="CRenderEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="HLSL\LambertVS.hlsl">
