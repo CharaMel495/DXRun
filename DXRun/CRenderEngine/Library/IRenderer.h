@@ -24,7 +24,7 @@ namespace CaramelEngine
 		/// <summary>
 		/// RenderQueueに描画依頼を要求するメソッド
 		/// </summary>
-		virtual void Render(class RenderQueue& queue) noexcept = 0;
+		virtual void render(class RenderQueue& queue) noexcept = 0;
 
 	private:
 	};

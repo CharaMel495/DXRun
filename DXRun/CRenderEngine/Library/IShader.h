@@ -14,9 +14,9 @@ namespace CaramelEngine
 		virtual ~IShader() = default;
 
 		// 描画前に呼び出し、バインドする
-		virtual void bind(class CDeviceContext& context) = 0;
+		virtual void bind(class CDeviceContext& context) const = 0;
 		// 定数バッファを提出
-		virtual void applyCBuffer(class CDeviceContext& context, const struct RenderCommand& command) = 0;
+		virtual void applyCBuffer(class CDeviceContext& context, const struct RenderCommand& command) const = 0;
 
 	protected:
 

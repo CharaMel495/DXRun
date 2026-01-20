@@ -34,9 +34,12 @@
     <ClInclude Include="Shader\LambertShader.h" />
     <ClInclude Include="System\CDevice.h" />
     <ClInclude Include="System\CDeviceContext.h" />
+    <ClInclude Include="System\GraphicsDevice.h" />
     <ClInclude Include="System\RectPacker.h" />
+    <ClInclude Include="System\RenderPipeline.h" />
     <ClInclude Include="System\RenderQueue.h" />
-    <ClInclude Include="System\RenderSystem.h" />
+    <ClInclude Include="System\RenderManager.h" />
+    <ClInclude Include="System\RenderTargets.h" />
     <ClInclude Include="System\ShaderManager.h" />
     <ClInclude Include="System\SpriteManager.h" />
     <ClInclude Include="System\TextureManager.h" />
@@ -57,9 +60,12 @@
     <ClCompile Include="Shader\LambertShader.cpp" />
     <ClCompile Include="System\CDevice.cpp" />
     <ClCompile Include="System\CDeviceContext.cpp" />
+    <ClCompile Include="System\GraphicsDevice.cpp" />
     <ClCompile Include="System\RectPacker.cpp" />
+    <ClCompile Include="System\RenderPipeline.cpp" />
     <ClCompile Include="System\RenderQueue.cpp" />
-    <ClCompile Include="System\RenderSystem.cpp" />
+    <ClCompile Include="System\RenderManager.cpp" />
+    <ClCompile Include="System\RenderTargets.cpp" />
     <ClCompile Include="System\ShaderManager.cpp" />
     <ClCompile Include="System\SpriteManager.cpp" />
     <ClCompile Include="System\TextureManager.cpp" />
@@ -77,6 +83,9 @@
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
     </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -200,5 +209,12 @@
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\AssimpCpp.5.0.1.6\build\native\AssimpCpp.targets" Condition="Exists('..\packages\AssimpCpp.5.0.1.6\build\native\AssimpCpp.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\AssimpCpp.5.0.1.6\build\native\AssimpCpp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AssimpCpp.5.0.1.6\build\native\AssimpCpp.targets'))" />
+  </Target>
 </Project>

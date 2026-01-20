@@ -1,18 +1,24 @@
 #pragma once
-#include <wrl/client.h>
-#include <d3d11.h>
-#include <DirectXMath.h>
-#include <array>
-#include "Mesh.h"
-#include "Material.h"
+#include <map>
+#include <vector>
+#include "Definition.h"
 
 namespace CaramelEngine
 {
-	/// <summary>
-	/// 各描画パスに対応する描画コマンドを集積し管理するクラス
-	/// </summary>
-	class RenderQueue 
-	{
+    class RenderQueue
+    {
+    public:
+        void push(const RenderCommand& cmd) noexcept;
+        void sort() noexcept;
+        void clear() noexcept;
 
-	};
+        const Cvector<RenderCommand>& getCommands(uint32_t key) const noexcept;
+
+        // pipelineが固定順で回すためのkey一覧
+        std::vector<uint32_t> keys() const;
+
+    private:
+        std::map<uint32_t, Cvector<RenderCommand>> _commands;
+        static const Cvector<RenderCommand> s_empty;
+    };
 }

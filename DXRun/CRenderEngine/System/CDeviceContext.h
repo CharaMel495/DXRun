@@ -14,6 +14,7 @@ namespace CaramelEngine
 
 		// コンテキストの再アタッチ(必要な場合は)
 		void attachContext(Microsoft::WRL::ComPtr<ID3D11DeviceContext> context) noexcept { _context = context; }
+		ID3D11DeviceContext* getNative() const noexcept { return _context.Get(); }
 
 		HRESULT setVertexShader(ID3D11VertexShader* vs) noexcept;
 		HRESULT setPixelShader(ID3D11PixelShader* ps) noexcept;

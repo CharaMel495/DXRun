@@ -5,17 +5,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="System">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Library">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Library\Utility">
-      <UniqueIdentifier>{2197e8d6-55d6-4dc4-beaf-fdbfe687d2de}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Component">
       <UniqueIdentifier>{1dd1b81d-59be-4afd-9bdf-2d9589d67d46}</UniqueIdentifier>
     </Filter>
@@ -25,59 +14,23 @@
     <Filter Include="HLSL">
       <UniqueIdentifier>{dc649a90-21d6-4dd8-a008-7e8b5957fc14}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Library">
+      <UniqueIdentifier>{cd0bda26-64b3-4912-8b0a-6459a8c834f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library\Utility">
+      <UniqueIdentifier>{2197e8d6-55d6-4dc4-beaf-fdbfe687d2de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System">
+      <UniqueIdentifier>{63044ddb-78a1-40cb-af27-7d2a56c3af23}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="System\RenderSystem.h">
-      <Filter>System</Filter>
-    </ClInclude>
-    <ClInclude Include="System\CDeviceContext.h">
-      <Filter>System</Filter>
-    </ClInclude>
-    <ClInclude Include="System\RectPacker.h">
-      <Filter>System</Filter>
-    </ClInclude>
-    <ClInclude Include="System\RenderQueue.h">
-      <Filter>System</Filter>
-    </ClInclude>
-    <ClInclude Include="System\ShaderManager.h">
-      <Filter>System</Filter>
-    </ClInclude>
     <ClInclude Include="pch.h" />
-    <ClInclude Include="Library\IRenderableObject.h">
-      <Filter>Library</Filter>
-    </ClInclude>
-    <ClInclude Include="Library\Light.h">
-      <Filter>Library</Filter>
-    </ClInclude>
-    <ClInclude Include="Library\Material.h">
-      <Filter>Library</Filter>
-    </ClInclude>
-    <ClInclude Include="System\SpriteManager.h">
-      <Filter>System</Filter>
-    </ClInclude>
-    <ClInclude Include="System\TextureManager.h">
-      <Filter>System</Filter>
-    </ClInclude>
-    <ClInclude Include="Library\Sprite.h">
-      <Filter>Library</Filter>
-    </ClInclude>
     <ClInclude Include="Library\Utility\CMesh.h">
       <Filter>Library\Utility</Filter>
     </ClInclude>
     <ClInclude Include="Library\Utility\CModel.h">
       <Filter>Library\Utility</Filter>
-    </ClInclude>
-    <ClInclude Include="Library\IShader.h">
-      <Filter>Library</Filter>
-    </ClInclude>
-    <ClInclude Include="Library\IRenderer.h">
-      <Filter>Library</Filter>
-    </ClInclude>
-    <ClInclude Include="Library\Definition.h">
-      <Filter>Library</Filter>
-    </ClInclude>
-    <ClInclude Include="System\CDevice.h">
-      <Filter>System</Filter>
     </ClInclude>
     <ClInclude Include="Shader\LambertShader.h">
       <Filter>Shader</Filter>
@@ -86,24 +39,76 @@
       <Filter>Component</Filter>
     </ClInclude>
     <ClInclude Include="CRenderEngine.h" />
+    <ClInclude Include="Library\Definition.h">
+      <Filter>Library</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\IRenderableObject.h">
+      <Filter>Library</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\IRenderer.h">
+      <Filter>Library</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\IShader.h">
+      <Filter>Library</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Light.h">
+      <Filter>Library</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Material.h">
+      <Filter>Library</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Sprite.h">
+      <Filter>Library</Filter>
+    </ClInclude>
+    <ClInclude Include="System\CDevice.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="System\CDeviceContext.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="System\RectPacker.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="System\RenderManager.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="System\RenderQueue.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="System\ShaderManager.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="System\SpriteManager.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="System\TextureManager.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="System\GraphicsDevice.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="System\RenderTargets.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="System\RenderPipeline.h">
+      <Filter>System</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="System\CDeviceContext.cpp">
-      <Filter>System</Filter>
-    </ClCompile>
-    <ClCompile Include="System\RectPacker.cpp">
-      <Filter>System</Filter>
-    </ClCompile>
-    <ClCompile Include="System\RenderQueue.cpp">
-      <Filter>System</Filter>
-    </ClCompile>
-    <ClCompile Include="System\RenderSystem.cpp">
-      <Filter>System</Filter>
-    </ClCompile>
-    <ClCompile Include="System\ShaderManager.cpp">
-      <Filter>System</Filter>
-    </ClCompile>
     <ClCompile Include="pch.cpp" />
+    <ClCompile Include="Library\Utility\CMesh.cpp">
+      <Filter>Library\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\Utility\CModel.cpp">
+      <Filter>Library\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader\LambertShader.cpp">
+      <Filter>Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\ModelRenderer.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="CRenderEngine.cpp" />
     <ClCompile Include="Library\IRenderableObject.cpp">
       <Filter>Library</Filter>
     </ClCompile>
@@ -113,31 +118,42 @@
     <ClCompile Include="Library\Material.cpp">
       <Filter>Library</Filter>
     </ClCompile>
+    <ClCompile Include="Library\Sprite.cpp">
+      <Filter>Library</Filter>
+    </ClCompile>
+    <ClCompile Include="System\CDevice.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="System\CDeviceContext.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="System\RectPacker.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="System\RenderManager.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="System\RenderQueue.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="System\ShaderManager.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
     <ClCompile Include="System\SpriteManager.cpp">
       <Filter>System</Filter>
     </ClCompile>
     <ClCompile Include="System\TextureManager.cpp">
       <Filter>System</Filter>
     </ClCompile>
-    <ClCompile Include="Library\Sprite.cpp">
-      <Filter>Library</Filter>
-    </ClCompile>
-    <ClCompile Include="Library\Utility\CMesh.cpp">
-      <Filter>Library\Utility</Filter>
-    </ClCompile>
-    <ClCompile Include="Library\Utility\CModel.cpp">
-      <Filter>Library\Utility</Filter>
-    </ClCompile>
-    <ClCompile Include="System\CDevice.cpp">
+    <ClCompile Include="System\GraphicsDevice.cpp">
       <Filter>System</Filter>
     </ClCompile>
-    <ClCompile Include="Shader\LambertShader.cpp">
-      <Filter>Shader</Filter>
+    <ClCompile Include="System\RenderTargets.cpp">
+      <Filter>System</Filter>
     </ClCompile>
-    <ClCompile Include="Component\ModelRenderer.cpp">
-      <Filter>Component</Filter>
+    <ClCompile Include="System\RenderPipeline.cpp">
+      <Filter>System</Filter>
     </ClCompile>
-    <ClCompile Include="CRenderEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="HLSL\LambertVS.hlsl">
@@ -146,5 +162,8 @@
     <FxCompile Include="HLSL\LambertPS.hlsl">
       <Filter>HLSL</Filter>
     </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>
