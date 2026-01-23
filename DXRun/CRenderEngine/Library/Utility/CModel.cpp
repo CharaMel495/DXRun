@@ -3,18 +3,12 @@
 #include "GraphicsDevice.h"
 #include "Definition.h"
 
-#include <assimp/Importer.hpp>
-#include <assimp/scene.h>
-#include <assimp/postprocess.h>
-
 #include <filesystem>
 
 using namespace CaramelEngine;
 using Microsoft::WRL::ComPtr;
 
-bool CModel::loadFromFile(
-    GraphicsDevice& gfx,
-    const std::string& path)
+bool CModel::loadFromFile(GraphicsDevice& gfx, const std::string& path)
 {
     Assimp::Importer importer;
 
@@ -64,9 +58,7 @@ bool CModel::processAssimpScene(
     return !_meshes.empty();
 }
 
-void CModel::processAssimpMesh(
-    GraphicsDevice& gfx,
-    const aiMesh* mesh)
+void CModel::processAssimpMesh(GraphicsDevice& gfx, const aiMesh* mesh)
 {
     std::vector<Vertex> vertices;
     std::vector<uint32_t> indices;

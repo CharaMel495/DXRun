@@ -145,7 +145,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir);$(SolutionDir)CaramelEngine;$(SolutionDir)CaramelEngine\src;$(SolutionDir)CaramelEngine\src\System;$(SolutionDir)CaramelEngine\src\Library;$(SolutionDir)CaramelEngine\src\Library\Definition;$(SolutionDir)CaramelEngine\src\Library\Utility;$(SolutionDir)CaramelEngine\src\System\Input;$(SolutionDir)DirectXTK\Inc;$(SolutionDir)CaramelEngine\Public;$(ProjectDir)System;$(ProjectDir)Library</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir);$(SolutionDir)CaramelEngine;$(SolutionDir)CaramelEngine\src;$(SolutionDir)CaramelEngine\src\System;$(SolutionDir)CaramelEngine\src\Library;$(SolutionDir)CaramelEngine\src\Library\Definition;$(SolutionDir)CaramelEngine\src\Library\Utility;$(SolutionDir)CaramelEngine\src\System\Input;$(SolutionDir)DirectXTK\Inc;$(SolutionDir)CaramelEngine\Public;$(ProjectDir)System;$(ProjectDir)Library;$(SolutionDir)packages\AssimpCpp.5.0.1.6\build\native\include\assimp;$(ProjectDir)Shader</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <PrecompiledHeader>Use</PrecompiledHeader>
@@ -164,7 +164,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir);$(SolutionDir)CaramelEngine;$(SolutionDir)CaramelEngine\src;$(SolutionDir)CaramelEngine\src\System;$(SolutionDir)CaramelEngine\src\Library;$(SolutionDir)CaramelEngine\src\Library\Definition;$(SolutionDir)CaramelEngine\src\Library\Utility;$(SolutionDir)CaramelEngine\src\System\Input;$(SolutionDir)DirectXTK\Inc;$(SolutionDir)CaramelEngine\Public;$(ProjectDir)System;$(ProjectDir)Library</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir);$(SolutionDir)CaramelEngine;$(SolutionDir)CaramelEngine\src;$(SolutionDir)CaramelEngine\src\System;$(SolutionDir)CaramelEngine\src\Library;$(SolutionDir)CaramelEngine\src\Library\Definition;$(SolutionDir)CaramelEngine\src\Library\Utility;$(SolutionDir)CaramelEngine\src\System\Input;$(SolutionDir)DirectXTK\Inc;$(SolutionDir)CaramelEngine\Public;$(ProjectDir)System;$(ProjectDir)Library;$(SolutionDir)packages\AssimpCpp.5.0.1.6\build\native\include\assimp;$(ProjectDir)Shader</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
@@ -179,7 +179,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir);$(SolutionDir)CaramelEngine;$(SolutionDir)CaramelEngine\src;$(SolutionDir)CaramelEngine\src\System;$(SolutionDir)CaramelEngine\src\Library;$(SolutionDir)CaramelEngine\src\Library\Definition;$(SolutionDir)CaramelEngine\src\Library\Utility;$(SolutionDir)CaramelEngine\src\System\Input;$(SolutionDir)DirectXTK\Inc;$(SolutionDir)CaramelEngine\Public;$(ProjectDir)System;$(ProjectDir)Library</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir);$(SolutionDir)CaramelEngine;$(SolutionDir)CaramelEngine\src;$(SolutionDir)CaramelEngine\src\System;$(SolutionDir)CaramelEngine\src\Library;$(SolutionDir)CaramelEngine\src\Library\Definition;$(SolutionDir)CaramelEngine\src\Library\Utility;$(SolutionDir)CaramelEngine\src\System\Input;$(SolutionDir)DirectXTK\Inc;$(SolutionDir)CaramelEngine\Public;$(ProjectDir)System;$(ProjectDir)Library;$(SolutionDir)packages\AssimpCpp.5.0.1.6\build\native\include\assimp;$(ProjectDir)Shader</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <PrecompiledHeader>Use</PrecompiledHeader>
@@ -198,7 +198,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir);$(SolutionDir)CaramelEngine;$(SolutionDir)CaramelEngine\src;$(SolutionDir)CaramelEngine\src\System;$(SolutionDir)CaramelEngine\src\Library;$(SolutionDir)CaramelEngine\src\Library\Definition;$(SolutionDir)CaramelEngine\src\Library\Utility;$(SolutionDir)CaramelEngine\src\System\Input;$(SolutionDir)DirectXTK\Inc;$(SolutionDir)CaramelEngine\Public;$(ProjectDir)System;$(ProjectDir)Library</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir);$(SolutionDir)CaramelEngine;$(SolutionDir)CaramelEngine\src;$(SolutionDir)CaramelEngine\src\System;$(SolutionDir)CaramelEngine\src\Library;$(SolutionDir)CaramelEngine\src\Library\Definition;$(SolutionDir)CaramelEngine\src\Library\Utility;$(SolutionDir)CaramelEngine\src\System\Input;$(SolutionDir)DirectXTK\Inc;$(SolutionDir)CaramelEngine\Public;$(ProjectDir)System;$(ProjectDir)Library;$(SolutionDir)packages\AssimpCpp.5.0.1.6\build\native\include\assimp;$(ProjectDir)Shader</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>

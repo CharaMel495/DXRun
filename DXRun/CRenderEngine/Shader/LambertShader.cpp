@@ -64,6 +64,8 @@ bool LambertShader::initialize(GraphicsDevice& gfx)
         return false;
     }
 
+    _constants = std::make_shared<LambertConstants>();
+
     return true;
 }
 
@@ -78,7 +80,6 @@ void LambertShader::applyCBuffer(
     CDeviceContext& context,
     const RenderCommand& command) const noexcept
 {
-    // Renderer -> Transform -> World 行列取得
     const auto& transform =
         command.renderer->getOwner().lock()->getTransform();
 
@@ -89,16 +90,15 @@ void LambertShader::applyCBuffer(
         DirectX::XMMatrixTranspose(world)
     );
 
-    // viewProj は Shader 側で保持
-    // light 情報も Shader 側
+    // viewProj / lightDir / lightColor は
+    // 事前に setter でセット済み前提
 
-    context.UpdateConstantBuffer(
+    context.updateConstantBuffer(
         _constantBuffer.Get(),
         _constants.get(),
         sizeof(LambertConstants)
     );
 
-    // VS / PS 両方にバインド
-    context.setVSConstantBuffer(0, _constantBuffer.Get());
-    context.setPSConstantBuffer(0, _constantBuffer.Get());
+    context.setVSConstantBuffer(0, 1, _constantBuffer.GetAddressOf());
+    context.setPSConstantBuffer(0, 1, _constantBuffer.GetAddressOf());
 }

@@ -13,6 +13,13 @@ namespace CaramelEngine
         float depth;
     };
 
+    enum class RenderStage
+    {
+        World,
+        WorldPostProcess,
+        UI,
+    }
+
     struct Vertex
     {
         DirectX::XMFLOAT3 position;

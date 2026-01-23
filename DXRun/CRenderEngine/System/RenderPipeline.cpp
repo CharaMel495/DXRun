@@ -6,6 +6,7 @@
 #include "Definition.h" // RenderCommand
 #include "IShader.h"
 #include "IRenderer.h"
+#include "LambertShader.h"
 
 using namespace CaramelEngine;
 
@@ -31,7 +32,47 @@ static void setTargetAndClear(GraphicsDevice& gfx, IRenderTarget& target)
 
 void DefaultGamePipeline::begin(GraphicsDevice& gfx, IRenderTarget& target)
 {
-    setTargetAndClear(gfx, target);
+    //setTargetAndClear(gfx, target);
+
+    auto& context = gfx.context();
+
+    // --- RenderTarget bind ---
+    context.setRenderTargets(
+        1,
+        target.rtv(),
+        target.dsv()
+    );
+
+    // --- Viewport ---
+    context.setViewports(1, &target.viewport());
+
+    // --- Clear ---
+    const float clearColor[4] = { 0.1f, 0.1f, 0.15f, 1.0f };
+    context.clearRenderTarget(target.rtv(), clearColor);
+    context.clearDepthStencil(target.dsv());
+
+    // --- Camera ---
+    auto camera =
+        Engine::getInstance()
+            .getSceneManager()
+            .getCurrentScene()
+            ->getMainCamera();
+
+    DirectX::XMMATRIX view = DirectX::XMLoadFloat4x4(&camera->getViewMatrix());
+    DirectX::XMMATRIX proj = DirectX::XMLoadFloat4x4(&camera->getProjectionMatrix());
+
+    DirectX::XMFLOAT4X4 viewProj{};
+    DirectX::XMStoreFloat4x4(
+        &viewProj,
+        DirectX::XMMatrixTranspose(view * proj)
+    );
+
+    // --- Shader に渡す ---
+    _lambertShader->setViewProj(viewProj);
+
+    // 仮ライト（上から斜め）
+    _lambertShader->setLightDirection({ 0.3f, -1.0f, 0.2f });
+    _lambertShader->setLightColor({ 1.0f, 1.0f, 1.0f });
 }
 
 void DefaultGamePipeline::buildQueue(RenderQueue& queue)
@@ -48,19 +89,14 @@ void DefaultGamePipeline::execute(GraphicsDevice& gfx, IRenderTarget& target, Re
     // 今は queue 側の key 設計に合わせて明示順にするのが最強。
     // 例：for (uint32_t key : queue.keys()) ...
 
-    for (uint32_t key : queue.keys())
-    {
-        const auto& cmds = queue.getCommands(key);
-        for (const auto& cmd : cmds)
-        {
-            // shader
-            cmd.shader->bind(ctx);
-            cmd.shader->applyCBuffer(ctx, cmd);
+    auto& context = gfx.context();
 
-            // renderer側で Draw 系を持たせる設計ならここで呼ぶ
-            // cmd.renderer->draw(ctx); など
-            // 今は最小接続のため省略
-        }
+    for (auto& cmd : queue.getCommands(static_cast<uint32_t>(RenderStage::World)))
+    {
+        cmd.shader->bind(context);
+        cmd.shader->applyCBuffer(context, cmd);
+
+        cmd.renderer->draw(gfx);
     }
 }
 

@@ -26,6 +26,10 @@ namespace CaramelEngine
 		/// </summary>
 		virtual void render(class RenderQueue& queue) noexcept = 0;
 
-	private:
+	protected:
+
+		virtual void draw(class GraphicsDevice& gfx) const noexcept = 0;
+
+		friend class DefaultGamePipeline;
 	};
 }

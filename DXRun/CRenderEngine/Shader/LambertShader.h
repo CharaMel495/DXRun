@@ -21,9 +21,9 @@ namespace CaramelEngine
             CDeviceContext& context,
             const RenderCommand& command) const noexcept override;
 
-        void setViewProj(const DirectX::XMFLOAT4X4& vp) noexcept;
-        void setLightDirection(const DirectX::XMFLOAT3& dir) noexcept;
-        void setLightColor(const DirectX::XMFLOAT3& color) noexcept;
+        void setViewProj(const DirectX::XMFLOAT4X4& vp) noexcept { _constants->viewProj = vp; };
+        void setLightDirection(const DirectX::XMFLOAT3& dir) noexcept { _constants->lightDir = dir; };
+        void setLightColor(const DirectX::XMFLOAT3& color) noexcept { _constants->lightColor = color; };
 
     private:
         Microsoft::WRL::ComPtr<ID3D11InputLayout> _inputLayout;

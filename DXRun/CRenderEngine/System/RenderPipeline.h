@@ -25,6 +25,10 @@ namespace CaramelEngine
         void buildQueue(RenderQueue& queue) override;
         void execute(GraphicsDevice& gfx, IRenderTarget& target, RenderQueue& queue) override;
         void end(GraphicsDevice& gfx, IRenderTarget& target) override;
+
+    private:
+
+        LambertShader* _lambertShader;
     };
 
     class DefaultEditorPipeline final : public IRenderPipeline
