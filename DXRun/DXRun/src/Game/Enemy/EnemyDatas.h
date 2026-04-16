@@ -47,3 +47,25 @@ struct EnemyMasterDataReciever
 	uint32_t dropScoreItemValue = 0;
 	uint32_t dropPowerItemValue = 0;
 };
+
+enum struct eEnemyActionState
+{
+	// 待機
+	Idling,
+	// 探索
+	Serching,
+	// 何かを追跡
+	TrackAny,
+	// 攻撃モーション
+	Attack,
+	// 移動を伴う攻撃
+	AttackWithMov,
+	// 行動不能
+	Pararrize,
+	// 破壊された
+	Broken,
+	// 逃走
+	Run,
+	// データの破棄待ち
+	DestroyWaiting,
+};

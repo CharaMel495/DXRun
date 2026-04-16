@@ -38,6 +38,9 @@
     <Filter Include="Game\Definition">
       <UniqueIdentifier>{517a415b-1d18-4112-a634-605ccb8925f3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="HLSL">
+      <UniqueIdentifier>{794387fd-dde8-44c4-a5cc-f73f3ddd4f3f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -91,6 +94,9 @@
     </ClCompile>
     <ClCompile Include="src\Scene\GameOverScene.cpp">
       <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\Enemy\EnemyAI.cpp">
+      <Filter>Game\Enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -159,10 +165,21 @@
     <ClInclude Include="src\Definition\FunctionDefinition.h">
       <Filter>Game\Definition</Filter>
     </ClInclude>
+    <ClInclude Include="src\Game\Enemy\EnemyAI.h">
+      <Filter>Game\Enemy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="AssetResource.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="src\HLSL\SimpleLambertVS.hlsl">
+      <Filter>HLSL</Filter>
+    </FxCompile>
+    <FxCompile Include="src\HLSL\SimpleLambertPS.hlsl">
+      <Filter>HLSL</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

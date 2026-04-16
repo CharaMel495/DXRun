@@ -2,6 +2,9 @@
 
 using namespace DxLib;
 
+int vs = -1;
+int ps = -1;
+
 inline MATRIX XMMATRIXToDXLibMatrix(const DirectX::XMMATRIX& xm)
 {
 	MATRIX m;
@@ -57,6 +60,8 @@ void DXLibModelRender::initialize() noexcept
         _importScale = 1.0f;
     }
 
+    //vs = DxLib::LoadVertexShader("src\\HLSL\\SimpleLambertVS.hlsl");
+    //ps = DxLib::LoadPixelShader("src\\HLSL\\SimpleLambertPS.hlsl");
 }
 
 void DXLibModelRender::update() noexcept
@@ -97,6 +102,11 @@ void DXLibModelRender::renderModel() noexcept
 
 
         MV1SetMaterialDifColor(_modelHandle, 0, DxLib::GetColorF(r, g, b));*/
+
+        /*if (vs != -1)
+            DxLib::SetUseVertexShader(vs);
+        if (ps != -1)
+            DxLib::SetUsePixelShader(ps);*/
 
         DxLib::MV1SetMatrix(_modelHandle, XMMATRIXToDXLibMatrix(world));
         DxLib::MV1DrawModel(_modelHandle);

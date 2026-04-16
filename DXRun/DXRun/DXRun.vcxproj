@@ -147,6 +147,7 @@
     <ClCompile Include="src\Components\DXLibModelRender.cpp" />
     <ClCompile Include="src\Components\MovementComponent.cpp" />
     <ClCompile Include="src\Game\Camera.cpp" />
+    <ClCompile Include="src\Game\Enemy\EnemyAI.cpp" />
     <ClCompile Include="src\Game\Enemy\EnemyBase.cpp" />
     <ClCompile Include="src\Game\Enemy\EnemyDataTypeMaster.cpp" />
     <ClCompile Include="src\Game\Enemy\EnemyManager.cpp" />
@@ -176,6 +177,7 @@
     <ClInclude Include="src\Definition\FunctionDefinition.h" />
     <ClInclude Include="src\Game\Camera.h" />
     <ClInclude Include="src\Game\DXLibCameraBase.h" />
+    <ClInclude Include="src\Game\Enemy\EnemyAI.h" />
     <ClInclude Include="src\Game\Enemy\EnemyBase.h" />
     <ClInclude Include="src\Game\Enemy\EnemyDatas.h" />
     <ClInclude Include="src\Game\Enemy\EnemyDataTypeMaster.h" />
@@ -194,6 +196,15 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="AssetResource.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="src\HLSL\SimpleLambertPS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
+    </FxCompile>
+    <FxCompile Include="src\HLSL\SimpleLambertVS.hlsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
