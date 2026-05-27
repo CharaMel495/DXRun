@@ -93,6 +93,7 @@
     <ProjectGuid>{d974f58a-31f9-4427-8962-35bf5ede806d}</ProjectGuid>
     <RootNamespace>CRenderEngine</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>CRenderEngine_Old</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

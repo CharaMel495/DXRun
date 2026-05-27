@@ -2,7 +2,6 @@
 #pragma once
 #include "IShader.h"
 #include "Definition.h"
-#include <wrl.h>
 
 namespace CaramelEngine
 {
