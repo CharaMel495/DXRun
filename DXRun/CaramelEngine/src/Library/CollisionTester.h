@@ -22,8 +22,8 @@ namespace CaramelEngine
 				return testCollisionImpl(lhs, *static_cast<CCube*>(_other));
 			case eColliderType::Sphere:
 				return testCollisionImpl(lhs, *static_cast<CSphere*>(_other));
-			case eColliderType::Ray:
-				return testCollisionImpl(lhs, *static_cast<CRay*>(_other));
+			/*case eColliderType::Ray:
+				return testCollisionImpl(lhs, *static_cast<CRay*>(_other));*/
 			default:
 				return false;
 			}
@@ -36,11 +36,11 @@ namespace CaramelEngine
 			if constexpr (ShapeTraits<L>::Is2D && ShapeTraits<R>::Is2D)
 				return test2D(lhs, rhs);
 
-			// Ray ì¡ó·
-			if constexpr (ShapeTraits<L>::IsRay)
-				return testRay(lhs, rhs);
-			if constexpr (ShapeTraits<R>::IsRay)
-				return testRay(rhs, lhs);
+			//// Ray ì¡ó·
+			//if constexpr (ShapeTraits<L>::IsRay)
+			//	return testRay(lhs, rhs);
+			//if constexpr (ShapeTraits<R>::IsRay)
+			//	return testRay(rhs, lhs);
 
 			// BroadPhase
 			auto aBroad = ShapeTraits<L>::asBroadSphere(lhs);
@@ -52,6 +52,8 @@ namespace CaramelEngine
 			// NarrowPhase
 			return test3D(lhs, rhs);
 		}
+
+		
 
 	public:
 
@@ -82,9 +84,9 @@ namespace CaramelEngine
 			_result = testCollision(lhs);
 		}
 
-		void visit(CRay& lhs) noexcept override
+		bool checkRayCollision(const CRay& lhs)
 		{
-			_result = testCollision(lhs);
+			return testRay(lhs, _other);
 		}
 
 		bool getResult() const noexcept { return _result; }
@@ -125,9 +127,9 @@ namespace CaramelEngine
 		// 3DîªíË
 		bool testOBBVsOBB(const CubeHitJudgeData& a, const CubeHitJudgeData& b) noexcept;
 		bool testOBBVsSphere(const CubeHitJudgeData& cube, const SphereHitJudgeData& sphere) noexcept;
-		bool testRayVsOBB(const RayParameter& ray, const CubeHitJudgeData& cube) noexcept;
+		bool testRayVsOBB(const CRay& ray, const CubeHitJudgeData& cube) noexcept;
 		bool testSphereVsSphere(const SphereHitJudgeData& a, const SphereHitJudgeData& b) noexcept;
-		bool testRayVsSphere(const RayParameter& ray, const SphereHitJudgeData& sphere) noexcept;
+		bool testRayVsSphere(const CRay& ray, const SphereHitJudgeData& sphere) noexcept;
 		
 		// äeéüå≥Ç≈îªíËÇçsÇ§ñ{ëÃ
 

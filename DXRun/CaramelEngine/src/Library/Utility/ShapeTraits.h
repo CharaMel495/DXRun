@@ -143,23 +143,23 @@ namespace CaramelEngine
         }
 	};
 
-	template<>
-	struct ShapeTraits<CRay>
-	{
-        static constexpr bool Is2D = false;
-        static constexpr bool IsRay = true;
+	//template<>
+	//struct ShapeTraits<RayParameter>
+	//{
+ //       static constexpr bool Is2D = false;
+ //       static constexpr bool IsRay = true;
 
-        static constexpr bool HasOBB = false;
-        static constexpr bool HasSphere = false;
+ //       static constexpr bool HasOBB = false;
+ //       static constexpr bool HasSphere = false;
 
-        static SphereHitJudgeData asBroadSphere(const CRay& s)
-        {
-            return {};
-        }
+ //       static SphereHitJudgeData asBroadSphere(const RayParameter& s)
+ //       {
+ //           return {};
+ //       }
 
-        static RayParameter asRay(const CRay& r)
-        {
-            return r.getHitJudgeData();
-        }
-	};
+ //       //static RayParameter asRay(const RayParameter& r)
+ //       //{
+ //       //    return r;
+ //       //}
+	//};
 }

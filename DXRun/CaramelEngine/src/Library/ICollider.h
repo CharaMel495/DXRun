@@ -11,7 +11,7 @@ namespace CaramelEngine
 		Circle,
 		Cube,
 		Sphere,
-		Ray
+		//Ray
 	};
 
 	class ICollider 

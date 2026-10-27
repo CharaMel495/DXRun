@@ -11,6 +11,8 @@ namespace CaramelEngine
 
     struct CollisionInfo;
 
+    struct RayParamter;
+
     // unordered_set で pair を使うためのハッシュ構造体
     struct PairHash
     {
@@ -64,6 +66,8 @@ namespace CaramelEngine
 
         void registerObject(uint32_t groupId, std::shared_ptr<ICollisionObject> obj);
         void unregisterObject(std::shared_ptr<ICollisionObject> obj) noexcept;
+
+        void* rayTrace(const CRay& rayParameter) noexcept;
 
     protected:
         virtual const std::unordered_set<std::pair<uint32_t, uint32_t>, PairHash>& getCollisionPairs() const = 0;

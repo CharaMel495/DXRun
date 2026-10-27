@@ -9,16 +9,16 @@ GroundCheckRay::GroundCheckRay(eColliderType collisionType,CCharacter* character
 
 GroundCheckRay::~GroundCheckRay()
 {
-	for (auto& ray : _rays)
-	{
-		delete ray;
-	}
-	_rays.clear();
+	//for (auto& ray : _rays)
+	//{
+	//	delete ray;
+	//}
+	//_rays.clear();
 }
 
 void GroundCheckRay::SetRayPos()
 {
-	auto ray = std::make_shared<CaramelEngine::CRay>(Character->weak_from_this());
+	//auto ray = std::make_shared<CaramelEngine::CRay>(Character->weak_from_this());
 
 
 }

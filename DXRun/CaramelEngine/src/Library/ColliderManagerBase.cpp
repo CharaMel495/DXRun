@@ -12,6 +12,28 @@ void ColliderManagerBase::unregisterObject(std::shared_ptr<ICollisionObject> obj
     _pendingRemovals.emplace_back(obj);
 }
 
+void* ColliderManagerBase::rayTrace(const CRay& ray) noexcept
+{
+    auto& list = _groupMap[ray.CheckCollisionGroup];
+
+    for (const auto obj : list)
+    {
+        auto testCollider = obj->getCollider();
+        if (!testCollider)
+            continue;
+
+        CollisionTester tester(testCollider);
+        tester.checkRayCollision(ray);
+
+        if (tester.getResult())
+        {
+            return obj->getOwnerPointer();
+        }
+        else
+            return nullptr;
+    }
+}
+
 void ColliderManagerBase::update()
 {
     const auto& pairs = getCollisionPairs();

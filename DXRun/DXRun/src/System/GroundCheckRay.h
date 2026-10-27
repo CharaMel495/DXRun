@@ -10,7 +10,7 @@ public:
 	~GroundCheckRay();
 
 private:
-	std::list<CRay*> _rays;
+	//std::list<CRay*> _rays;
 
 	eColliderType CollisionType;
 	CCharacter* Character;
