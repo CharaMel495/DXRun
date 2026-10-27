@@ -13,7 +13,6 @@ enum class eCollisionGroup : uint32_t
     Enemy,             // “G–{‘Ìi”í’e‘ÎÛj
     EnemyShot,         // “G‚Ì’e
     Item,              // ƒAƒCƒeƒ€Œn
-
 };
 
 /// <summary>

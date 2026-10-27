@@ -84,7 +84,7 @@ namespace CaramelEngine
 			_result = testCollision(lhs);
 		}
 
-		bool checkRayCollision(const CRay& lhs)
+		CRayResult checkRayCollision(const CRay& lhs)
 		{
 			return testRay(lhs, _other);
 		}
@@ -127,9 +127,9 @@ namespace CaramelEngine
 		// 3D判定
 		bool testOBBVsOBB(const CubeHitJudgeData& a, const CubeHitJudgeData& b) noexcept;
 		bool testOBBVsSphere(const CubeHitJudgeData& cube, const SphereHitJudgeData& sphere) noexcept;
-		bool testRayVsOBB(const CRay& ray, const CubeHitJudgeData& cube) noexcept;
+		CRayResult testRayVsOBB(const CRay& ray, const CubeHitJudgeData& cube) noexcept;
 		bool testSphereVsSphere(const SphereHitJudgeData& a, const SphereHitJudgeData& b) noexcept;
-		bool testRayVsSphere(const CRay& ray, const SphereHitJudgeData& sphere) noexcept;
+		CRayResult testRayVsSphere(const CRay& ray, const SphereHitJudgeData& sphere) noexcept;
 		
 		// 各次元で判定を行う本体
 
@@ -193,12 +193,12 @@ namespace CaramelEngine
 		}
 
 		template <class L, class R>
-		bool testRay(const L& lhs, const R& rhs)
+		CRayResult testRay(const L& lhs, const R& rhs)
 		{
 			// lhs が Ray の場合だけ通る想定
 			// rhs が Ray の場合は対称にして突っ込む
 			if constexpr (!ShapeTraits<L>::IsRay)
-				return false;
+				return CRayResult{ false, CVector3() };
 
 			if constexpr (ShapeTraits<R>::HasOBB)
 			{
@@ -216,7 +216,7 @@ namespace CaramelEngine
 				);
 			}
 
-			return false;
+			return CRayResult{ false, CVector3() };
 		}
 	};
 }

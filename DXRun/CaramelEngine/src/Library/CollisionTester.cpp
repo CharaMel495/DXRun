@@ -192,7 +192,7 @@ bool CollisionTester::testOBBVsSphere(const CubeHitJudgeData& cube, const Sphere
     return distSq <= (sphere.Radius * sphere.Radius);
 }
 
-bool CollisionTester::testRayVsOBB(const CRay& ray, const CubeHitJudgeData& cube) noexcept
+CRayResult CollisionTester::testRayVsOBB(const CRay& ray, const CubeHitJudgeData& cube) noexcept
 {
     // Ray を Cube ローカル空間へ
     CVector3 p = ray.Origin - cube.Center;
@@ -235,7 +235,7 @@ bool CollisionTester::testRayVsOBB(const CRay& ray, const CubeHitJudgeData& cube
         {
             // Ray がこのスラブと平行
             if (origin < -extent || origin > extent)
-                return false;
+                return CRayResult{ false, CVector3() };
         }
         else
         {
@@ -249,11 +249,13 @@ bool CollisionTester::testRayVsOBB(const CRay& ray, const CubeHitJudgeData& cube
             tMax = std::min(tMax, t2);
 
             if (tMin > tMax)
-                return false;
+                return CRayResult{ false, CVector3() };
         }
     }
 
-    return true;
+	CVector3 hitpoint = ray.Origin + ray.Direction * tMin;
+
+    return CRayResult{ true, hitpoint };
 }
 
 bool CollisionTester::testSphereVsSphere(const SphereHitJudgeData& a, const SphereHitJudgeData& b) noexcept
@@ -272,25 +274,59 @@ bool CollisionTester::testSphereVsSphere(const SphereHitJudgeData& a, const Sphe
     return distSq <= rSq;
 }
 
-bool CollisionTester::testRayVsSphere(const CRay& ray, const SphereHitJudgeData& sphere) noexcept
+CRayResult CollisionTester::testRayVsSphere(const CRay& ray, const SphereHitJudgeData& sphere) noexcept
 {
-    // Rayの始点から球の中心に向かうベクトル
-    CVector3 m = sphere.Center - ray.Origin;
+    //// Rayの始点から球の中心に向かうベクトル
+    //CVector3 m = sphere.Center - ray.Origin;
 
-    // Ray軸への射影
-    float t = m.dot(ray.Direction);
+    //// Ray軸への射影
+    //float t = m.dot(ray.Direction);
 
-    // Ray軸へ射影して範囲外ならそも当たってない
-    if (t < 0.0f || t > ray.Length)
-        return false;
+    //// Ray軸へ射影して範囲外ならそも当たってない
+    //if (t < 0.0f || t > ray.Length)
+    //    return false;
 
-    // 最近点を求める
-    CVector3 closest = ray.Origin + ray.Direction * t;
+    //// 最近点を求める
+    //CVector3 closest = ray.Origin + ray.Direction * t;
 
-    // 最近点と球の距離を求める
-    CVector3 d = sphere.Center - closest;
-    float distSq = d.sqrtmagnitude();
+    //// 最近点と球の距離を求める
+    //CVector3 d = sphere.Center - closest;
+    //float distSq = d.sqrtmagnitude();
 
-    // 半径の内にいるかは２乗で計算する
-    return distSq <= (sphere.Radius * sphere.Radius);
+    //// 半径の内にいるかは２乗で計算する
+    //return distSq <= (sphere.Radius * sphere.Radius);
+
+    CVector3 m = ray.Origin - sphere.Center;
+
+    float a = ray.Direction.dot(ray.Direction);
+    float b = 2.0f * m.dot(ray.Direction);
+    float c = m.dot(m) - sphere.Radius * sphere.Radius;
+
+    if (a < 1e-12f)
+        return CRayResult{ false, CVector3() };
+
+    float discriminant = b * b - 4.0f * a * c;
+
+    if (discriminant < 0.0f)
+        return CRayResult{ false, CVector3() };
+
+    float sqrtD = std::sqrt(discriminant);
+
+    float t1 = (-b - sqrtD) / (2.0f * a);
+    float t2 = (-b + sqrtD) / (2.0f * a);
+
+    // 最初の交点を優先
+    float t = t1;
+
+    // 始点が球の内部なら退出点を使用
+    if (t < 0.0f)
+        t = t2;
+
+    // Rayの有効範囲外
+    if (t < 0.0f || t * std::sqrt(a) > ray.Length)
+        return CRayResult{ false, CVector3() };
+
+    CVector3 hitPoint = ray.Origin + ray.Direction * t;
+
+    return CRayResult{ true, hitPoint };
 }

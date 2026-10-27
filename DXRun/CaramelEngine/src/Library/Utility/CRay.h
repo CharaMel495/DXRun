@@ -13,6 +13,12 @@ namespace CaramelEngine
         uint32_t CheckCollisionGroup;
     };
 
+    struct CRayResult
+    {
+        bool hit;
+		CVector3 hitPoint;
+    };
+
    // class CRay : public ICollider
    // {
    // public:
