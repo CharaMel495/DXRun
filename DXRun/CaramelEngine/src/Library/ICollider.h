@@ -6,6 +6,7 @@ namespace CaramelEngine
 
 	enum class eColliderType
 	{
+		None,
 		Rectangle,
 		Circle,
 		Cube,

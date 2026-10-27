@@ -146,6 +146,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\Components\DXLibModelRender.cpp" />
     <ClCompile Include="src\Components\MovementComponent.cpp" />
+    <ClCompile Include="src\Game\Actor\CCharacter.cpp" />
     <ClCompile Include="src\Game\Camera.cpp" />
     <ClCompile Include="src\Game\Enemy\EnemyAI.cpp" />
     <ClCompile Include="src\Game\Enemy\EnemyBase.cpp" />
@@ -162,6 +163,8 @@
     <ClCompile Include="src\Scene\MainScene.cpp" />
     <ClCompile Include="src\Scene\TitleScene.cpp" />
     <ClCompile Include="src\System\ColliderManager.cpp" />
+    <ClCompile Include="src\System\Gravity.cpp" />
+    <ClCompile Include="src\System\GroundCheckRay.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CaramelEngine\CaraMelEngine.vcxproj">
@@ -175,6 +178,7 @@
     <ClInclude Include="src\Components\MovementComponent.h" />
     <ClInclude Include="src\Definition\EventDefinition.h" />
     <ClInclude Include="src\Definition\FunctionDefinition.h" />
+    <ClInclude Include="src\Game\Actor\CCharacter.h" />
     <ClInclude Include="src\Game\Camera.h" />
     <ClInclude Include="src\Game\DXLibCameraBase.h" />
     <ClInclude Include="src\Game\Enemy\EnemyAI.h" />
@@ -193,6 +197,8 @@
     <ClInclude Include="src\Scene\MainScene.h" />
     <ClInclude Include="src\Scene\TitleScene.h" />
     <ClInclude Include="src\System\ColliderManager.h" />
+    <ClInclude Include="src\System\Gravity.h" />
+    <ClInclude Include="src\System\GroundCheckRay.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="AssetResource.rc" />

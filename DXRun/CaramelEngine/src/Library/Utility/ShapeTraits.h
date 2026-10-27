@@ -157,7 +157,7 @@ namespace CaramelEngine
             return {};
         }
 
-        static RayHitJudgeData asRay(const CRay& r)
+        static RayParameter asRay(const CRay& r)
         {
             return r.getHitJudgeData();
         }

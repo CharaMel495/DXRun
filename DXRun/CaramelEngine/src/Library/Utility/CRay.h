@@ -4,7 +4,7 @@
 
 namespace CaramelEngine
 {
-    struct RayHitJudgeData
+    struct RayParameter
     {
         // ここにフィナンに判定に必要な情報を聞いて、その情報だけを持つ中身を書く
         CVector3 Origin;
@@ -12,7 +12,7 @@ namespace CaramelEngine
         float Length;
     };
 
-    class CRay : public Component, public ICollider
+    class CRay : public ICollider
     {
     public:
 
@@ -20,7 +20,6 @@ namespace CaramelEngine
 
         // コンストラクタ
         CRay(std::weak_ptr<Actor> owner) noexcept :
-            Component(owner, "CRay"),
             _origin(),
             _direction(),
             _length(),
@@ -29,9 +28,11 @@ namespace CaramelEngine
         }
 
         //初期化メソッド (Componentからの継承)
-        void initialize() noexcept override
+        void initialize(RayParameter rayparameter) noexcept
         {
-
+			_origin = rayparameter.Origin;
+			_direction = rayparameter.Direction;
+			_length = rayparameter.Length;
         }
 
         void accept(IColliderVisitor& visitor) override
@@ -39,7 +40,7 @@ namespace CaramelEngine
             visitor.visit(*this); // 自分を訪問させる
         }
 
-        const RayHitJudgeData& getHitJudgeData() const noexcept
+        const RayParameter& getHitJudgeData() const noexcept
         {
             _cache.Origin = _origin;
             _cache.Direction = _direction.normalized(); // 念のため
@@ -54,6 +55,6 @@ namespace CaramelEngine
         CVector3 _origin;
         CVector3 _direction;
         float _length;
-        mutable RayHitJudgeData _cache;
+        mutable RayParameter _cache;
     };
 }

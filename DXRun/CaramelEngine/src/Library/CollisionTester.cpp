@@ -192,7 +192,7 @@ bool CollisionTester::testOBBVsSphere(const CubeHitJudgeData& cube, const Sphere
     return distSq <= (sphere.Radius * sphere.Radius);
 }
 
-bool CollisionTester::testRayVsOBB(const RayHitJudgeData& ray, const CubeHitJudgeData& cube) noexcept
+bool CollisionTester::testRayVsOBB(const RayParameter& ray, const CubeHitJudgeData& cube) noexcept
 {
     // Ray を Cube ローカル空間へ
     CVector3 p = ray.Origin - cube.Center;
@@ -272,7 +272,7 @@ bool CollisionTester::testSphereVsSphere(const SphereHitJudgeData& a, const Sphe
     return distSq <= rSq;
 }
 
-bool CollisionTester::testRayVsSphere(const RayHitJudgeData& ray, const SphereHitJudgeData& sphere) noexcept
+bool CollisionTester::testRayVsSphere(const RayParameter& ray, const SphereHitJudgeData& sphere) noexcept
 {
     // Rayの始点から球の中心に向かうベクトル
     CVector3 m = sphere.Center - ray.Origin;

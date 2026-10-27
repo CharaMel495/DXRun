@@ -125,9 +125,9 @@ namespace CaramelEngine
 		// 3DîªíË
 		bool testOBBVsOBB(const CubeHitJudgeData& a, const CubeHitJudgeData& b) noexcept;
 		bool testOBBVsSphere(const CubeHitJudgeData& cube, const SphereHitJudgeData& sphere) noexcept;
-		bool testRayVsOBB(const RayHitJudgeData& ray, const CubeHitJudgeData& cube) noexcept;
+		bool testRayVsOBB(const RayParameter& ray, const CubeHitJudgeData& cube) noexcept;
 		bool testSphereVsSphere(const SphereHitJudgeData& a, const SphereHitJudgeData& b) noexcept;
-		bool testRayVsSphere(const RayHitJudgeData& ray, const SphereHitJudgeData& sphere) noexcept;
+		bool testRayVsSphere(const RayParameter& ray, const SphereHitJudgeData& sphere) noexcept;
 		
 		// äeéüå≥Ç≈îªíËÇçsÇ§ñ{ëÃ
 
